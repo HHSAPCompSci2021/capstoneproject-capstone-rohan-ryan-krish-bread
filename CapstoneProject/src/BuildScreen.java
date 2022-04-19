@@ -12,7 +12,7 @@ public class BuildScreen extends Screen{
 	//priavte SideBar sideBar;
 	// arraylists; hold fuels in one, materials in other, etc
 	
-	public BuildScreen(int width, int height, DrawingSurface surface) { // instanitate arraylists here, subclasses of BuildScreen will fill them up 
+	public BuildScreen(int width, int height, DrawingSurface surface) { // Instantiate arraylists here, subclasses of BuildScreen will fill them up 
 		super(width, height);
 		surf = surface;
 	}
