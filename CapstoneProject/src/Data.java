@@ -6,6 +6,7 @@ public class Data extends Rocket{
 	public Data() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	// calculations
 }

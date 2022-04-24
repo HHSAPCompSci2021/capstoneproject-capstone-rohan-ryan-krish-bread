@@ -9,8 +9,10 @@ public class Rocket {
 	// Rocket HAS-A engine
 	
 	public Rocket() {
+		
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 	// draw the rocket
 	// other methods
