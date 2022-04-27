@@ -1,3 +1,4 @@
+package Rocket;
 
 // represents the data display for both build and launch screens
 // class will have a data object, and data will extend DataDisplay

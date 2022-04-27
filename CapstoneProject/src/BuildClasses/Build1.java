@@ -1,8 +1,12 @@
+package BuildClasses;
 import java.awt.Point;
 import java.awt.Rectangle;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import Main.DrawingSurface;
+import ScreenClasses.ScreenSwitcher;
 
 public class Build1 extends BuildScreen {
 

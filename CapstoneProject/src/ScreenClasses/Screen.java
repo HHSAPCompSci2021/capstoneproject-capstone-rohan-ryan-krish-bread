@@ -1,3 +1,4 @@
+package ScreenClasses;
 import javax.swing.JFrame;
 
 public abstract class Screen {

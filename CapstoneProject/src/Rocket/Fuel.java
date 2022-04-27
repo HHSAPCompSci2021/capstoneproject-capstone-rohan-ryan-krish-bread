@@ -1,3 +1,4 @@
+package Rocket;
 // Represents fuels. Rocket class will make fuel objects
 public class Fuel {
 

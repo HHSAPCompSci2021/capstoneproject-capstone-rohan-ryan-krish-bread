@@ -1,7 +1,12 @@
+package Main;
 
 import java.awt.Point;
 import java.util.ArrayList;
 
+import BuildClasses.Build1;
+import BuildClasses.Build2;
+import ScreenClasses.Screen;
+import ScreenClasses.ScreenSwitcher;
 import processing.core.PApplet;
 //import screens.FirstScreen;
 //import screens.Screen;

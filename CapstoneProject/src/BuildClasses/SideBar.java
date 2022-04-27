@@ -1,3 +1,4 @@
+package BuildClasses;
 // represents sidebar for build screens
 
 public class SideBar {
