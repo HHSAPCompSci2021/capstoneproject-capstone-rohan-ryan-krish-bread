@@ -1,3 +1,4 @@
+import java.util.LinkedHashMap;
 
 // Represents the rocket itself. Each build and launch screen will have a rocket object and draw it
 public class Rocket {
@@ -7,6 +8,8 @@ public class Rocket {
 	// Rocket HAS-A material 
 	// Rocket HAS-A fuel 
 	// Rocket HAS-A engine
+	
+	public LinkedHashMap<Material, Engine> lhm = new LinkedHashMap<Material, Engine>();
 	
 	public Rocket() {
 		
