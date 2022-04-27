@@ -1,4 +1,4 @@
-package Rocket;
+package rocket;
 // Represents engines. Rocket class will make engine objects 
 public class Engine {
 

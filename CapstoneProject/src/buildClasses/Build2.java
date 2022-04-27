@@ -1,19 +1,19 @@
-package BuildClasses;
+package buildClasses;
 import java.awt.Point;
 import java.awt.Rectangle;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import Main.DrawingSurface;
-import ScreenClasses.ScreenSwitcher;
+import main.DrawingSurface;
+import screenClasses.ScreenSwitcher;
 
-public class Build1 extends BuildScreen {
+public class Build2 extends BuildScreen {
 
 	private DrawingSurface surface;
 	private Rectangle button;
 	
-	public Build1(DrawingSurface surface) {
+	public Build2(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
 		
@@ -22,7 +22,7 @@ public class Build1 extends BuildScreen {
 	
 	public void draw() {
 		
-		surface.background(255,255,255);
+		surface.background(0,255,0);
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		String str = "Click me!";
 		float w = surface.textWidth(str);
@@ -34,7 +34,7 @@ public class Build1 extends BuildScreen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) 
-			surface.switchScreen(ScreenSwitcher.BUILD_2);
+			surface.switchScreen(ScreenSwitcher.BUILD_1);
 	}
 
 }

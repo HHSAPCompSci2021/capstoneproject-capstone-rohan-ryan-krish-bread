@@ -1,4 +1,4 @@
-package Rocket;
+package rocket;
 
 // Represents the rocket itself. Each build and launch screen will have a rocket object and draw it
 public class Rocket {

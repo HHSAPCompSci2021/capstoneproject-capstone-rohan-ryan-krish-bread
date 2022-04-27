@@ -1,6 +1,6 @@
-package BuildClasses;
-import Main.DrawingSurface;
-import ScreenClasses.Screen;
+package buildClasses;
+import main.DrawingSurface;
+import screenClasses.Screen;
 
 // Provides layout for build screens
 // All build screens have the rocket
