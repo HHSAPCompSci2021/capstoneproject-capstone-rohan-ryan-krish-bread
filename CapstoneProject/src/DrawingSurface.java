@@ -53,8 +53,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
 	public void keyPressed() {
 		keys.add(keyCode);
-		if (key == ESC)  // This prevents a processing program from closing on escape key
+		if (key == ESC) {
 			key = 0;
+		} // This prevents a processing program from closing on escape key
+		
 	}
 
 	public void keyReleased() {
