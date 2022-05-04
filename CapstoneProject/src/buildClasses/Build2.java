@@ -23,9 +23,14 @@ public class Build2 extends BuildScreen {
 	public void draw() {
 		
 		surface.background(0,255,0);
+		
+		surface.fill(0);
+		surface.text("Build 2", 10, 20);
+		surface.fill(255);
+		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
-		String str = "Launch 2";
+		String str = "To Launch 2";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 		surface.fill(255);

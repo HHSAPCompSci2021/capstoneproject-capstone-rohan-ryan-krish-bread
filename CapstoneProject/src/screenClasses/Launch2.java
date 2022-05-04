@@ -20,6 +20,11 @@ public class Launch2 extends LaunchScreen{
 	public void draw() {
 		
 		surface.background(200,100,0);
+		
+		surface.fill(0);
+		surface.text("Launch 2", 10, 20);
+		surface.fill(255);
+		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
 		String str = "Back To Level Select";
