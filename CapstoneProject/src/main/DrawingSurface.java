@@ -7,11 +7,9 @@ import buildClasses.Build1;
 import buildClasses.Build2;
 import processing.core.PApplet;
 import screenClasses.Screen;
-//import screens.FirstScreen;
-//import screens.Screen;
-//import screens.ScreenSwitcher;
-//import screens.SecondScreen;
 import screenClasses.ScreenSwitcher;
+import screenClasses.Launch1;
+import screenClasses.Launch2;
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 
@@ -40,6 +38,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		Launch1 launchScreen1 = new Launch1(this);
 		screens.add(launchScreen1);
+		
+		Launch1 launchScreen2 = new Launch1(this);
+		screens.add(launchScreen2);
 		
 		activeScreen = screens.get(0);
 	}

@@ -32,7 +32,7 @@ public class LevelSelect extends Screen{
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) 
-			surface.switchScreen(ScreenSwitcher.BUILD_2);
+			surface.switchScreen(ScreenSwitcher.BUILD_1);
 	}
 
 }

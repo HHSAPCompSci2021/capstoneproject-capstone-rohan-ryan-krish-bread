@@ -19,7 +19,7 @@ public class Launch1 extends LaunchScreen{
 	
 	public void draw() {
 		
-		surface.background(255,255,255);
+		surface.background(100,100,255);
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		String str = "Click me!";
 		float w = surface.textWidth(str);

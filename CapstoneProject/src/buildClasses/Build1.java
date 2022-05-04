@@ -34,7 +34,7 @@ public class Build1 extends BuildScreen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) 
-			surface.switchScreen(ScreenSwitcher.BUILD_2);
+			surface.switchScreen(ScreenSwitcher.LAUNCH_1);
 	}
 
 }
