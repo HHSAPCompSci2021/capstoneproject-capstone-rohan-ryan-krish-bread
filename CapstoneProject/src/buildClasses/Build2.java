@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import main.DrawingSurface;
+import screenClasses.ScreenSwitcher;
 
 public class Build2 extends BuildScreen {
 

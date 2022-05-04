@@ -1,6 +1,9 @@
 package rocket;
 import java.util.ArrayList;
 import java.util.List;
+
+import screenClasses.Sidebar;
+
 import java.util.LinkedHashMap;
 
 // Represents the rocket itself. Each build and launch screen will have a rocket object and draw it
