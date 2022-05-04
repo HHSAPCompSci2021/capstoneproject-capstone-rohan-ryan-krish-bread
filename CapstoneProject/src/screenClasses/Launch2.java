@@ -19,7 +19,7 @@ public class Launch2 extends LaunchScreen{
 	
 	public void draw() {
 		
-		surface.background(50,150,200);
+		surface.background(200,100,0);
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		String str = "Click me!";
 		float w = surface.textWidth(str);
@@ -31,7 +31,7 @@ public class Launch2 extends LaunchScreen{
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) 
-			surface.switchScreen(ScreenSwitcher.BUILD_2);
+			surface.switchScreen(ScreenSwitcher.LEVEL_SELECT);
 	}
 
 }
