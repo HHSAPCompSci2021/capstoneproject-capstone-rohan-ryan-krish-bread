@@ -24,10 +24,11 @@ public class Build2 extends BuildScreen {
 		
 		surface.background(0,255,0);
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
-		String str = "Click me!";
+		surface.fill(0);
+		String str = "Launch 2";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
-	
+		surface.fill(255);
 		
 	}
 	

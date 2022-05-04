@@ -25,17 +25,19 @@ public class LevelSelect extends Screen{
 		surface.background(255, 0,255);
 		
 		surface.rect(button1.x, button1.y, button1.width, button1.height, 10, 10, 10, 10);
-		String str1 = "Click me!";
+		surface.fill(0);
+		String str1 = "Build 1";
 		float w1 = surface.textWidth(str1);
-		surface.stroke(0);
 		surface.text(str1, button1.x+button1.width/2-w1/2, button1.y+button1.height/2);
+		surface.fill(255);
 		
 		surface.rect(button2.x, button2.y, button2.width, button2.height, 10, 10, 10, 10);
-		String str2 = "Click me!";
+		surface.fill(0);
+		String str2 = "Build 2";
 		float w2 = surface.textWidth(str2);
 		surface.stroke(0);
 		surface.text(str2, button2.x+button2.width/2-w2/2, button2.y+button2.height/2);
-	
+		surface.fill(255);
 		
 	}
 	
