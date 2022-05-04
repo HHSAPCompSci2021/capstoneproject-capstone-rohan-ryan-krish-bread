@@ -1,3 +1,4 @@
+package screenClasses;
 import processing.core.PApplet;
 
 public class SidebarDisplay implements Sidebar {

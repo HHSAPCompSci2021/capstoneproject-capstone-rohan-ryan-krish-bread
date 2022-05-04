@@ -1,3 +1,4 @@
+package screenClasses;
 // represents sidebar for build screens
 
 import java.util.ArrayList;

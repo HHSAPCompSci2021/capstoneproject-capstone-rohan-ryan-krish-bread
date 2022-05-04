@@ -1,7 +1,9 @@
+package rocket;
 import java.util.ArrayList;
 import java.util.List;
 
 import processing.core.PApplet;
+import screenClasses.Sidebar;
 
 // represents materials. Rocket class will make material objects 
 public class Material implements Sidebar {

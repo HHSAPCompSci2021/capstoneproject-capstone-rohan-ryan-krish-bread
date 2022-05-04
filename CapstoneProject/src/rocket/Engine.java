@@ -1,6 +1,8 @@
+package rocket;
 import java.util.List;
 
 import processing.core.PApplet;
+import screenClasses.Sidebar;
 
 // Represents engines. Rocket class will make engine objects 
 public class Engine implements Sidebar {

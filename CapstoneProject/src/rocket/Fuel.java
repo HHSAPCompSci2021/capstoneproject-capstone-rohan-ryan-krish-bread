@@ -1,8 +1,10 @@
+package rocket;
 // Represents fuels. Rocket class will make fuel objects
 import java.util.ArrayList;
 import java.util.List;
 
 import processing.core.PApplet;
+import screenClasses.Sidebar;
 public class Fuel implements Sidebar {
 	private List<Fuel> fuel;
 	public Fuel() {
