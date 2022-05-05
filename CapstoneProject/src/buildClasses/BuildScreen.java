@@ -11,14 +11,14 @@ import screenClasses.Screen;
 
 public class BuildScreen extends Screen{
 	
-	private DrawingSurface surf;
+	private DrawingSurface surface;
 	//private Rocket rocket;
 	//priavte SideBar sideBar;
 	// arraylists; hold fuels in one, materials in other, etc
 	
 	public BuildScreen(int width, int height, DrawingSurface surface) { // Instantiate arraylists here, subclasses of BuildScreen will fill them up 
 		super(width, height);
-		surf = surface;
+		this.surface = surface;
 	}
 	
 	public void spawnRocket() {

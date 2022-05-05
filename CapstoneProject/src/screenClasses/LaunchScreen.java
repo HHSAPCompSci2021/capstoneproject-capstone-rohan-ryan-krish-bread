@@ -4,9 +4,28 @@ import main.DrawingSurface;
 
 public class LaunchScreen extends Screen{
 
+	private DrawingSurface surface;
+	
 	public LaunchScreen(int width, int height, DrawingSurface surface) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		this.surface = surface;
+	}
+	
+	public void spawnRocket() {
+		//rocket = new Rocket();
+	}
+	
+	public void spawnSideBar() {
+		//sideBar = new SideBar();
+	}
+	
+	public void setup() {
+		spawnRocket();
+		spawnSideBar();
+	}
+	
+	public void draw() {
+		
 	}
 
 }
