@@ -8,11 +8,20 @@ import javax.swing.JFrame;
 import main.DrawingSurface;
 import screenClasses.ScreenSwitcher;
 
+/**
+ * 
+ * This class represents the first rocket build screen 
+ *
+ */
 public class Build1 extends BuildScreen {
 
 	private DrawingSurface surface;
 	private Rectangle button;
 	
+	/**
+	 * This constructor instantiates the drawing surface and button to move onto the launch
+	 * @param surface the DrawingSurface that the build will be drawn on
+	 */
 	public Build1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -20,6 +29,9 @@ public class Build1 extends BuildScreen {
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 	}
 	
+	/**
+	 * Draws the rocket and displays the screen for making the rocket
+	 */
 	public void draw() {
 		
 		surface.background(255,255,255);
@@ -38,6 +50,9 @@ public class Build1 extends BuildScreen {
 		
 	}
 	
+	/**
+	 * detects where the mouse was pressed, and activates the button if it was pressed
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) 
