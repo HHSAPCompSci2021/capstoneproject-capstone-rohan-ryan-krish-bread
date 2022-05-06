@@ -8,6 +8,7 @@ import buildClasses.Build2;
 import processing.core.PApplet;
 import screenClasses.Screen;
 import screenClasses.ScreenSwitcher;
+import screenClasses.Sidebar;
 import screenClasses.Launch1;
 import screenClasses.Launch2;
 
@@ -21,7 +22,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public float ratioX, ratioY;
 	
 	private ArrayList<Integer> keys;
-	
+	private Sidebar sidebar;
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
 
@@ -64,7 +65,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		scale(ratioX, ratioY);
 		
 		activeScreen.draw();
-		
+//		Sidebar sidebar = new Sidebar();
+//		sidebar.draw(this);
 		pop();
 	}
 	

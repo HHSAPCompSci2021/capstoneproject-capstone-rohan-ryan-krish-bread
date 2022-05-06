@@ -4,20 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 import screenClasses.Sidebar;
-public class Fuel implements Sidebar {
-	private List<Fuel> fuel;
-	public Fuel() {
+public class Fuel {
+	private static List<Fuel> fuel;
+	private PImage image;
+	private double x, y, width, height;
+	public Fuel(PImage image, double x, double y) {
 		fuel = new ArrayList<>();
+		this.image = image;
+		this.x = x;
+		this.y = y;
 		// TODO Auto-generated constructor stub
 	}
-	public List<Fuel> getFuel() {
+	public static List<Fuel> getFuel() {
 		return fuel;
 	}
-	@Override
-	public void draw(PApplet p) {
-		// use images
-		
+	public PImage getImage() {
+		return image;
+	}
+	public void draw(PApplet g) {
+		if (image != null)
+			g.image(image,(float)x,(float)y,(float)width,(float)height);
+		else {
+			g.fill(100);
+			g.rect((float)x,(float)y,(float)width,(float)height);
+		}
 	}
 	
 

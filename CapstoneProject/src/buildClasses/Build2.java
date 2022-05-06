@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import main.DrawingSurface;
 import screenClasses.ScreenSwitcher;
+import screenClasses.Sidebar;
 
 /**
  * 
@@ -17,7 +18,7 @@ public class Build2 extends BuildScreen {
 
 	private DrawingSurface surface;
 	private Rectangle button;
-	
+//	private Sidebar sidebar;
 	/**
 	 * This constructor instantiates the drawing surface and button to move onto the launch
 	 * @param surface the DrawingSurface that the build will be drawn on
@@ -46,6 +47,8 @@ public class Build2 extends BuildScreen {
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 		surface.fill(255);
+		Sidebar sidebar = new Sidebar();
+		sidebar.draw(surface);
 		
 	}
 	
