@@ -52,6 +52,14 @@ public class BuildScreen extends Screen{
 		spawnSideBar();
 	}
 	
+	public void drag() {
+		
+	}
+	
+	public void drop() {
+		
+	}
+	
 	/**
 	 * Is a method that is to be overridden in its subclasses
 	 */
