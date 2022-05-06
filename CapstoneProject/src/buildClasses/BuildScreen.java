@@ -57,6 +57,8 @@ public class BuildScreen extends Screen{
 	 */
 	public void draw() {
 		
+		// rocket.draw()
+		// sideBar.draw()
 	}
 	
 	

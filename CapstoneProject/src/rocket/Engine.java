@@ -7,9 +7,11 @@ import screenClasses.Sidebar;
 
 // Represents engines. Rocket class will make engine objects 
 public class Engine implements Sidebar {
+	
 	private List<Engine> engine;
 	private PImage image;
 	private double x, y, width, height;
+	
 	public Engine(PImage image) {
 		this.image = image;
 		// TODO Auto-generated constructor stub
@@ -17,6 +19,7 @@ public class Engine implements Sidebar {
 	public List<Engine> getEngine() {
 		return engine;
 	}
+	
 	public PImage getImage() {
 		return image;
 	}
