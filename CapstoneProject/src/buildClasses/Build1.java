@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import main.DrawingSurface;
 import screenClasses.ScreenSwitcher;
+import screenClasses.Sidebar;
 
 /**
  * 
