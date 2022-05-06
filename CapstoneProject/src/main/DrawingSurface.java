@@ -11,6 +11,11 @@ import screenClasses.ScreenSwitcher;
 import screenClasses.Launch1;
 import screenClasses.Launch2;
 
+/**
+ * 
+ * This class holds and keeps track of screens that can be changed and drawn on
+ *
+ */
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 
 	public float ratioX, ratioY;
