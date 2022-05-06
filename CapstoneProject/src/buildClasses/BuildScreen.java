@@ -2,13 +2,16 @@ package buildClasses;
 import main.DrawingSurface;
 import screenClasses.Screen;
 
-// Provides layout for build screens
 // All build screens have the rocket
 // all build screens have sidebar
 // all build screens have data display
 // all build screens have button to click once done
 // build screens have lists of materials, engines, etc. Subclasses add to these lists depending on level
-
+/**
+ * 
+ * Provides layout for build screens
+ *
+ */
 public class BuildScreen extends Screen{
 	
 	private DrawingSurface surface;
