@@ -27,6 +27,8 @@ public class Build1 extends BuildScreen {
 		this.surface = surface;
 		
 		button = new Rectangle(800/2-100,600/2-50,200,100);
+		
+		// add engines, fuels, and materials to the arraylists stored in BuildScreen
 	}
 	
 	/**
@@ -42,6 +44,8 @@ public class Build1 extends BuildScreen {
 		surface.fill(255);
 		
 		rocket.draw(surface);
+		sideBar.draw(surface);
+		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
 		String str = "To Launch 1";

@@ -1,5 +1,10 @@
 package buildClasses;
+import java.util.List;
+
 import main.DrawingSurface;
+import rocket.Engine;
+import rocket.Fuel;
+import rocket.Material;
 import rocket.Rocket;
 import screenClasses.Screen;
 import screenClasses.Sidebar;
@@ -18,7 +23,11 @@ public class BuildScreen extends Screen{
 	
 	private DrawingSurface surface;
 	protected Rocket rocket;
-	private Sidebar sideBar;
+	protected Sidebar sideBar;
+	
+	private List<Engine> engines;
+	private List<Fuel> fuels;
+	private List<Material> materials;
 	
 	// arraylists; hold fuels in one, materials in other, etc
 	
@@ -44,7 +53,9 @@ public class BuildScreen extends Screen{
 	 * Makes the SideBar that will display the parts for the Rocket during the building process
 	 */
 	public void spawnSideBar() {
-	//	sideBar = new Sidebar();
+		
+		
+		sideBar = new Sidebar(0, 0, 100, 600, engines, fuels, materials);
 	}
 	
 	/**
