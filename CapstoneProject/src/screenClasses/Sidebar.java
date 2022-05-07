@@ -57,5 +57,7 @@ public class Sidebar {
 	
 	public void handleDropListEvents(GDropList list, GEvent event) {
 		System.out.println("Item selected:" + list.getSelectedText());
+		
+		// when item clicked on, get the object from the list, and do the drag n drop
 	}
 }

@@ -29,6 +29,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
 	public DrawingSurface() {
 		
+		
 		screens = new ArrayList<Screen>();
 		
 		keys = new ArrayList<Integer>();

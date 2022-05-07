@@ -46,7 +46,7 @@ public class BuildScreen extends Screen{
 	 * Makes a new Rocket that will be changed and added to in the building process
 	 */
 	public void spawnRocket() {
-		rocket = new Rocket(surface.loadImage("img/rocket.png"), 100,100);
+		rocket = new Rocket(surface.loadImage("img/rocket.png"), 300,100);
 	}
 	
 	/**
