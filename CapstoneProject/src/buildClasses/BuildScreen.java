@@ -1,6 +1,8 @@
 package buildClasses;
 import main.DrawingSurface;
+import rocket.Rocket;
 import screenClasses.Screen;
+import screenClasses.Sidebar;
 
 // All build screens have the rocket
 // all build screens have sidebar
@@ -15,8 +17,9 @@ import screenClasses.Screen;
 public class BuildScreen extends Screen{
 	
 	private DrawingSurface surface;
-	//private Rocket rocket;
-	//priavte SideBar sideBar;
+	protected Rocket rocket;
+	private Sidebar sideBar;
+	
 	// arraylists; hold fuels in one, materials in other, etc
 	
 	/**
@@ -31,17 +34,17 @@ public class BuildScreen extends Screen{
 	}
 	
 	/**
-	 * Makes a new Rocket that will be changes and added to in the building process
+	 * Makes a new Rocket that will be changed and added to in the building process
 	 */
 	public void spawnRocket() {
-		//rocket = new Rocket();
+		rocket = new Rocket(surface.loadImage("img/rocket.png"), 100,100);
 	}
 	
 	/**
-	 * Makes the SideBar that will display the data for the Rocket during the building process
+	 * Makes the SideBar that will display the parts for the Rocket during the building process
 	 */
 	public void spawnSideBar() {
-		//sideBar = new SideBar();
+	//	sideBar = new Sidebar();
 	}
 	
 	/**

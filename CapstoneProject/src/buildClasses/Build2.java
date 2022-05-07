@@ -47,8 +47,8 @@ public class Build2 extends BuildScreen {
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 		surface.fill(255);
-		Sidebar sidebar = new Sidebar();
-		sidebar.draw(surface);
+	//	Sidebar sidebar = new Sidebar();
+	//  sidebar.draw(surface);
 		
 	}
 	

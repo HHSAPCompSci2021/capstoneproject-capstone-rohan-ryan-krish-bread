@@ -10,15 +10,18 @@ import rocket.Fuel;
 import rocket.Material;
 
 public class Sidebar {
+	
 	private Engine engines;
 	private Fuel fuels;
 	private Material materials;
+	
 	public Sidebar(List<Engine> e, List<Fuel> f, List<Material> m) {
 		e = Engine.getEngine();
 		f = Fuel.getFuel();
-		m = Material.getMaterials();
+		m = Material.getMaterials(); 
 		
 	}
+	
 	public void draw(PApplet p) {
 		p.rect(0, 50, 200, 600);
 	}

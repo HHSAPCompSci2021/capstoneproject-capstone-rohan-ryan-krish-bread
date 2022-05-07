@@ -36,10 +36,12 @@ public class Build1 extends BuildScreen {
 		
 		surface.background(255,255,255);
 		
+	
 		surface.fill(0);
 		surface.text("Build 1", 10, 20);
 		surface.fill(255);
 		
+		rocket.draw(surface);
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
 		String str = "To Launch 1";
