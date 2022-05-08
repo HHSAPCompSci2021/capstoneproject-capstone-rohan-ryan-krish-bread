@@ -52,9 +52,15 @@ public class Sidebar {
 		list = new GDropList(p, 25, 100, 100, 100, 0);
 		
 		List<String> engines = new ArrayList<String>();
-		engines.add("Pressure Fed");
-		engines.add("Open Cycle");
-		engines.add("Closed Cycle");
+		
+		for (int i = 0; i < this.engines.size(); i++) {
+			
+			engines.add(this.engines.get(i).getName());
+		}
+		
+//		engines.add("Pressure Fed");
+//		engines.add("Open Cycle");
+//		engines.add("Closed Cycle");
 		list.setItems(engines, 0);
 		//list.addEventHandler(this, "handleEngineList");
 		

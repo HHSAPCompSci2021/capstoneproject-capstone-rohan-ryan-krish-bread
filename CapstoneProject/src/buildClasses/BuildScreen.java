@@ -1,7 +1,9 @@
 package buildClasses;
+import java.util.ArrayList;
 import java.util.List;
 
 import main.DrawingSurface;
+import processing.core.PImage;
 import rocket.Engine;
 import rocket.Fuel;
 import rocket.Material;
@@ -24,10 +26,11 @@ public class BuildScreen extends Screen{
 	private DrawingSurface surface;
 	protected Rocket rocket;
 	protected Sidebar sideBar;
+	protected PImage img;
 	
-	private List<Engine> engines;
-	private List<Fuel> fuels;
-	private List<Material> materials;
+	protected List<Engine> engines;
+	protected List<Fuel> fuels;
+	protected List<Material> materials;
 	
 	// arraylists; hold fuels in one, materials in other, etc
 	
@@ -40,12 +43,15 @@ public class BuildScreen extends Screen{
 	public BuildScreen(int width, int height, DrawingSurface surface) {
 		super(width, height);
 		this.surface = surface;
+		
+		engines = new ArrayList<Engine>();
 	}
 	
 	/**
 	 * Makes a new Rocket that will be changed and added to in the building process
 	 */
 	public void spawnRocket() {
+	//	img = surface.loadImage("img/rocket.png");
 		rocket = new Rocket(surface.loadImage("img/rocket.png"), 300,100);
 	}
 	

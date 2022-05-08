@@ -6,6 +6,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import main.DrawingSurface;
+import processing.core.PImage;
+import rocket.Engine;
 import screenClasses.ScreenSwitcher;
 
 /**
@@ -29,6 +31,17 @@ public class Build1 extends BuildScreen {
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 		
 		// add engines, fuels, and materials to the arraylists stored in BuildScreen
+		
+		
+		
+	}
+	
+	private void setLists() { // sets up the lists
+
+		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
+		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed");
+		System.out.println(pressureFed.getName());
+		engines.add(pressureFed);
 	}
 	
 	/**
@@ -38,7 +51,8 @@ public class Build1 extends BuildScreen {
 		
 		surface.background(255,255,255);
 		
-	
+		setLists();
+		
 		surface.fill(0);
 		surface.text("Build 1", 10, 20);
 		surface.fill(255);
