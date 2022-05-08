@@ -58,9 +58,7 @@ public class Sidebar {
 			engines.add(this.engines.get(i).getName());
 		}
 		
-//		engines.add("Pressure Fed");
-//		engines.add("Open Cycle");
-//		engines.add("Closed Cycle");
+
 		list.setItems(engines, 0);
 		//list.addEventHandler(this, "handleEngineList");
 		
