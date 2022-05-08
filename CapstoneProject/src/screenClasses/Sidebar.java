@@ -66,5 +66,6 @@ public class Sidebar {
 	
 	public void handleDropListEvents(GDropList list, GEvent event) {
 		System.out.println("Item selected:" + list.getSelectedText());
+		
 	}
 }
