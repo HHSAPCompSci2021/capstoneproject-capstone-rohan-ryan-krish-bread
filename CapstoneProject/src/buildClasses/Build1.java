@@ -40,7 +40,6 @@ public class Build1 extends BuildScreen {
 
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
 		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed");
-		System.out.println(pressureFed.getName());
 		engines.add(pressureFed);
 	}
 	
