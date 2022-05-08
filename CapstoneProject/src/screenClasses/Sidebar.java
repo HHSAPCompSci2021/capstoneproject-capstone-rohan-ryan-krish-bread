@@ -1,5 +1,6 @@
 package screenClasses;
 // represents sidebar for build screens
+// constructor takes in dimensions for sidebar. 
 
 import java.util.ArrayList;
 import java.util.List;

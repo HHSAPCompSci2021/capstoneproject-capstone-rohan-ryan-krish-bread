@@ -7,14 +7,15 @@ import processing.core.PImage;
 import screenClasses.Sidebar;
 
 // represents materials. Rocket class will make material objects 
+
 public class Material {
 	
-	private static List<Material> materials;
+//	private static List<Material> materials;
 	private PImage image;
 	private double x, y, width, height;
 	
 	public Material(PImage image, double x, double y) {
-		materials = new ArrayList<>();
+	//	materials = new ArrayList<>();
 		this.image = image;
 		this.x = x;
 		this.y = y;
@@ -22,9 +23,9 @@ public class Material {
 		
 	}
 	
-	public static List<Material> getMaterials() {
-		return materials;
-	}
+//	public static List<Material> getMaterials() {
+//		return materials;
+//	}
 	
 	public PImage getImage() {
 		return image;
