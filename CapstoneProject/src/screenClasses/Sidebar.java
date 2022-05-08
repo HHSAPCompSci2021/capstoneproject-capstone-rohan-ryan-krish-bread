@@ -8,6 +8,9 @@ package screenClasses;
 import java.util.ArrayList;
 import java.util.List;
 
+import buildClasses.Build1;
+import buildClasses.Build2;
+import buildClasses.BuildScreen;
 import processing.core.PApplet;
 import rocket.Engine;
 import rocket.Fuel;
@@ -28,18 +31,28 @@ public class Sidebar {
 	private double x,y;
 	private double width, height;
 	
-	public Sidebar(double x, double y, double width, double height, List<Engine> e, List<Fuel> f, List<Material> m) {
+	public Sidebar(BuildScreen buildScreen, double x, double y, double width, double height) {
 //		e = Engine.getEngine();
 //		f = Fuel.getFuel();
 //		m = Material.getMaterials(); 
-		
-		engines = e;
-		fuels = f;
-		materials = m;
+		this.engines = engines;
+		this.fuels = fuels;
+		this.materials = materials;
+//		engines = e;
+//		fuels = f;
+//		materials = m;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		if(buildScreen.equals(Build1.getDifferingObjects())) {
+			// Add stuff to ArrayLists accordingly
+		}
+		else if(buildScreen.equals(Build2.getBuildObjects())) {
+			// Add stuff to ArrayLists accoridngly
+		}
+		// No need for ArrayLists in constructors, when you are just going to add the number of engines according to the 
+		// level. 
 		
 		 
 		
@@ -51,15 +64,15 @@ public class Sidebar {
 		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
 		list = new GDropList(p, 25, 100, 100, 100, 0);
 		
-		List<String> engines = new ArrayList<String>();
-		
-		for (int i = 0; i < this.engines.size(); i++) {
-			
-			engines.add(this.engines.get(i).getName());
-		}
-		
-
-		list.setItems(engines, 0);
+//		List<String> engines = new ArrayList<String>();
+//		
+//		for (int i = 0; i < this.engines.size(); i++) {
+//			
+//			engines.add(this.engines.get(i).getName());
+//		}
+//		
+//
+//		list.setItems(engines, 0);
 		//list.addEventHandler(this, "handleEngineList");
 		
 		
@@ -68,7 +81,7 @@ public class Sidebar {
 	public void draw(PApplet p) {
 		p.rect(0, 50, 200, 600);
 		
-		setup(p);
+//		setup(p);
 	}
 	
 	public void handleDropListEvents(GDropList list, GEvent event) {

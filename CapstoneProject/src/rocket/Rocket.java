@@ -69,7 +69,12 @@ public class Rocket {
 	public boolean getState() {
 		return blownUp;
 	}
-	
+	public PImage getImage() {
+		return img;
+	}
+	public void mouseDragged() {
+		
+	}
 	public void draw(PApplet drawer) {
 		
 		if (img != null)
