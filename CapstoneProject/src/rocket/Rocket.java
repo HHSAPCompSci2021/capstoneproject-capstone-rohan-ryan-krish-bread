@@ -57,7 +57,12 @@ public class Rocket {
 	public Material getMaterial() {
 		return material;
 	}
-	
+	public double getX() {
+		return x;
+	}
+	public double getY() {
+		return y;
+	}
 	public Engine getEngine() {
 		return engine;
 	}

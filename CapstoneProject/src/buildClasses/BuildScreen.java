@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.DrawingSurface;
+import processing.core.PApplet;
 import processing.core.PImage;
 import rocket.Engine;
 import rocket.Fuel;
@@ -21,7 +22,7 @@ import screenClasses.Sidebar;
  * Provides layout for build screens
  *
  */
-public class BuildScreen extends Screen{
+public class BuildScreen extends Screen {
 	
 	private DrawingSurface surface;
 	protected Rocket rocket;
@@ -31,7 +32,11 @@ public class BuildScreen extends Screen{
 	protected List<Engine> engines;
 	protected List<Fuel> fuels;
 	protected List<Material> materials;
-	
+	boolean overRocket;
+	boolean isDraggingRocket;
+	int rocketWidth, rocketHeight;
+	double rocketX, rocketY;
+	double xOffset, yOffset;
 	// arraylists; hold fuels in one, materials in other, etc
 	
 	/**
@@ -40,10 +45,16 @@ public class BuildScreen extends Screen{
 	 * @param height Height of the BuildScreen
 	 * @param surface DrawingSurface that the BuildScreens's will be drawn on
 	 */
-	public BuildScreen(int width, int height, DrawingSurface surface) {
-		super(width, height);
-		this.surface = surface;
+	public BuildScreen(int w, int h, DrawingSurface surface) {
+		super(w, h);
 		
+		this.surface = surface;
+		overRocket = false;
+//		rocketHeight = rocket.getImage().height;
+//		rocketWidth = rocket.getImage().width;
+//		rocketX = rocket.getX();
+//		rocketY = rocket.getY();
+		isDraggingRocket = false;
 		engines = new ArrayList<Engine>();
 	}
 	
@@ -53,6 +64,10 @@ public class BuildScreen extends Screen{
 	public void spawnRocket() {
 	//	img = surface.loadImage("img/rocket.png");
 		rocket = new Rocket(surface.loadImage("img/rocket1.png"), 300,100);
+		this.rocketHeight = rocket.getImage().height;
+		this.rocketWidth = rocket.getImage().width;
+		this.rocketX = rocket.getX();
+		this.rocketY = rocket.getY();
 	}
 	public PImage getRocketImage() {
 		return rocket.getImage();
@@ -69,6 +84,7 @@ public class BuildScreen extends Screen{
 	/**
 	 * sets up the Rocket and SideBar for the build
 	 */
+	
 	public void setup() {
 		spawnRocket();
 		spawnSideBar();
@@ -77,13 +93,41 @@ public class BuildScreen extends Screen{
 	/**
 	 * Is a method that is to be overridden in its subclasses
 	 */
+	
 	public void draw() {
-		
+		if (surface.mouseX > rocketX-rocketWidth && surface.mouseX < rocketX+rocketWidth&& 
+			      surface.mouseY > rocketY-rocketHeight&& surface.mouseY < rocketY+rocketHeight) {
+			    overRocket = !isDraggingRocket;  
 	}
-	public void mouseDragged() {
-		
+		surface.image(rocket.getImage(), (float)rocketX, (float)rocketY);
 	}
+//	public void mouseDragged() {
+//		
+//	}
 	
+	public void mousePressed() {
+		System.out.println("H");
+		  if(overRocket) { 
+		    isDraggingRocket = true; 
+		    
+//		    fill(255, 255, 255);
+		  } else {
+			  isDraggingRocket = false;
+		  }
+		  xOffset = surface.mouseX-rocketX; 
+		  yOffset = surface.mouseY-rocketY; 
+
+		}
 	
+		public void mouseDragged() {
+		  if(isDraggingRocket) {
+		    rocketX = surface.mouseX-xOffset; 
+		    rocketY = surface.mouseY-yOffset; 
+		  }
+		}
+
+		public void mouseReleased() {
+			isDraggingRocket = false;
+		}
 	
 }
