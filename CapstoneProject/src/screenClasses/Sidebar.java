@@ -41,11 +41,10 @@ public class Sidebar {
 		
 	}
 	
-	public void draw(PApplet p) {
-		p.rect(0, 50, 200, 600);
+	public void setup (PApplet p) {
 		
 		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
-		
+		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
 		list = new GDropList(p, 25, 100, 100, 100, 0);
 		
 		List<String> engines = new ArrayList<String>();
@@ -53,11 +52,18 @@ public class Sidebar {
 		engines.add("Open Cycle");
 		engines.add("Closed Cycle");
 		list.setItems(engines, 0);
+		//list.addEventHandler(this, "handleEngineList");
+		
+		
+	}
+	
+	public void draw(PApplet p) {
+		p.rect(0, 50, 200, 600);
+		
+		setup(p);
 	}
 	
 	public void handleDropListEvents(GDropList list, GEvent event) {
 		System.out.println("Item selected:" + list.getSelectedText());
-		
-		// when item clicked on, get the object from the list, and do the drag n drop
 	}
 }
