@@ -1,7 +1,10 @@
 package screenClasses;
 // represents sidebar for build screens
-// constructor takes in dimensions for sidebar. 
-
+// constructor takes in dimensions for sidebar, and arraylists of parts
+// when the user selects a part from the sidebar, the item will be dragged and dropped
+//// when drag and dropping, remove selected item from arraylist, and set the Rocket's corresponding field equal to item. 
+////// ArrayLists will be modified by BuildScreen, as it is in charge of drag n drop, and subclasses of BuildScreen will add parts to the lists to exapnd options as levels progress
+////// each part's object (material, engine, etc.) will have a string representing its name. draw / setup method will loop through lists and store the names in a string array. This string array is to be used in the displaying of the dropdown menu.
 import java.util.ArrayList;
 import java.util.List;
 
