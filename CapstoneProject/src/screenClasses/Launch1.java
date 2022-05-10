@@ -50,6 +50,7 @@ public class Launch1 extends LaunchScreen{
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 		surface.fill(255);
 		rocket.draw(surface);
+		surface.image(rocket.getImage(), (float)this.x, (float)this.y+6);
 	}
 	
 	public void mousePressed() {
