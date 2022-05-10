@@ -1,4 +1,4 @@
-package ScreenClasses;
+package screenClasses;
 
 import java.awt.Point;
 import java.awt.Rectangle;
