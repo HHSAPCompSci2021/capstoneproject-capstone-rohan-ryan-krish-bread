@@ -61,6 +61,7 @@ public class Sidebar {
 
 		list.setItems(engines, 0);
 		//list.addEventHandler(this, "handleEngineList");
+		System.out.println("Item selected:" + list.getSelectedText());
 		
 		
 	}
