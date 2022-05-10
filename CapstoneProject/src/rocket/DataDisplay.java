@@ -11,6 +11,7 @@ public class DataDisplay {
 	
 	 private Data data;
 	 private double x,y;
+	 private double weight, cost, speed;
 	
 	public DataDisplay(BuildScreen build) { // make data object, take in x and y cords initialize field to field of Data (dot notation)
 		
