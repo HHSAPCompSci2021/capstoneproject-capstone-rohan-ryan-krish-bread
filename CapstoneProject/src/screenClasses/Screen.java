@@ -1,8 +1,6 @@
 package screenClasses;
 import javax.swing.JFrame;
 
-import processing.core.PApplet;
-
 public abstract class Screen {
 
 	public final int DRAWING_WIDTH, DRAWING_HEIGHT;
@@ -11,7 +9,7 @@ public abstract class Screen {
 		this.DRAWING_WIDTH = width;
 		this.DRAWING_HEIGHT = height;
 	}
-
+	
 	public void setup() {
 		
 	}
