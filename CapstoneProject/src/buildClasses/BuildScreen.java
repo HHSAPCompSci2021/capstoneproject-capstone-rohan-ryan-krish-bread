@@ -52,18 +52,16 @@ public class BuildScreen extends Screen{
 	 */
 	public void spawnRocket() {
 	//	img = surface.loadImage("img/rocket.png");
-		rocket = new Rocket(surface.loadImage("img/rocket1.png"), 300,100);
+		rocket = new Rocket(surface.loadImage("img/rocket.png"), 300,100);
 	}
-	public PImage getRocketImage() {
-		return rocket.getImage();
-	}
+	
 	/**
 	 * Makes the SideBar that will display the parts for the Rocket during the building process
 	 */
 	public void spawnSideBar() {
-		Build1 b = new Build1(surface);
-		// Different side bar for level one, level 2, level 3, level 4, and level 5.
-		sideBar = new Sidebar(b, 0, 0, 100, 600);
+		
+		
+		sideBar = new Sidebar(0, 0, 100, 600, engines, fuels, materials);
 	}
 	
 	/**
@@ -80,10 +78,6 @@ public class BuildScreen extends Screen{
 	public void draw() {
 		
 	}
-	public void mouseDragged() {
-		
-	}
-	
 	
 	
 }

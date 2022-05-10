@@ -17,7 +17,7 @@ import screenClasses.ScreenSwitcher;
  */
 public class Build1 extends BuildScreen {
 
-	private static DrawingSurface surface;
+	private DrawingSurface surface;
 	private Rectangle button;
 	
 	/**
@@ -76,9 +76,6 @@ public class Build1 extends BuildScreen {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) 
 			surface.switchScreen(ScreenSwitcher.LAUNCH_1);
-	}
-	public static BuildScreen getDifferingObjects() {
-		return new Build1(surface);
 	}
 
 }

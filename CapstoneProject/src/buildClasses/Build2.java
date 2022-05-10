@@ -16,7 +16,7 @@ import screenClasses.Sidebar;
  */
 public class Build2 extends BuildScreen {
 
-	private static DrawingSurface surface;
+	private DrawingSurface surface;
 	private Rectangle button;
 //	private Sidebar sidebar;
 	/**
@@ -59,10 +59,6 @@ public class Build2 extends BuildScreen {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) 
 			surface.switchScreen(ScreenSwitcher.LAUNCH_2);
-	}
-	// Only called once hence static
-	public static BuildScreen getBuildObjects() {
-		return new Build2(surface);
 	}
 
 }
