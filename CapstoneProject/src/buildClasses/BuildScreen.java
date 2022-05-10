@@ -1,4 +1,4 @@
-package buildClasses;
+package BuildClasses;
 import java.util.ArrayList;
 import java.util.List;
 
