@@ -1,9 +1,11 @@
-package screenClasses;
+package ScreenClasses;
 
 import java.awt.Point;
 import java.awt.Rectangle;
 
 import main.DrawingSurface;
+
+
 
 public class Launch1 extends LaunchScreen{
 

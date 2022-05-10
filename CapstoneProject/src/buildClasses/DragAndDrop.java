@@ -1,4 +1,4 @@
-package buildClasses;
+package BuildClasses;
 
 import processing.core.PImage;
 import screenClasses.Screen;
