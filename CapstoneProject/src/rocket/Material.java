@@ -13,7 +13,7 @@ public class Material {
 //	private static List<Material> materials;
 	private PImage image;
 	private double x, y, width, height;
-	
+//	public ArrayList<Material> materials = new ArrayList<>();
 	public Material(PImage image, double x, double y) {
 	//	materials = new ArrayList<>();
 		this.image = image;

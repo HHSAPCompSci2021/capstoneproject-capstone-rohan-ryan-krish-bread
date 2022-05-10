@@ -52,12 +52,25 @@ public class Rocket {
 	public void setState(boolean s) {
 		blownUp = s;
 	}
-	
+	public void setImageX(double xVal) {
+		this.x = xVal;
+	}
+	public void setImageY(double yVal) {
+		this.y = yVal;
+	}
 	// getters
 	public Material getMaterial() {
 		return material;
 	}
-	
+	public double getX() {
+		return x;
+	}
+	public double getY() {
+		return y;
+	}
+	public PImage getImage() {
+		return img;
+	}
 	public Engine getEngine() {
 		return engine;
 	}

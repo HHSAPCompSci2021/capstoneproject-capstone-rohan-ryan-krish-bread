@@ -24,10 +24,9 @@ import screenClasses.Sidebar;
 public class BuildScreen extends Screen{
 	
 	private DrawingSurface surface;
-	protected Rocket rocket;
+	public Rocket rocket;
 	protected Sidebar sideBar;
 	protected PImage img;
-	
 	protected List<Engine> engines;
 	protected List<Fuel> fuels;
 	protected List<Material> materials;
@@ -45,6 +44,7 @@ public class BuildScreen extends Screen{
 		this.surface = surface;
 		
 		engines = new ArrayList<Engine>();
+		materials = new ArrayList<>();
 	}
 	
 	/**
@@ -54,7 +54,11 @@ public class BuildScreen extends Screen{
 	//	img = surface.loadImage("img/rocket.png");
 		rocket = new Rocket(surface.loadImage("img/rocket.png"), 300,100);
 	}
-	
+	public void spawnMaterials() {
+		
+		materials.add(new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170));
+		
+	}
 	/**
 	 * Makes the SideBar that will display the parts for the Rocket during the building process
 	 */
