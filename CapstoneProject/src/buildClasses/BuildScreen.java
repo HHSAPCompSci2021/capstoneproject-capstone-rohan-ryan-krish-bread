@@ -64,14 +64,20 @@ public class BuildScreen extends Screen{
 	 */
 	public void spawnSideBar() {
 		
-		
 		sideBar = new Sidebar(0, 0, 100, 600, engines, fuels, materials);
+		
 	}
 	
 	/**
 	 * sets up the Rocket and SideBar for the build
+	 * fills up lists with default values (level 1 values)
 	 */
 	public void setup() {
+		
+		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
+		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed");
+		engines.add(pressureFed);
+		
 		spawnRocket();
 		spawnSideBar();
 	}

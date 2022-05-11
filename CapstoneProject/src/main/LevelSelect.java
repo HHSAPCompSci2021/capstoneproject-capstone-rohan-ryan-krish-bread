@@ -3,6 +3,7 @@ package main;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import buildClasses.Build1;
 import screenClasses.Screen;
 import screenClasses.ScreenSwitcher;
 
@@ -47,8 +48,10 @@ public class LevelSelect extends Screen{
 	
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
-		if (button1.contains(p)) 
+		if (button1.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.BUILD_1);
+		}
+			
 		if (button2.contains(p)) 
 			surface.switchScreen(ScreenSwitcher.BUILD_2);
 	}
