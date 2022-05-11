@@ -89,5 +89,8 @@ public class BuildScreen extends Screen{
 		
 	}
 	
+	public void mouseDragged() {
+
+	}
 	
 }
