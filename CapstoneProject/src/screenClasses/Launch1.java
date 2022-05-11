@@ -50,7 +50,8 @@ public class Launch1 extends LaunchScreen{
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 		surface.fill(255);
 		rocket.draw(surface);
-		surface.image(rocket.getImage(), (float)this.x, (float)this.y+6);
+//		surface.image(rocket.getImage(), (float)this.x, (float)this.y+6);
+	
 	}
 	
 	public void mousePressed() {
@@ -60,14 +61,19 @@ public class Launch1 extends LaunchScreen{
 
 		
 	}
+//	public void set() {
+//		rocket.setImageY(rocket.getY()-20);
+////		set();
+//	}
 	public void keyPressed() {
-		if(surface.key == 's') {
-			moveBy(0, 40);
+			rocket.setImageY(rocket.getY()-20);
 		}
+		
+	
 //		if (keyCode == DOWN) {
 //			movingRectangle.moveBy(0, 4);
 //		}
-}
+
 	public void moveBy(double amountX, double amountY) {
 		double x1 = rocket.getX();
 		double y1 = rocket.getY();
