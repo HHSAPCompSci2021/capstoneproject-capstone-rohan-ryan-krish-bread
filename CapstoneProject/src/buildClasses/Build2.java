@@ -6,6 +6,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import main.DrawingSurface;
+import processing.core.PImage;
+import rocket.Engine;
+import rocket.Fuel;
 import screenClasses.ScreenSwitcher;
 import screenClasses.Sidebar;
 
@@ -30,6 +33,17 @@ public class Build2 extends BuildScreen {
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 	}
 	
+	public void setup() {
+		super.setup();
+		sideBar.setup(surface);
+		
+		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
+		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle");
+		//Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1");
+		
+		engines.add(closedCycle);
+	}
+	
 	/**
 	 * Draws the rocket and displays the screen for making the rocket
 	 */
@@ -40,6 +54,21 @@ public class Build2 extends BuildScreen {
 		surface.fill(0);
 		surface.text("Build 2", 10, 20);
 		surface.fill(255);
+		
+		rocket.draw(surface);
+		sideBar.draw(surface);
+		
+		if (sideBar.getEngineVis() == false) {
+			sideBar.setVisible();
+		}
+		
+		if (sideBar.getMaterialVis() == false) {
+			sideBar.setVisible();
+		}
+		
+		if (sideBar.getFuelVis() == false) {
+			sideBar.setVisible();
+		}
 		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
@@ -57,8 +86,11 @@ public class Build2 extends BuildScreen {
 	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
-		if (button.contains(p)) 
+		if (button.contains(p)) {
+			sideBar.hide();
 			surface.switchScreen(ScreenSwitcher.LAUNCH_2);
+		}
+			
 	}
 
 }
