@@ -58,6 +58,10 @@ public class Build1 extends BuildScreen {
 	
 		rocket.draw(surface);
 		sideBar.draw(surface);
+		
+		if (sideBar.getVisibility() == false) {
+			sideBar.setVisible();
+		}
 //		materials.get(0).draw(surface);
 		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);

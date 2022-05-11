@@ -52,7 +52,7 @@ public class Sidebar {
 		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
 		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
 		list = new GDropList(p, 25, 100, 100, 100, 0);
-		//list.setVisible(false);
+		list.setVisible(false);
 		List<String> engines = new ArrayList<String>();
 		
 		for (int i = 0; i < this.engines.size(); i++) {
@@ -66,6 +66,10 @@ public class Sidebar {
 	//	System.out.println("Item selected:" + list.getSelectedText());
 		
 		
+	}
+	
+	public boolean getVisibility() {
+		return list.isVisible();
 	}
 	
 	public void setVisible() {
