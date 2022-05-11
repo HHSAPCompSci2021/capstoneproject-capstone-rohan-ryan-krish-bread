@@ -13,12 +13,11 @@ public class DataDisplay {
 	 private double x,y;
 	 private double weight, cost, speed;
 	
-	public DataDisplay(BuildScreen build, double x, double y) { // make data object, take in x and y cords initialize field to field of Data (dot notation)
-		this.x = x;
-		this.y = y;
+	public DataDisplay(BuildScreen build) { // make data object, take in x and y cords initialize field to field of Data (dot notation)
+		
 	}
 	
-	public DataDisplay(LaunchScreen launch, double x, double y) { // two constructors, one for build, other for launch
+	public DataDisplay(LaunchScreen launch) { // two constructors, one for build, other for launch
 		
 	}
 
