@@ -83,7 +83,7 @@ public class Sidebar {
 		for (int i = 0; i < this.fuels.size(); i++) {
 			fuels.add(this.fuels.get(i).getName());
 		}
-		fList.setItems(fuels, 0);
+		eList.setItems(fuels, 0);
 		//list.addEventHandler(this, "handleEngineList");
 	//	System.out.println("Item selected:" + list.getSelectedText());
 		
