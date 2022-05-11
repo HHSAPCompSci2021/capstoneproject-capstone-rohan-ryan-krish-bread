@@ -121,8 +121,7 @@ public class Sidebar {
 		//setup(p);
 	}
 	
-//	public void handleDropListEvents(GDropList list, GEvent event) {
-//		System.out.println("Item selected:" + list.getSelectedText());
-//		
-//	}
+	public void handleDropListEvents(GDropList list, GEvent event) {
+
+	}
 }
