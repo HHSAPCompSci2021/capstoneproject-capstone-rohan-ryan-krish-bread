@@ -13,19 +13,13 @@ public class Material {
 //	private static List<Material> materials;
 	private PImage image;
 	private double x, y, width, height;
-	private String name;
 //	public ArrayList<Material> materials = new ArrayList<>();
-	public Material(PImage image, double x, double y, double width, double height, String name) {
+	public Material(PImage image, double x, double y) {
 	//	materials = new ArrayList<>();
 		this.image = image;
 		this.x = x;
 		this.y = y;
-		this.width = width;
-		this.height = height;
-		this.name = name;
 		//
-		
-		
 		
 	}
 	
@@ -35,10 +29,6 @@ public class Material {
 	
 	public PImage getImage() {
 		return image;
-	}
-	
-	public String getName() {
-		return name;
 	}
 	
 	public void draw(PApplet g) {

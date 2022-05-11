@@ -44,7 +44,7 @@ public class BuildScreen extends Screen{
 		this.surface = surface;
 		
 		engines = new ArrayList<Engine>();
-		materials = new ArrayList<Material>();
+		materials = new ArrayList<>();
 	}
 	
 	/**
@@ -54,11 +54,11 @@ public class BuildScreen extends Screen{
 	//	img = surface.loadImage("img/rocket.png");
 		rocket = new Rocket(surface.loadImage("img/rocket.png"), 300,100);
 	}
-//	public void spawnMaterials() {
-//		
-//		
-//		
-//	}
+	public void spawnMaterials() {
+		
+		materials.add(new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170));
+		
+	}
 	/**
 	 * Makes the SideBar that will display the parts for the Rocket during the building process
 	 */
@@ -75,8 +75,7 @@ public class BuildScreen extends Screen{
 	public void setup() {
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine pressureFed = new Engine(img, 20,20,20,20, "Pressure fed");
-		materials.add(new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20,20,"Steel"));
+		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed");
 		engines.add(pressureFed);
 		
 		spawnRocket();

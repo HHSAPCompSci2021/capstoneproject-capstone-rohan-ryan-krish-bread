@@ -22,9 +22,7 @@ public class Sidebar {
 //	private Fuel fuels;
 //	private Material materials;
 	
-	GDropList eList;
-	GDropList fList;
-	GDropList mList;
+	GDropList list;
 	
 	private List<Engine> engines;
 	private List<Fuel> fuels;
@@ -53,65 +51,33 @@ public class Sidebar {
 		
 		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
 		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
-		eList = new GDropList(p, 25, 100, 100, 100, 0);
-		eList.setVisible(false);
-		
-		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
-		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
-		mList = new GDropList(p, 25, 200, 100, 100, 0);
-		mList.setVisible(false);
-		
-		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
-		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
-		fList = new GDropList(p, 25, 300, 100, 100, 0);
-		fList.setVisible(false);
-		
+		list = new GDropList(p, 25, 100, 100, 100, 0);
+		list.setVisible(false);
 		List<String> engines = new ArrayList<String>();
-		List<String> materials = new ArrayList<String>();
-		List<String> fuels = new ArrayList<String>();
 		
 		for (int i = 0; i < this.engines.size(); i++) {
+			
 			engines.add(this.engines.get(i).getName());
 		}
-		eList.setItems(engines, 0);
 		
-		for (int i = 0; i < this.materials.size(); i++) {
-			materials.add(this.materials.get(i).getName());
-		}
-		mList.setItems(materials, 0);
-		
-		for (int i = 0; i < this.fuels.size(); i++) {
-			fuels.add(this.fuels.get(i).getName());
-		}
-		eList.setItems(fuels, 0);
+
+		list.setItems(engines, 0);
 		//list.addEventHandler(this, "handleEngineList");
 	//	System.out.println("Item selected:" + list.getSelectedText());
 		
 		
 	}
 	
-	public boolean getEngineVis() {
-		return eList.isVisible();
-	}
-	
-	public boolean getMaterialVis() {
-		return mList.isVisible();
-	}
-	
-	public boolean getFuelVis() {
-		return fList.isVisible();
+	public boolean getVisibility() {
+		return list.isVisible();
 	}
 	
 	public void setVisible() {
-		eList.setVisible(true);
-		mList.setVisible(true);
-		fList.setVisible(true);
+		list.setVisible(true);
 	}
 	
 	public void hide() {
-		eList.setVisible(false);
-		mList.setVisible(false);
-		fList.setVisible(false);
+		list.setVisible(false);
 		
 	}
 	

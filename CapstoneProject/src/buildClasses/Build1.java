@@ -59,15 +59,7 @@ public class Build1 extends BuildScreen {
 		rocket.draw(surface);
 		sideBar.draw(surface);
 		
-		if (sideBar.getEngineVis() == false) {
-			sideBar.setVisible();
-		}
-		
-		if (sideBar.getMaterialVis() == false) {
-			sideBar.setVisible();
-		}
-		
-		if (sideBar.getFuelVis() == false) {
+		if (sideBar.getVisibility() == false) {
 			sideBar.setVisible();
 		}
 //		materials.get(0).draw(surface);
