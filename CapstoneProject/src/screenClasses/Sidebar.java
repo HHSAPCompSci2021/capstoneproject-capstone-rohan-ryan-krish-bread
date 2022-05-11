@@ -30,6 +30,8 @@ public class Sidebar {
 	private double x,y;
 	private double width, height;
 	
+	private String fuel;
+	
 	public Sidebar(double x, double y, double width, double height, List<Engine> e, List<Fuel> f, List<Material> m) {
 //		e = Engine.getEngine();
 //		f = Fuel.getFuel();
@@ -43,7 +45,7 @@ public class Sidebar {
 		this.width = width;
 		this.height = height;
 		
-		 
+		 fuel = "";
 		
 	}
 	
@@ -84,6 +86,10 @@ public class Sidebar {
 	public void draw(PApplet p) {
 		p.rect(0, 50, 200, 600);
 		
+		fuel = list.getSelectedText();
+		p.fill(0);
+		p.text(fuel, 25, 150);
+		p.fill(255);
 		//setup(p);
 	}
 	
