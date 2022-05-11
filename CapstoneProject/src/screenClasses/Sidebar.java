@@ -123,7 +123,7 @@ public class Sidebar {
 		
 		p.rect(0, 50, 200, 600);
 		
-		fuel = list.getSelectedText();
+		fuel = elist.getSelectedText();
 		p.fill(0);
 		p.text(fuel, 25, 150);
 		p.fill(255);
