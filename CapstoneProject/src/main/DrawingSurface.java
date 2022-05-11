@@ -53,6 +53,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	}
 	
 	public void setup() {
+		
 		for (Screen s : screens)
 			s.setup();
 	}
@@ -90,6 +91,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
 	public void mousePressed() {
 		activeScreen.mousePressed();
+		//changeVisibility();
 	}
 	
 	public void mouseMoved() {
@@ -110,6 +112,14 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
+	}
+	
+	public Screen getActiveScreen() {
+		return activeScreen;
+	}
+	
+	public ArrayList<Screen> getScreens(){
+		return screens;
 	}
 
 	@Override

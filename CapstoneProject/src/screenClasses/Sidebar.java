@@ -8,11 +8,13 @@ package screenClasses;
 import java.util.ArrayList;
 import java.util.List;
 
+import buildClasses.BuildScreen;
 import processing.core.PApplet;
 import rocket.Engine;
 import rocket.Fuel;
 import rocket.Material;
 import g4p_controls.*;
+import main.DrawingSurface;
 
 public class Sidebar {
 	
@@ -50,7 +52,7 @@ public class Sidebar {
 		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
 		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
 		list = new GDropList(p, 25, 100, 100, 100, 0);
-		
+		//list.setVisible(false);
 		List<String> engines = new ArrayList<String>();
 		
 		for (int i = 0; i < this.engines.size(); i++) {
@@ -61,19 +63,28 @@ public class Sidebar {
 
 		list.setItems(engines, 0);
 		//list.addEventHandler(this, "handleEngineList");
-		System.out.println("Item selected:" + list.getSelectedText());
+	//	System.out.println("Item selected:" + list.getSelectedText());
 		
+		
+	}
+	
+	public void setVisible() {
+		list.setVisible(true);
+	}
+	
+	public void hide() {
+		list.setVisible(false);
 		
 	}
 	
 	public void draw(PApplet p) {
 		p.rect(0, 50, 200, 600);
 		
-		setup(p);
+		//setup(p);
 	}
 	
-	public void handleDropListEvents(GDropList list, GEvent event) {
-		System.out.println("Item selected:" + list.getSelectedText());
-		
-	}
+//	public void handleDropListEvents(GDropList list, GEvent event) {
+//		System.out.println("Item selected:" + list.getSelectedText());
+//		
+//	}
 }
