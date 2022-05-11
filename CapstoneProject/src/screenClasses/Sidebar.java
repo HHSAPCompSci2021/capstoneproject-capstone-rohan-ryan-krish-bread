@@ -22,13 +22,17 @@ public class Sidebar {
 //	private Fuel fuels;
 //	private Material materials;
 	
-	GDropList list;
+	GDropList elist;
+	GDropList flist;
+	GDropList mlist;
 	
 	private List<Engine> engines;
 	private List<Fuel> fuels;
 	private List<Material> materials;
 	private double x,y;
 	private double width, height;
+	
+	private String fuel;
 	
 	public Sidebar(double x, double y, double width, double height, List<Engine> e, List<Fuel> f, List<Material> m) {
 //		e = Engine.getEngine();
@@ -43,7 +47,7 @@ public class Sidebar {
 		this.width = width;
 		this.height = height;
 		
-		 
+		 fuel = "";
 		
 	}
 	
@@ -51,39 +55,78 @@ public class Sidebar {
 		
 		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
 		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
-		list = new GDropList(p, 25, 100, 100, 100, 0);
-		list.setVisible(false);
+		elist = new GDropList(p, 25, 100, 100, 100, 0);
+		elist.setVisible(false);
+		
+		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
+		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
+		mlist = new GDropList(p, 25, 200, 100, 100, 0);
+		mlist.setVisible(false);
+		
+		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
+		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
+		flist = new GDropList(p, 25, 300, 100, 100, 0);
+		flist.setVisible(false);
+		
 		List<String> engines = new ArrayList<String>();
+		List<String> materials = new ArrayList<String>();
+		List<String> fuels = new ArrayList<String>();
 		
 		for (int i = 0; i < this.engines.size(); i++) {
-			
 			engines.add(this.engines.get(i).getName());
 		}
+		elist.setItems(engines, 0);
 		
-
-		list.setItems(engines, 0);
+		for (int i = 0; i < this.materials.size(); i++) {
+			materials.add(this.materials.get(i).getName());
+		}
+		mlist.setItems(materials, 0);
+		
+		for (int i = 0; i < this.fuels.size(); i++) {
+			fuels.add(this.fuels.get(i).getName());
+		}
+		flist.setItems(fuels, 0);
+		
 		//list.addEventHandler(this, "handleEngineList");
 	//	System.out.println("Item selected:" + list.getSelectedText());
 		
 		
 	}
 	
-	public boolean getVisibility() {
-		return list.isVisible();
+	public boolean getEngineVis() {
+		return elist.isVisible();
+	}
+	
+	public boolean getMaterialVis() {
+		return mlist.isVisible();
+	}
+	
+	public boolean getFuelVis() {
+		return flist.isVisible();
 	}
 	
 	public void setVisible() {
-		list.setVisible(true);
+		elist.setVisible(true);
+		mlist.setVisible(true);
+		flist.setVisible(true);
 	}
 	
 	public void hide() {
-		list.setVisible(false);
+		elist.setVisible(false);
+		mlist.setVisible(false);
+		flist.setVisible(false);
 		
 	}
 	
 	public void draw(PApplet p) {
+		//setVisible();
+		
 		p.rect(0, 50, 200, 600);
 		
+		fuel = elist.getSelectedText();
+		p.fill(0);
+		p.text(fuel, 25, 150);
+		p.fill(255);
 		//setup(p);
 	}
 	
