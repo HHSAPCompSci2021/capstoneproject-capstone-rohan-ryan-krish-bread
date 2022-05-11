@@ -13,6 +13,7 @@ public class Launch1 extends LaunchScreen{
 	private Rectangle button;
 	private Rocket rocket;
 	private double x, y;
+	private boolean start;
 	public Launch1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -20,6 +21,7 @@ public class Launch1 extends LaunchScreen{
 		
 		this.y = 200;
 		button = new Rectangle(800/2-100,600/2-50,200,100);
+		start = false;
 	}
 	public void spawnRocket() {
 		//	img = surface.loadImage("img/rocket.png");
@@ -51,6 +53,8 @@ public class Launch1 extends LaunchScreen{
 		surface.fill(255);
 		rocket.draw(surface);
 //		surface.image(rocket.getImage(), (float)this.x, (float)this.y+6);
+		if (start)
+		rocket.setImageY(rocket.getY()-5);
 	
 	}
 	
@@ -66,7 +70,7 @@ public class Launch1 extends LaunchScreen{
 ////		set();
 //	}
 	public void keyPressed() {
-			rocket.setImageY(rocket.getY()-20);
+			start = true;
 		}
 		
 	
