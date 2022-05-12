@@ -95,7 +95,16 @@ public class Build1 extends BuildScreen {
 			sideBar.hide();
 			surface.switchScreen(ScreenSwitcher.LAUNCH_1);
 		}
+		super.mousePressed();
 			
+	}
+	
+	public void mouseReleased() {
+		super.mouseReleased();
+	}
+	
+	public void mouseDragged() {
+		super.mouseDragged();
 	}
 
 }
