@@ -34,6 +34,7 @@ public class BuildScreen extends Screen{
 	protected List<Material> materials;
 	
 	private Rectangle r1;
+	private Rectangle fuelLoc;
 	private Rectangle currentDrag;
 	private int dragOffsetX, dragOffsetY;
 	
@@ -54,6 +55,7 @@ public class BuildScreen extends Screen{
 		fuels = new ArrayList<Fuel>();
 		
 		r1 = new Rectangle(50,150,50,50);
+		fuelLoc = new Rectangle(300, 150, 50, 50);
 		currentDrag = null;
 	}
 	
@@ -98,6 +100,8 @@ public class BuildScreen extends Screen{
 	public void draw() {
 		surface.fill(255,0,0);
 		surface.rect(r1.x,r1.y,r1.width,r1.height);
+		surface.noFill();
+		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
 	}
 	
 	public void dragThisOne(Rectangle r) {
@@ -111,9 +115,13 @@ public class BuildScreen extends Screen{
 	public void mousePressed() {
 		dragThisOne(r1);
 	}
-	
+
 	public void mouseReleased() {
 		currentDrag = null;
+		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
+			r1.x = fuelLoc.x;
+			r1.y = fuelLoc.y;
+		}
 	}
 	
 	public void mouseDragged() {
