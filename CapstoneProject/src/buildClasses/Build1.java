@@ -48,6 +48,8 @@ public class Build1 extends BuildScreen {
 		
 		surface.background(255,255,255);
 		
+		super.draw();
+		
 		surface.fill(0);
 		surface.text("Build 1", 10, 20);
 		surface.fill(255);

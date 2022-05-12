@@ -1,4 +1,5 @@
 package buildClasses;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,10 @@ public class BuildScreen extends Screen{
 	protected List<Fuel> fuels;
 	protected List<Material> materials;
 	
+	private Rectangle r1;
+	private Rectangle currentDrag;
+	private int dragOffsetX, dragOffsetY;
+	
 	// arraylists; hold fuels in one, materials in other, etc
 	
 	/**
@@ -47,6 +52,9 @@ public class BuildScreen extends Screen{
 		engines = new ArrayList<Engine>();
 		materials = new ArrayList<Material>();
 		fuels = new ArrayList<Fuel>();
+		
+		r1 = new Rectangle(50,150,50,50);
+		currentDrag = null;
 	}
 	
 	/**
@@ -88,7 +96,32 @@ public class BuildScreen extends Screen{
 	 * Is a method that is to be overridden in its subclasses
 	 */
 	public void draw() {
-		
+		surface.fill(255,0,0);
+		surface.rect(r1.x,r1.y,r1.width,r1.height);
+	}
+	
+	public void dragThisOne(Rectangle r) {
+		if (r.contains(surface.mouseX,surface.mouseY)) {
+			currentDrag = r;
+			dragOffsetX = surface.mouseX - r.x;
+			dragOffsetY = surface.mouseY - r.y;
+		}
+	}
+	
+	public void mousePressed() {
+		dragThisOne(r1);
+	}
+	
+	public void mouseReleased() {
+		currentDrag = null;
+	}
+	
+	public void mouseDragged() {
+		if (currentDrag != null) {
+			currentDrag.x = surface.mouseX - dragOffsetX;
+			currentDrag.y = surface.mouseY - dragOffsetY;
+			
+		}
 	}
 	
 	
