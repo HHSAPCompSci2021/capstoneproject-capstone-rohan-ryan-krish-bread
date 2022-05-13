@@ -13,7 +13,16 @@ public class Engine  {
 	private double x, y, width, height;
 	private String name;
 	
-	public Engine(PImage image, double x, double y, double width, double height, String name) {
+	// data
+	private double weight;
+	private double reliability;
+	private double thurst;
+	
+	// 
+	// counter for how many times draw is called.
+	// check if reliabilty less than equal to math.random every 60 times
+	
+	public Engine(PImage image, double x, double y, double width, double height, String name, double weight, double reliability, double thrust) {
 		
 		this.image = image;
 		this.x = x;
@@ -21,6 +30,10 @@ public class Engine  {
 		this.width = width;
 		this.height = height;
 		this.name = name;
+		
+		this.weight = weight;
+		this.reliability = reliability;
+		this.thurst = thrust;
 	
 		// TODO Auto-generated constructor stub
 	}
@@ -37,6 +50,17 @@ public class Engine  {
 		return name;
 	}
 	
+	public double getWeight() {
+		return weight;
+	}
+	
+	public double getReliability() {
+		return reliability;
+	}
+	
+	public double getThrust() {
+		return thurst;
+	}
 	public void draw(PApplet g) {
 		
 		if (image != null)

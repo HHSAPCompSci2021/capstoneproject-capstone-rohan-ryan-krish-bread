@@ -33,8 +33,7 @@ public class BuildScreen extends Screen{
 	protected List<Fuel> fuels;
 	protected List<Material> materials;
 	
-	private Rectangle r1;
-	private Rectangle fuelLoc;
+	private Rectangle r1, r2, r3, engineLoc, meterialLoc, fuelLoc;
 	private Rectangle currentDrag;
 	private int dragOffsetX, dragOffsetY;
 	
@@ -54,8 +53,12 @@ public class BuildScreen extends Screen{
 		materials = new ArrayList<Material>();
 		fuels = new ArrayList<Fuel>();
 		
-		r1 = new Rectangle(50,150,50,50);
-		fuelLoc = new Rectangle(300, 150, 50, 50);
+		r1 = new Rectangle(25, 150, 100, 30);
+		r2 = new Rectangle(25, 255, 100, 30);
+		r3 = new Rectangle(25, 360, 100, 30);
+		engineLoc = new Rectangle(300, 150, 100, 30);
+		meterialLoc = new Rectangle(300, 180, 100, 30);
+		fuelLoc = new Rectangle(300, 210, 100, 30);
 		currentDrag = null;
 	}
 	
@@ -83,11 +86,11 @@ public class BuildScreen extends Screen{
 	public void setup() {
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed");
+		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed", 500, 95, 100000);
 		Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1");
 		
 		engines.add(pressureFed);
-		materials.add(new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel"));
+		materials.add(new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000));
 		fuels.add(RP1);
 		
 		spawnRocket();
@@ -98,9 +101,27 @@ public class BuildScreen extends Screen{
 	 * Is a method that is to be overridden in its subclasses
 	 */
 	public void draw() {
-		surface.fill(255,0,0);
-		surface.rect(r1.x,r1.y,r1.width,r1.height);
+		if (!sideBar.getList("e").getSelectedText().equals("Engines")) {
+			surface.fill(225);
+			surface.rect(r1.x,r1.y,r1.width,r1.height);
+			surface.fill(0);
+			surface.text(sideBar.getList("e").getSelectedText(), r1.x+15, r1.y+15);
+		}
+		if (!sideBar.getList("m").getSelectedText().equals("Materials")) {
+			surface.fill(225);
+			surface.rect(r2.x,r2.y,r2.width,r2.height);
+			surface.fill(0);
+			surface.text(sideBar.getList("m").getSelectedText(), r2.x+15, r2.y+15);
+		}
+		if (!sideBar.getList("f").getSelectedText().equals("Fuels")) {
+			surface.fill(225);
+			surface.rect(r3.x,r3.y,r3.width,r3.height);
+			surface.fill(0);
+			surface.text(sideBar.getList("f").getSelectedText(), r3.x+15, r3.y+15);
+		}
 		surface.noFill();
+		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
+		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
 		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
 	}
 	
@@ -114,13 +135,23 @@ public class BuildScreen extends Screen{
 	
 	public void mousePressed() {
 		dragThisOne(r1);
+		dragThisOne(r2);
+		dragThisOne(r3);
 	}
 
 	public void mouseReleased() {
 		currentDrag = null;
+		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
+			r1.x = engineLoc.x;
+			r1.y = engineLoc.y;
+		}
+		if (meterialLoc.contains(surface.mouseX,surface.mouseY)) {
+			r2.x = meterialLoc.x;
+			r2.y = meterialLoc.y;
+		}
 		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
-			r1.x = fuelLoc.x;
-			r1.y = fuelLoc.y;
+			r3.x = fuelLoc.x;
+			r3.y = fuelLoc.y;
 		}
 	}
 	

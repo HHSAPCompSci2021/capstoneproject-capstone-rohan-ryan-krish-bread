@@ -84,16 +84,19 @@ public class Sidebar {
 		List<String> materials = new ArrayList<String>();
 		List<String> fuels = new ArrayList<String>();
 		
+		engines.add("Engines");
 		for (int i = 0; i < this.engines.size(); i++) {
 			engines.add(this.engines.get(i).getName());
 		}
 		elist.setItems(engines, 0);
 		
+		materials.add("Materials");
 		for (int i = 0; i < this.materials.size(); i++) {
 			materials.add(this.materials.get(i).getName());
 		}
 		mlist.setItems(materials, 0);
 		
+		fuels.add("Fuels");
 		for (int i = 0; i < this.fuels.size(); i++) {
 			fuels.add(this.fuels.get(i).getName());
 		}
@@ -141,6 +144,19 @@ public class Sidebar {
 //		p.text(fuel, 25, 150);
 //		p.fill(255);
 		//setup(p);
+	}
+	
+	public GDropList getList(String list) {
+		if (list.equals("e")) {
+			return elist;
+		}
+		if (list.equals("f")) {
+			return flist;
+		}
+		if (list.equals("m")) {
+			return mlist;
+		}
+		return null;
 	}
 	
 //	public void handleDropListEvents(GDropList list, GEvent event) {

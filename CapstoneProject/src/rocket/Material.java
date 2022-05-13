@@ -14,8 +14,9 @@ public class Material {
 	private PImage image;
 	private double x, y, width, height;
 	private String name;
+	private double weight;
 //	public ArrayList<Material> materials = new ArrayList<>();
-	public Material(PImage image, double x, double y, double width, double height, String name) {
+	public Material(PImage image, double x, double y, double width, double height, String name, double weight) {
 	//	materials = new ArrayList<>();
 		this.image = image;
 		this.x = x;
@@ -23,6 +24,7 @@ public class Material {
 		this.width = width;
 		this.height = height;
 		this.name = name;
+		this.weight = weight;
 		//
 		
 	}
