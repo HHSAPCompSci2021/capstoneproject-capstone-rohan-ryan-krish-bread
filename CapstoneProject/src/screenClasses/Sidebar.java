@@ -144,6 +144,19 @@ public class Sidebar {
 		//setup(p);
 	}
 	
+	public GDropList getList(String list) {
+		if (list.equals("e")) {
+			return elist;
+		}
+		if (list.equals("f")) {
+			return flist;
+		}
+		if (list.equals("m")) {
+			return mlist;
+		}
+		return null;
+	}
+	
 //	public void handleDropListEvents(GDropList list, GEvent event) {
 //		System.out.println("Item selected:" + list.getSelectedText());
 //		
