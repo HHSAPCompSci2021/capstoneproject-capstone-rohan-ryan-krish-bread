@@ -54,8 +54,8 @@ public class BuildScreen extends Screen{
 		materials = new ArrayList<Material>();
 		fuels = new ArrayList<Fuel>();
 		
-		r1 = new Rectangle(30,150,100,20);
-		fuelLoc = new Rectangle(300, 150, 100, 20);
+		r1 = new Rectangle(30,150,100,30);
+		fuelLoc = new Rectangle(300, 150, 100, 30);
 		currentDrag = null;
 	}
 	
@@ -101,7 +101,7 @@ public class BuildScreen extends Screen{
 		surface.fill(255);
 		surface.rect(r1.x,r1.y,r1.width,r1.height);
 		surface.fill(0);
-		surface.text("pressureFed", r1.x+10, r1.y+10);
+		surface.text("pressureFed", r1.x+15, r1.y+15);
 		surface.noFill();
 		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
 	}
