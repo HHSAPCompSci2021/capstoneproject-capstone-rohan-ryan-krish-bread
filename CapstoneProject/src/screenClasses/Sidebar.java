@@ -16,6 +16,9 @@ import rocket.Material;
 import g4p_controls.*;
 import main.DrawingSurface;
 
+/**
+*Class represents the Sidebar for the BuildScreens,that displays the parts menu
+*/
 public class Sidebar {
 	
 //	private Engine engines;
@@ -33,7 +36,16 @@ public class Sidebar {
 	private double width, height;
 	
 //	private String fuel;
-	
+	/**
+	* Constructs the sidebar for the buildscreens
+	* @param x x coord for  sidebar
+	* @param y y coord for  sidebar
+	* @param width width for  sidebar
+	* @param height oeight of sidebar
+	* @param e x coord for  sidebar
+	* @param f x coord for  sidebar
+	* @param m x coord for  sidebar
+	*/
 	public Sidebar(double x, double y, double width, double height, List<Engine> e, List<Fuel> f, List<Material> m) {
 //		e = Engine.getEngine();
 //		f = Fuel.getFuel();
