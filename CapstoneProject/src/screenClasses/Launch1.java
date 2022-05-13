@@ -68,11 +68,11 @@ public class Launch1 extends LaunchScreen{
 		rocket.draw(surface);
 
 		meteor.draw(surface);
-		if(rocket.getX() == win.getWidth()){
-			rocket.setImageX(0);
+		if(rocket.getX() > win.getWidth()){
+			rocket.setImageX(win.getWidth()-30);
 		}
 		else if(rocket.getX() < 0) {
-			rocket.setImageX(win.getWidth());
+			rocket.setImageX(0);
 		}
 		else if(rocket.getY() == win.getHeight()) {
 			rocket.setImageY(0);
