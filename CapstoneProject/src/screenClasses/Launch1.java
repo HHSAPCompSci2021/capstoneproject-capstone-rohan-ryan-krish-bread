@@ -19,6 +19,7 @@ public class Launch1 extends LaunchScreen{
 	private double meteorX, meteorY;
 	private boolean start;
 	private int count;
+	
 	public Launch1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
