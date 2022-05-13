@@ -105,6 +105,8 @@ public class BuildScreen extends Screen{
 		}
 		surface.noFill();
 		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
+		surface.fill(0);
+		surface.text("Engine", engineLoc.x+15, engineLoc.y+15);
 	}
 	
 	public void dragThisOne(Rectangle r) {
