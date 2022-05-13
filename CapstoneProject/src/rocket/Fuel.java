@@ -11,6 +11,7 @@ public class Fuel {
 	private PImage image;
 	private double x, y, width, height;
 	private String name;
+	private double weight;
 	
 	public Fuel(PImage image, double x, double y, double width, double height, String name) {
 		this.image = image;

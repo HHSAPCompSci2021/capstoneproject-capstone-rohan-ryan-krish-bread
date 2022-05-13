@@ -82,11 +82,11 @@ public class BuildScreen extends Screen{
 	public void setup() {
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed", 1,1, 1);
+		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed", 500, 95, 100000);
 		Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1");
 		
 		engines.add(pressureFed);
-		materials.add(new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel"));
+		materials.add(new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000));
 		fuels.add(RP1);
 		
 		spawnRocket();
