@@ -53,8 +53,12 @@ public class BuildScreen extends Screen{
 		materials = new ArrayList<Material>();
 		fuels = new ArrayList<Fuel>();
 		
-		r1 = new Rectangle(30,150,100,30);
+		r1 = new Rectangle(25, 150, 100, 30);
+		r2 = new Rectangle(25, 255, 100, 30);
+		r3 = new Rectangle(25, 360, 100, 30);
 		engineLoc = new Rectangle(300, 150, 100, 30);
+		meterialLoc = new Rectangle(300, 180, 100, 30);
+		fuelLoc = new Rectangle(300, 210, 100, 30);
 		currentDrag = null;
 	}
 	
@@ -97,16 +101,24 @@ public class BuildScreen extends Screen{
 	 * Is a method that is to be overridden in its subclasses
 	 */
 	public void draw() {
+		surface.rect(r2.x,r2.y,r2.width,r2.height);
+		surface.rect(r3.x,r3.y,r3.width,r3.height);
 		if (!sideBar.getList("e").getSelectedText().equals("Engines")) {
-			surface.fill(255);
+			surface.fill(225);
+			surface.rect(r1.x,r1.y,r1.width,r1.height);
+			surface.fill(0);
+			surface.text(sideBar.getList("e").getSelectedText(), r1.x+15, r1.y+15);
+		}
+		if (!sideBar.getList("m").getSelectedText().equals("Meterials")) {
+			surface.fill(225);
 			surface.rect(r1.x,r1.y,r1.width,r1.height);
 			surface.fill(0);
 			surface.text(sideBar.getList("e").getSelectedText(), r1.x+15, r1.y+15);
 		}
 		surface.noFill();
 		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
-		surface.fill(0);
-		surface.text("Engine", engineLoc.x+15, engineLoc.y+15);
+		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
+		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
 	}
 	
 	public void dragThisOne(Rectangle r) {
@@ -119,6 +131,8 @@ public class BuildScreen extends Screen{
 	
 	public void mousePressed() {
 		dragThisOne(r1);
+		dragThisOne(r2);
+		dragThisOne(r3);
 	}
 
 	public void mouseReleased() {
@@ -126,6 +140,14 @@ public class BuildScreen extends Screen{
 		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
 			r1.x = engineLoc.x;
 			r1.y = engineLoc.y;
+		}
+		if (meterialLoc.contains(surface.mouseX,surface.mouseY)) {
+			r2.x = meterialLoc.x;
+			r2.y = meterialLoc.y;
+		}
+		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
+			r3.x = fuelLoc.x;
+			r3.y = fuelLoc.y;
 		}
 	}
 	
