@@ -5,6 +5,7 @@ import java.util.List;
 
 import main.DrawingSurface;
 import processing.core.PImage;
+import rocket.Data;
 import rocket.Engine;
 import rocket.Fuel;
 import rocket.Material;
@@ -27,6 +28,7 @@ public class BuildScreen extends Screen{
 	private DrawingSurface surface;
 	public Rocket rocket;
 	protected Sidebar sideBar;
+	protected Data data;
 	protected PImage img;
 	
 	protected List<Engine> engines;
@@ -74,9 +76,11 @@ public class BuildScreen extends Screen{
 	 * Makes the SideBar that will display the parts for the Rocket during the building process
 	 */
 	public void spawnSideBar() {
-		
 		sideBar = new Sidebar(0, 0, 100, 600, engines, fuels, materials);
-		
+	}
+	
+	public void spawnDataDisplay() {
+		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,0,100,600);
 	}
 	
 	/**
@@ -87,14 +91,16 @@ public class BuildScreen extends Screen{
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
 		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed", 500, 95, 100000);
-		Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1");
+		Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1", 1000);
+		Material steel = new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000);
 		
 		engines.add(pressureFed);
-		materials.add(new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000));
+		materials.add(steel);
 		fuels.add(RP1);
 		
 		spawnRocket();
 		spawnSideBar();
+		spawnDataDisplay();
 	}
 	
 	/**
@@ -144,14 +150,21 @@ public class BuildScreen extends Screen{
 		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
 			r1.x = engineLoc.x;
 			r1.y = engineLoc.y;
+			
+			rocket.setEngine(engines.get(0));
+			
 		}
 		if (meterialLoc.contains(surface.mouseX,surface.mouseY)) {
 			r2.x = meterialLoc.x;
 			r2.y = meterialLoc.y;
+			
+			rocket.setMaterial(materials.get(0));
 		}
 		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
 			r3.x = fuelLoc.x;
 			r3.y = fuelLoc.y;
+			
+			rocket.setFuel(fuels.get(0));
 		}
 	}
 	

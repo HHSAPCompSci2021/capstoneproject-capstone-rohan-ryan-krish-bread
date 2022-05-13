@@ -41,6 +41,10 @@ public class Material {
 		return name;
 	}
 	
+	public double getWeight() {
+		return weight;
+	}
+	
 	public void draw(PApplet g) {
 		
 		if (image != null)

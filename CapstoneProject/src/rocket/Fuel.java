@@ -13,17 +13,22 @@ public class Fuel {
 	private String name;
 	private double weight;
 	
-	public Fuel(PImage image, double x, double y, double width, double height, String name) {
+	public Fuel(PImage image, double x, double y, double width, double height, String name, double weight) {
 		this.image = image;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.name = name;
+		this.weight = weight;
 	}
 	
 	public PImage getImage() {
 		return image;
+	}
+	
+	public double getWeight() {
+		return weight;
 	}
 	
 	public String getName() {
