@@ -101,7 +101,6 @@ public class BuildScreen extends Screen{
 	 * Is a method that is to be overridden in its subclasses
 	 */
 	public void draw() {
-		surface.rect(r2.x,r2.y,r2.width,r2.height);
 		surface.rect(r3.x,r3.y,r3.width,r3.height);
 		if (!sideBar.getList("e").getSelectedText().equals("Engines")) {
 			surface.fill(225);
@@ -111,9 +110,9 @@ public class BuildScreen extends Screen{
 		}
 		if (!sideBar.getList("m").getSelectedText().equals("Meterials")) {
 			surface.fill(225);
-			surface.rect(r1.x,r1.y,r1.width,r1.height);
+			surface.rect(r2.x,r2.y,r2.width,r2.height);
 			surface.fill(0);
-			surface.text(sideBar.getList("e").getSelectedText(), r1.x+15, r1.y+15);
+			surface.text(sideBar.getList("m").getSelectedText(), r2.x+15, r2.y+15);
 		}
 		surface.noFill();
 		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
