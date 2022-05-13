@@ -33,7 +33,7 @@ public class BuildScreen extends Screen{
 	protected List<Fuel> fuels;
 	protected List<Material> materials;
 	
-	private Rectangle r1, r2, r3, engineLoc;
+	private Rectangle r1, r2, r3, engineLoc, meterialLoc, fuelLoc;
 	private Rectangle currentDrag;
 	private int dragOffsetX, dragOffsetY;
 	
