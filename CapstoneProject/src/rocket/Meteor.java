@@ -3,10 +3,10 @@ package rocket;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Meteors {
+public class Meteor {
 	private PImage img;
 	private double x, y;
-	public Meteors(PImage img, double x, double y) {
+	public Meteor(PImage img, double x, double y) {
 		this.img = img;
 		this.x = x;
 		this.y = y;
