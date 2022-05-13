@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import buildClasses.BuildScreen;
 import main.DrawingSurface;
 import processing.core.PImage;
-import rocket.Meteors;
+import rocket.Meteor;
 import rocket.Rocket;
 
 public class Launch1 extends LaunchScreen{
@@ -14,7 +14,7 @@ public class Launch1 extends LaunchScreen{
 	private DrawingSurface surface;
 	private Rectangle button;
 	private Rocket rocket;
-	private Meteors meteor;
+	private Meteor meteor;
 	private double rocketX, rocketY;
 	private double meteorX, meteorY;
 	private boolean start;
@@ -35,7 +35,7 @@ public class Launch1 extends LaunchScreen{
 			rocket = new Rocket(surface.loadImage("img/rocket.png"), this.rocketX, this.rocketY);
 	}
 	public void spawnMeteors() {
-		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
+		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
 //	public void spawnMeteorImages() {
 //		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
