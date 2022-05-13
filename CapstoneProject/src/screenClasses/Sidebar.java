@@ -90,11 +90,13 @@ public class Sidebar {
 		}
 		elist.setItems(engines, 0);
 		
+		materials.add("Materials");
 		for (int i = 0; i < this.materials.size(); i++) {
 			materials.add(this.materials.get(i).getName());
 		}
 		mlist.setItems(materials, 0);
 		
+		fuels.add("Fuels");
 		for (int i = 0; i < this.fuels.size(); i++) {
 			fuels.add(this.fuels.get(i).getName());
 		}
