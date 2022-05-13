@@ -54,8 +54,8 @@ public class BuildScreen extends Screen{
 		materials = new ArrayList<Material>();
 		fuels = new ArrayList<Fuel>();
 		
-		r1 = new Rectangle(50,150,50,50);
-		fuelLoc = new Rectangle(300, 150, 50, 50);
+		r1 = new Rectangle(30,150,100,30);
+		fuelLoc = new Rectangle(300, 150, 100, 30);
 		currentDrag = null;
 	}
 	
@@ -98,8 +98,10 @@ public class BuildScreen extends Screen{
 	 * Is a method that is to be overridden in its subclasses
 	 */
 	public void draw() {
-		surface.fill(255,0,0);
+		surface.fill(255);
 		surface.rect(r1.x,r1.y,r1.width,r1.height);
+		surface.fill(0);
+		surface.text("pressureFed", r1.x+15, r1.y+15);
 		surface.noFill();
 		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
 	}
