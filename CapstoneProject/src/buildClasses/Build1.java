@@ -60,6 +60,7 @@ public class Build1 extends BuildScreen {
 	
 		rocket.draw(surface);
 		sideBar.draw(surface);
+		data.draw(surface);
 		
 		if (sideBar.getEngineVis() == false) {
 			sideBar.setVisible();

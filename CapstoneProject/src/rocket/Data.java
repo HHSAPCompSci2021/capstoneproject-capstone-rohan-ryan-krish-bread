@@ -44,6 +44,8 @@ public class Data {
 			weight = e.getWeight() + m.getWeight() + f.getWeight();
 		}
 		
+		
+		
 	}
 	
 	

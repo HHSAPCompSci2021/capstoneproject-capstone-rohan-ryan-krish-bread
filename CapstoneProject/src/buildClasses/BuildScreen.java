@@ -80,7 +80,7 @@ public class BuildScreen extends Screen{
 	}
 	
 	public void spawnDataDisplay() {
-		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),200,0,100,600);
+		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,0,100,600);
 	}
 	
 	/**
@@ -150,14 +150,21 @@ public class BuildScreen extends Screen{
 		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
 			r1.x = engineLoc.x;
 			r1.y = engineLoc.y;
+			
+			rocket.setEngine(engines.get(0));
+			
 		}
 		if (meterialLoc.contains(surface.mouseX,surface.mouseY)) {
 			r2.x = meterialLoc.x;
 			r2.y = meterialLoc.y;
+			
+			rocket.setMaterial(materials.get(0));
 		}
 		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
 			r3.x = fuelLoc.x;
 			r3.y = fuelLoc.y;
+			
+			rocket.setFuel(fuels.get(0));
 		}
 	}
 	

@@ -7,7 +7,7 @@ import main.DrawingSurface;
 import processing.core.PImage;
 import rocket.Meteor;
 import rocket.Rocket;
-import kjhurani964.shapes.Shape;
+//import kjhurani964.shapes.Shape;
 
 public class Launch1 extends LaunchScreen{
 
@@ -39,12 +39,12 @@ public class Launch1 extends LaunchScreen{
 	public void spawnMeteors() {
 		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
-//	public void spawnMeteorImages() {
-//		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
-//		while(!touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
-//			meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX+(int)(Math.random()*100), this.meteorY + (int)(Math.random()*100));
-//		}
-//	}
+	public void spawnMeteorImages() {
+		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
+		while(!touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
+			meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX+(int)(Math.random()*100), this.meteorY + (int)(Math.random()*100));
+		}
+	}
 	public void setup() {
 		spawnRocket();
 		spawnMeteors();
