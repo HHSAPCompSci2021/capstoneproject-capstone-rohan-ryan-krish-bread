@@ -33,8 +33,7 @@ public class BuildScreen extends Screen{
 	protected List<Fuel> fuels;
 	protected List<Material> materials;
 	
-	private Rectangle r1;
-	private Rectangle fuelLoc;
+	private Rectangle r1, r2, r3, engineLoc;
 	private Rectangle currentDrag;
 	private int dragOffsetX, dragOffsetY;
 	
@@ -55,7 +54,7 @@ public class BuildScreen extends Screen{
 		fuels = new ArrayList<Fuel>();
 		
 		r1 = new Rectangle(30,150,100,30);
-		fuelLoc = new Rectangle(300, 150, 100, 30);
+		engineLoc = new Rectangle(300, 150, 100, 30);
 		currentDrag = null;
 	}
 	
@@ -98,12 +97,14 @@ public class BuildScreen extends Screen{
 	 * Is a method that is to be overridden in its subclasses
 	 */
 	public void draw() {
-		surface.fill(255);
-		surface.rect(r1.x,r1.y,r1.width,r1.height);
-		surface.fill(0);
-		surface.text("pressureFed", r1.x+15, r1.y+15);
+		if (!sideBar.getList("e").getSelectedText().equals("Engines")) {
+			surface.fill(255);
+			surface.rect(r1.x,r1.y,r1.width,r1.height);
+			surface.fill(0);
+			surface.text(sideBar.getList("e").getSelectedText(), r1.x+15, r1.y+15);
+		}
 		surface.noFill();
-		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
+		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
 	}
 	
 	public void dragThisOne(Rectangle r) {
@@ -120,9 +121,9 @@ public class BuildScreen extends Screen{
 
 	public void mouseReleased() {
 		currentDrag = null;
-		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
-			r1.x = fuelLoc.x;
-			r1.y = fuelLoc.y;
+		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
+			r1.x = engineLoc.x;
+			r1.y = engineLoc.y;
 		}
 	}
 	
