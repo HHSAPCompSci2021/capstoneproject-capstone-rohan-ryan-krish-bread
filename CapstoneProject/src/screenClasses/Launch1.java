@@ -2,12 +2,13 @@ package screenClasses;
 
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Shape;
+
 import buildClasses.BuildScreen;
 import main.DrawingSurface;
 import processing.core.PImage;
 import rocket.Meteor;
 import rocket.Rocket;
-import kjhurani964.shapes.Shape;
 
 public class Launch1 extends LaunchScreen{
 
@@ -20,6 +21,7 @@ public class Launch1 extends LaunchScreen{
 	private double meteorX, meteorY;
 	private boolean start;
 	private int count;
+	private Rectangle win;
 	public Launch1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -30,6 +32,7 @@ public class Launch1 extends LaunchScreen{
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 		start = false;
 		count = 0;
+		win = new Rectangle(0, 0 , 800, 600);
 	}
 	public void spawnRocket() {
 		//	img = surface.loadImage("img/rocket.png");
@@ -65,7 +68,18 @@ public class Launch1 extends LaunchScreen{
 		rocket.draw(surface);
 
 		meteor.draw(surface);
-		if(resetPosition(rocket.getImage().X, ))
+		if(rocket.getX() == win.getWidth()){
+			rocket.setImageX(0);
+		}
+		else if(rocket.getX() < 0) {
+			rocket.setImageX(win.getWidth());
+		}
+		else if(rocket.getY() == win.getHeight()) {
+			rocket.setImageY(0);
+		}
+		else if(rocket.getY() < 0) {
+			rocket.setImageY(win.getHeight());
+		}
 		if (start) {
 			rocket.setImageY(rocket.getY()-2);
 			meteor.setMeteorY(meteor.getY()+3);
@@ -101,36 +115,33 @@ public class Launch1 extends LaunchScreen{
 			   }
 		}	
 	}
-	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
-		if(currentPosX == windowX && currentPosY == windowY) {
-			return true;
-		}
-		return false;
-	}
+//	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
+//		if(currentPosX == windowX || currentPosY == windowY || currentPosX < 0 || currentPosY < 0) {
+//			return true;
+//		}
+//		return false;
+//	}
 	public boolean touchMeteor(double yMeteor, double xMeteor, double xRocket, double yRocket) {
 		   if (xMeteor == xRocket && yMeteor==yRocket) { 
 			   return true;
 		 }
 		return false;
 	}
-	public void bounce(Rectangle window) {
-		if(s.<0) {
-			s.setX(0);
-			vx=-vx;
-		}
-		if(s.getY()<0) {
-			s.setY(0);
-			vy=-vy;
-		}
-		if(s.getX()>=window.getWidth()-10) {
-			s.setX(window.getWidth()-10);
-			vx=-vx;
-		}
-		if(s.getY()>=window.getHeight()-10) {
-			s.setY(window.getHeight()-10);
-			vy=-vy;
-		}
-	}
+//	public void bounce(Rectangle window) {
+//		if(rocket.getImage().X <0) {
+//			rocket.setImageX(0); // The bounds of the window
+//		}
+//		if(rocket.getImage().Y < 0) {
+//			rocket.setImageY(0);
+//		}
+//		if(rocket.getImage().X >= window.getWidth()-10) {
+//			rocket.setImageX(window.getWidth()-10);
+//		}
+//		if(rocket.getImage().Y >= window.getHeight()-10) {
+//			rocket.setImageY(window.getHeight()-10);
+//			
+//		}
+//	}
 	public void moveBy(double amountX, double amountY) {
 		double x1 = rocket.getX();
 		double y1 = rocket.getY();
