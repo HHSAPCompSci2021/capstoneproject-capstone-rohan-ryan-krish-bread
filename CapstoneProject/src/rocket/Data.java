@@ -9,6 +9,7 @@ public class Data {
 	private double thrust;
 	private double probability;
 	
+	
 	private double x,y,width,height;
 	
 	private Material m;
@@ -29,24 +30,40 @@ public class Data {
 		this.height = height;
 		
 		
-		
-		
-		
 	}
 	
 	public void draw(PApplet p) {
+		
 		p.noFill();
 		p.rect((float)x,(float) y, (float)width, (float)height);
 		
 		if (e != null && m != null && f != null ) {
 			thrust = e.getThrust();
-			probability = e.getReliability();
+			probability = e.getReliability() * 100;
 			weight = e.getWeight() + m.getWeight() + f.getWeight();
 		}
 		
+			p.push();
+			p.fill(0);
+			p.text("Weight: " + weight + "kg", 620, 70);
+			p.text("Thrust: " + thrust + "N", 620, 90);
+			p.text("Probability of success: " + probability + "%", 620, 110);
+			p.pop();
+		
+		
+		
+	//	System.out.println("dd");
 		
 		
 	}
+	
+//	public void hide() {
+//		isVisible = false;
+//	}
+//	
+//	public void setVisible(boolean isVisible) {
+//		this.isVisible = isVisible;
+//	}
 	
 	
 

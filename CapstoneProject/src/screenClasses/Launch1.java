@@ -7,6 +7,7 @@ import java.awt.Shape;
 import buildClasses.BuildScreen;
 import main.DrawingSurface;
 import processing.core.PImage;
+import rocket.Engine;
 import rocket.Meteor;
 import rocket.Rocket;
 
@@ -22,6 +23,8 @@ public class Launch1 extends LaunchScreen{
 	private boolean start;
 	private int count;
 	private Rectangle win;
+	private int draws; // number of times draw() has been called
+	
 	public Launch1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -33,14 +36,19 @@ public class Launch1 extends LaunchScreen{
 		start = false;
 		count = 0;
 		win = new Rectangle(0, 0 , 800, 600);
+		draws = 0;
 	}
+	
 	public void spawnRocket() {
 		//	img = surface.loadImage("img/rocket.png");
-			rocket = new Rocket(surface.loadImage("img/rocket.png"), this.rocketX, this.rocketY);
+		rocket = new Rocket(surface.loadImage("img/rocket.png"), this.rocketX, this.rocketY);
+	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
+	
 	public void spawnMeteors() {
 		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
+	
 //	public void spawnMeteorImages() {
 //		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 //		while(!touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
@@ -53,6 +61,8 @@ public class Launch1 extends LaunchScreen{
 	}
 	
 	public void draw() {
+		
+		draws++;
 		
 		surface.background(100,100,255);
 		surface.fill(0);
@@ -91,13 +101,23 @@ public class Launch1 extends LaunchScreen{
 			}
 		}
 		
+//		if (draws % 60 == 0) {
+//			
+//			if (Math.random() > rocket.getEngine().getReliability()) {
+//				rocket.setState(true);
+//			}
+//		}
+		
 	
 	}
 	
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
-		if (button.contains(p)) 
+		if (button.contains(p)) {
+			rocket.setState(false);
 			surface.switchScreen(ScreenSwitcher.LEVEL_SELECT);
+		}
+			
 
 		
 	}

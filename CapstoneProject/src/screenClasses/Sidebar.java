@@ -137,7 +137,7 @@ public class Sidebar {
 		//setVisible();
 		
 		p.noFill();
-		p.rect(0, 50, 200, 600);
+		p.rect((float)x, (float)y, (float)width,(float)height);
 		
 //		fuel = elist.getSelectedText();
 //		p.fill(0);

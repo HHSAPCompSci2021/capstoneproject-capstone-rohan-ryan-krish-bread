@@ -85,8 +85,16 @@ public class Rocket {
 	
 	public void draw(PApplet drawer) {
 		
-		if (img != null)
-			drawer.image(img,(float)x,(float)y,(float)50,(float)50);
+		if (img != null) {
+			
+			if (blownUp == false) {
+				drawer.image(img,(float)x,(float)y,(float)50,(float)50);
+			}
+			else {
+				drawer.image(drawer.loadImage("img/th.png"),(float)x,(float)y,(float)50,(float)50);
+			}
+		}
+			
 		else {
 			drawer.fill(100);
 			drawer.rect((float)x,(float)y,(float)50,(float)50);

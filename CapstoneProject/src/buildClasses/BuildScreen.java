@@ -76,11 +76,11 @@ public class BuildScreen extends Screen{
 	 * Makes the SideBar that will display the parts for the Rocket during the building process
 	 */
 	public void spawnSideBar() {
-		sideBar = new Sidebar(0, 0, 100, 600, engines, fuels, materials);
+		sideBar = new Sidebar(0, 50, 200, 600, engines, fuels, materials);
 	}
 	
 	public void spawnDataDisplay() {
-		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,0,100,600);
+		data = new Data(engines.get(0), materials.get(0), fuels.get(0),600,50,200,600);
 	}
 	
 	/**
@@ -90,7 +90,7 @@ public class BuildScreen extends Screen{
 	public void setup() {
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed", 500, 95, 100000);
+		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed", 500, 0.95, 100000);
 		Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1", 1000);
 		Material steel = new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000);
 		
@@ -107,6 +107,8 @@ public class BuildScreen extends Screen{
 	 * Is a method that is to be overridden in its subclasses
 	 */
 	public void draw() {
+		
+	
 		if (!sideBar.getList("e").getSelectedText().equals("Engines")) {
 			surface.fill(225);
 			surface.rect(r1.x,r1.y,r1.width,r1.height);
@@ -129,6 +131,11 @@ public class BuildScreen extends Screen{
 		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
 		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
 		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
+		
+//		if (rocket.getEngine() != null) {
+//			System.out.println(rocket.getEngine().getName());
+//		}
+	
 	}
 	
 	public void dragThisOne(Rectangle r) {
@@ -137,6 +144,10 @@ public class BuildScreen extends Screen{
 			dragOffsetX = surface.mouseX - r.x;
 			dragOffsetY = surface.mouseY - r.y;
 		}
+	}
+	
+	public Rocket getRocket() {
+		return rocket;
 	}
 	
 	public void mousePressed() {
@@ -150,6 +161,7 @@ public class BuildScreen extends Screen{
 		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
 			r1.x = engineLoc.x;
 			r1.y = engineLoc.y;
+			
 			
 			rocket.setEngine(engines.get(0));
 			
