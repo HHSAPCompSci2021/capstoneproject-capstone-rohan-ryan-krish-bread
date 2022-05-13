@@ -38,7 +38,7 @@ public class Build2 extends BuildScreen {
 		sideBar.setup(surface);
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle", 1, 1); // change wieght and reliabilty params
+		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle", 1, 1,1); // change wieght and reliabilty params
 		//Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1");
 		
 		engines.add(closedCycle);
