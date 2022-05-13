@@ -13,7 +13,12 @@ public class Engine  {
 	private double x, y, width, height;
 	private String name;
 	
-	public Engine(PImage image, double x, double y, double width, double height, String name) {
+	// data
+	private double weight;
+	private double reliability;
+	
+	
+	public Engine(PImage image, double x, double y, double width, double height, String name, double weight, double reliability) {
 		
 		this.image = image;
 		this.x = x;
@@ -21,6 +26,8 @@ public class Engine  {
 		this.width = width;
 		this.height = height;
 		this.name = name;
+		this.weight = weight;
+		this.reliability = reliability;
 	
 		// TODO Auto-generated constructor stub
 	}

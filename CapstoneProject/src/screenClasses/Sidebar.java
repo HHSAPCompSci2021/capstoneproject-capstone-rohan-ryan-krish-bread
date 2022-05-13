@@ -84,6 +84,7 @@ public class Sidebar {
 		List<String> materials = new ArrayList<String>();
 		List<String> fuels = new ArrayList<String>();
 		
+		engines.add("Engines");
 		for (int i = 0; i < this.engines.size(); i++) {
 			engines.add(this.engines.get(i).getName());
 		}
