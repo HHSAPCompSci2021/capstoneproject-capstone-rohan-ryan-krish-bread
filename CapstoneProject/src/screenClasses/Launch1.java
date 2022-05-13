@@ -2,23 +2,25 @@ package screenClasses;
 
 import java.awt.Point;
 import java.awt.Rectangle;
-
 import buildClasses.BuildScreen;
 import main.DrawingSurface;
 import processing.core.PImage;
 import rocket.Meteor;
 import rocket.Rocket;
+import kjhurani964.shapes.Shape;
 
 public class Launch1 extends LaunchScreen{
 
 	private DrawingSurface surface;
 	private Rectangle button;
+	private Shape s;
 	private Rocket rocket;
 	private Meteor meteor;
 	private double rocketX, rocketY;
 	private double meteorX, meteorY;
 	private boolean start;
 	private int count;
+	
 	public Launch1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -62,9 +64,9 @@ public class Launch1 extends LaunchScreen{
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 		surface.fill(255);
 		rocket.draw(surface);
-//		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX+(int)(Math.random()*100), this.meteorY + (int)(Math.random()*100));
+
 		meteor.draw(surface);
-//		surface.image(rocket.getImage(), (float)this.x, (float)this.y+6);
+		if(resetPosition(rocket.getImage().X, ))
 		if (start) {
 			rocket.setImageY(rocket.getY()-2);
 			meteor.setMeteorY(meteor.getY()+3);
@@ -100,13 +102,36 @@ public class Launch1 extends LaunchScreen{
 			   }
 		}	
 	}
+	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
+		if(currentPosX == windowX && currentPosY == windowY) {
+			return true;
+		}
+		return false;
+	}
 	public boolean touchMeteor(double yMeteor, double xMeteor, double xRocket, double yRocket) {
 		   if (xMeteor == xRocket && yMeteor==yRocket) { 
 			   return true;
 		 }
 		return false;
 	}
-	
+	public void bounce(Rectangle window) {
+		if(s.<0) {
+			s.setX(0);
+			vx=-vx;
+		}
+		if(s.getY()<0) {
+			s.setY(0);
+			vy=-vy;
+		}
+		if(s.getX()>=window.getWidth()-10) {
+			s.setX(window.getWidth()-10);
+			vx=-vx;
+		}
+		if(s.getY()>=window.getHeight()-10) {
+			s.setY(window.getHeight()-10);
+			vy=-vy;
+		}
+	}
 	public void moveBy(double amountX, double amountY) {
 		double x1 = rocket.getX();
 		double y1 = rocket.getY();
