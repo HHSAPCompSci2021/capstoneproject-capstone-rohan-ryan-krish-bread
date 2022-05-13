@@ -25,7 +25,7 @@ public class Launch1 extends LaunchScreen{
 		this.rocketX= 300;
 		this.rocketY = 200;
 		this.meteorX = 300;
-		this.meteorY = 100;
+		this.meteorY = 0;
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 		start = false;
 		count = 0;
@@ -37,15 +37,20 @@ public class Launch1 extends LaunchScreen{
 	public void spawnMeteors() {
 		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
-
+//	public void spawnMeteorImages() {
+//		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
+//		while(!touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
+//			meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX+(int)(Math.random()*100), this.meteorY + (int)(Math.random()*100));
+//		}
+//	}
 	public void setup() {
 		spawnRocket();
 		spawnMeteors();
 	}
+	
 	public void draw() {
 		
 		surface.background(100,100,255);
-		
 		surface.fill(0);
 		surface.text("Launch 1", 10, 20);
 		surface.fill(255);
@@ -57,13 +62,13 @@ public class Launch1 extends LaunchScreen{
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 		surface.fill(255);
 		rocket.draw(surface);
+//		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX+(int)(Math.random()*100), this.meteorY + (int)(Math.random()*100));
 		meteor.draw(surface);
-		
 //		surface.image(rocket.getImage(), (float)this.x, (float)this.y+6);
 		if (start) {
-			rocket.setImageY(rocket.getY()-5);
-			meteor.setMeteorY(meteor.getY()+5);
-			if(touchMeteor(meteor.getY(), rocket.getY())) {
+			rocket.setImageY(rocket.getY()-2);
+			meteor.setMeteorY(meteor.getY()+3);
+			if(touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
 				start = false;
 				count++;
 				surface.loadImage("img/giphy.gif");
@@ -81,10 +86,6 @@ public class Launch1 extends LaunchScreen{
 
 		
 	}
-//	public void set() {
-//		rocket.setImageY(rocket.getY()-20);
-////		set();
-//	}
 	public void keyPressed() {
 		if(count == 1 && !start) {
 			return;
@@ -92,21 +93,15 @@ public class Launch1 extends LaunchScreen{
 		else {
 			start = true;
 			 if (surface.keyCode== surface.LEFT) {
-			       rocketX= rocketX-20;
+				 rocket.setImageX(rocket.getX()-25);
 			     }
 			 if (surface.keyCode==surface.RIGHT) {
-			      rocketX = rocketX+20;
-			    }
-		}
-
-//			if(!start) {
-//				return;
-//			}
-			    
-			
-		}
-	public boolean touchMeteor(double yMeteor, double yRocket) {
-		   if (yMeteor==yRocket) { 
+				 	rocket.setImageX(rocket.getX()+25);
+			   }
+		}	
+	}
+	public boolean touchMeteor(double yMeteor, double xMeteor, double xRocket, double yRocket) {
+		   if (xMeteor == xRocket && yMeteor==yRocket) { 
 			   return true;
 		 }
 		return false;
