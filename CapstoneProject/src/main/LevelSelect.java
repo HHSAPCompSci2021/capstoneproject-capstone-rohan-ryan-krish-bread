@@ -52,7 +52,7 @@ public class LevelSelect extends Screen{
 		String str3 = "Instructions";
 		float w3 = surface.textWidth(str3);
 		surface.stroke(0);
-		surface.text(str3, button3.x+button3.width/2-w3/2, button3.y+button3.height/2);
+		surface.text(str3, button3.x+button3.width/2-w3/2, button3.y+button3.height/2+3);
 		surface.fill(255);
 		
 	}
