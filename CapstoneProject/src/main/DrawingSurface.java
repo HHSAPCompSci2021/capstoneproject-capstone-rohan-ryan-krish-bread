@@ -9,6 +9,7 @@ import processing.core.PApplet;
 import screenClasses.Screen;
 import screenClasses.ScreenSwitcher;
 import screenClasses.Sidebar;
+import screenClasses.Instructions;
 import screenClasses.Launch1;
 import screenClasses.Launch2;
 
@@ -48,6 +49,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		Launch2 launchScreen2 = new Launch2(this);
 		screens.add(launchScreen2);
+		
+		Instructions instructions = new Instructions(800, 600, this);
+		screens.add(instructions);
 		
 		activeScreen = screens.get(0);
 	}

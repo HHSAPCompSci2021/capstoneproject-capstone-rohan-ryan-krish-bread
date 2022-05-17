@@ -29,7 +29,7 @@ public class Build1 extends BuildScreen {
 		super(800,600,surface);
 		this.surface = surface;
 		
-		button = new Rectangle(800/2-100,600/2-50,200,100);
+		button = new Rectangle(425,550,150,30);
 		
 		// add engines, fuels, and materials to the arraylists stored in BuildScreen
 		
@@ -81,7 +81,7 @@ public class Build1 extends BuildScreen {
 		surface.fill(0);
 		String str = "To Launch 1";
 		float w = surface.textWidth(str);
-		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2+3);
 		surface.fill(255);
 		
 		

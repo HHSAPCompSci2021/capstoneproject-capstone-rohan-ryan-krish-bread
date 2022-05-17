@@ -25,14 +25,21 @@ public class Rocket {
 	private Data data;
 	private boolean blownUp;
 	
-	private double x,y;
+	private double x,y,width,height;
 	private PImage img;
 	
 	
-	public Rocket(PImage img, double x, double y) {
-		this.img = img;
+	public Rocket(double x, double y, double width, double height, Engine e, Material m, Fuel f) {
+		//this.img = img;
 		this.x = x;
 		this.y = y;
+		this.width = width;
+		this.height = height;
+		
+		this.engine = engine;
+		this.material = material;
+		this.fuel = fuel;
+		
 		blownUp = false;
 	}
 	
@@ -83,7 +90,7 @@ public class Rocket {
 		return blownUp;
 	}
 	
-	public void draw(PApplet drawer) {
+	public void draw(PApplet drawer) { // change
 		
 		if (img != null) {
 			

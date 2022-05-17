@@ -32,6 +32,17 @@ public class Data {
 		
 	}
 	
+	public void setWeight(double w) {
+		weight = w;
+	}
+	
+	public void setThrust(double t) {
+		thrust = t;
+	}
+	public void setProbability(double p) {
+		probability = p;
+}
+	
 	public void draw(PApplet p) {
 		
 		p.noFill();
