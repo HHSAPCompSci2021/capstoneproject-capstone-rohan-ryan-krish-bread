@@ -69,7 +69,10 @@ public class BuildScreen extends Screen{
 	 */
 	public void spawnRocket() {
 	//	img = surface.loadImage("img/rocket.png");
-		rocket = new Rocket(400,100,300,100);
+		rocket = new Rocket(400,100,50,250);
+		rocket.setEngine(engines.get(0));
+		rocket.setMaterial(materials.get(0));
+		rocket.setFuel(fuels.get(0));
 	}
 	
 	/**
@@ -91,7 +94,7 @@ public class BuildScreen extends Screen{
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
 		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed", 500, 0.95, 100000);
-		Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1", 1000);
+		Fuel RP1 = new Fuel(img, 400,20,20,20, "RP-1", 1000);
 		Material steel = new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000);
 		
 		engines.add(pressureFed);
@@ -132,6 +135,8 @@ public class BuildScreen extends Screen{
 		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
 		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
 		
+		
+		
 //		if (rocket.getEngine() != null) {
 //			System.out.println(rocket.getEngine().getName());
 //		}
@@ -162,21 +167,48 @@ public class BuildScreen extends Screen{
 			r1.x = engineLoc.x;
 			r1.y = engineLoc.y;
 			
+			for (int i = 0; i < engines.size(); i++) {
+				
+				if (sideBar.getESelected().equals(engines.get(i).getName())) {
+					rocket.setEngine(engines.get(i));
+					engines.get(i).setVis();
+				
+				}
+				
+			}
 			
-			rocket.setEngine(engines.get(0));
+			//rocket.setEngine(engines.get(0));
 			
 		}
 		if (meterialLoc.contains(surface.mouseX,surface.mouseY)) {
 			r2.x = meterialLoc.x;
 			r2.y = meterialLoc.y;
 			
-			rocket.setMaterial(materials.get(0));
+			for (int i = 0; i < materials.size(); i++) {
+				
+				if (sideBar.getMSelected().equals(materials.get(i).getName())) {
+					rocket.setMaterial(materials.get(i));
+					rocket.mhide(false);
+				}
+				
+			}
+			
+			//rocket.setMaterial(materials.get(0));
 		}
 		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
 			r3.x = fuelLoc.x;
 			r3.y = fuelLoc.y;
 			
-			rocket.setFuel(fuels.get(0));
+			for (int i = 0; i < fuels.size(); i++) {
+				
+				if (sideBar.getFSelected().equals(fuels.get(i).getName())) {
+					rocket.setFuel(fuels.get(i));
+					rocket.fhide(false);
+				}
+				
+			}
+			
+			//rocket.setFuel(fuels.get(0));
 		}
 	}
 	

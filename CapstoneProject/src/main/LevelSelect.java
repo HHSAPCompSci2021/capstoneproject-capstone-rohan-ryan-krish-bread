@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 import buildClasses.Build1;
+import processing.core.PImage;
 import screenClasses.Screen;
 import screenClasses.ScreenSwitcher;
 
@@ -26,7 +27,9 @@ public class LevelSelect extends Screen{
 	
 	public void draw() {
 		
-		surface.background(255, 0,255);
+		surface.background(0);
+		PImage image1 = surface.loadImage("img/among us background.jpg");
+		surface.image(image1, 55, 45);
 		
 		surface.fill(0);
 		surface.text("Level Select", 10, 20);
