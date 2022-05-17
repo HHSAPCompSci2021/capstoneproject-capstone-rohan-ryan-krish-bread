@@ -23,7 +23,13 @@ public class Instructions extends Screen{
 		surface.fill(0);
 		surface.text("- Users will start by clicking the level 1 button"
 			+ "\n" + "- In each level, the user will be given certain components to build a rocket"
-			+ "\n" + "- Drag and drop different components of the rocket into their location", 10, 20);
+			+ "\n" + "- Drag and drop different components of the rocket into their location"
+			+ "\n" + "- After the rocket is built, there will be a test to see how efficient it is"
+			+ "\n" + ""
+			+ "\n" + ""
+			+ "\n" + ""
+			+ "\n" + ""
+			+ "\n" + "", 10, 20);
         surface.fill(255);
 		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
