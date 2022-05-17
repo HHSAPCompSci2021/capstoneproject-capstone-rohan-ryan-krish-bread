@@ -29,7 +29,7 @@ public class Build1 extends BuildScreen {
 		super(800,600,surface);
 		this.surface = surface;
 		
-		button = new Rectangle(800/2-100,600/2-50,200,100);
+		button = new Rectangle(425,550,150,30);
 		
 		// add engines, fuels, and materials to the arraylists stored in BuildScreen
 		
