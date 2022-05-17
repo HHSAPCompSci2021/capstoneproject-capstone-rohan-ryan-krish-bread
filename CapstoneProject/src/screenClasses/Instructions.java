@@ -24,7 +24,7 @@ public class Instructions extends Screen{
 		surface.fill(0);
 		String str = "Back To Level Select";
 		float w = surface.textWidth(str);
-		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2+3);
 		surface.fill(255);
 	}
 	
