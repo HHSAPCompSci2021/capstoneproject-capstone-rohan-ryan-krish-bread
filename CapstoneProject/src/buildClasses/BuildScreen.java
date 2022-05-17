@@ -69,7 +69,7 @@ public class BuildScreen extends Screen{
 	 */
 	public void spawnRocket() {
 	//	img = surface.loadImage("img/rocket.png");
-		rocket = new Rocket(400,200,300,100, engines.get(0), materials.get(0), fuels.get(0));
+		rocket = new Rocket(400,100,300,100);
 	}
 	
 	/**

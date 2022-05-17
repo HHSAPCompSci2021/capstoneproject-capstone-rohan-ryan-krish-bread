@@ -29,16 +29,13 @@ public class Rocket {
 	private PImage img;
 	
 	
-	public Rocket(double x, double y, double width, double height, Engine e, Material m, Fuel f) {
+	public Rocket(double x, double y, double width, double height) {
 		//this.img = img;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		
-		this.engine = engine;
-		this.material = material;
-		this.fuel = fuel;
 		
 		blownUp = false;
 	}
@@ -92,20 +89,18 @@ public class Rocket {
 	
 	public void draw(PApplet drawer) { // change
 		
-		if (img != null) {
+		//if (img != null) {
 			
 			if (blownUp == false) {
-				drawer.image(img,(float)x,(float)y,(float)50,(float)50);
+				drawer.noFill();
+				drawer.rect((float)x,(float)y,(float)50,(float)250);
 			}
+			
 			else {
 				drawer.image(drawer.loadImage("img/th.png"),(float)x,(float)y,(float)50,(float)50);
 			}
-		}
+	
 			
-		else {
-			drawer.fill(100);
-			drawer.rect((float)x,(float)y,(float)50,(float)50);
-		}
 		
 		// if material not null, then draw it
 		

@@ -42,15 +42,9 @@ public class Launch2 extends LaunchScreen{
 	}
 	
 	public void spawnRocket() {
-
-		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine pressureFed = new Engine(img, 20,20,20,20, "pressureFed", 500, 0.95, 100000);
-		Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1", 1000);
-		Material steel = new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000);
-		
 		
 		//	img = surface.loadImage("img/rocket.png");
-		rocket = new Rocket(this.rocketX, this.rocketY, 50,50, pressureFed, steel, RP1);
+		rocket = new Rocket(this.rocketX, this.rocketY, 50,50);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
 	
