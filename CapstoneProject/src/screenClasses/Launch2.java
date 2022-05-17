@@ -72,15 +72,6 @@ public class Launch2 extends LaunchScreen{
 		
 			
 			draws++;
-			
-////			surface.background(100,100,255);
-//			surface.fill(0);
-//			surface.text("Launch 1", 10, 20);
-//			surface.fill(255);
-			
-			
-			
-//			meteor.draw(surface);
 			PImage image1 = surface.loadImage("img/night.png");
 			surface.image(image1, -50, 0);
 			surface.text("Launch 1", 10, 20);
@@ -117,6 +108,14 @@ public class Launch2 extends LaunchScreen{
 				}
 			}
 			
+			if (surface.keyPressed) {
+				 if (surface.keyCode == surface.LEFT) {
+					 rocket.setImageX(rocket.getX()-5);
+				     }
+				 if (surface.keyCode == surface.RIGHT) {
+					 	rocket.setImageX(rocket.getX()+5);
+				   }
+			}
 //			if (draws % 60 == 0) {
 //				
 //				if (Math.random() > rocket.getEngine().getReliability()) {
@@ -142,42 +141,15 @@ public class Launch2 extends LaunchScreen{
 			return;
 		}
 		else {
-			start = true;
-			 if (surface.keyCode== surface.LEFT) {
-				 rocket.setImageX(rocket.getX()-25);
-			     }
-			 if (surface.keyCode==surface.RIGHT) {
-				 	rocket.setImageX(rocket.getX()+25);
-			   }
-		}	
+			start = true;	
 	}
-//	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
-//		if(currentPosX == windowX || currentPosY == windowY || currentPosX < 0 || currentPosY < 0) {
-//			return true;
-//		}
-//		return false;
-//	}
+}
 	public boolean touchMeteor(double yMeteor, double xMeteor, double xRocket, double yRocket) {
 		   if (xMeteor == xRocket && yMeteor==yRocket) { 
 			   return true;
 		 }
 		return false;
 	}
-//	public void bounce(Rectangle window) {
-//		if(rocket.getImage().X <0) {
-//			rocket.setImageX(0); // The bounds of the window
-//		}
-//		if(rocket.getImage().Y < 0) {
-//			rocket.setImageY(0);
-//		}
-//		if(rocket.getImage().X >= window.getWidth()-10) {
-//			rocket.setImageX(window.getWidth()-10);
-//		}
-//		if(rocket.getImage().Y >= window.getHeight()-10) {
-//			rocket.setImageY(window.getHeight()-10);
-//			
-//		}
-//	}
 	public void moveBy(double amountX, double amountY) {
 		double x1 = rocket.getX();
 		double y1 = rocket.getY();

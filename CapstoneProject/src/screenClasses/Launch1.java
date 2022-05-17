@@ -102,6 +102,15 @@ public class Launch1 extends LaunchScreen{
 			}
 		}
 		
+		if (surface.keyPressed) {
+			 if (surface.keyCode == surface.LEFT) {
+				 rocket.setImageX(rocket.getX()-5);
+			     }
+			 if (surface.keyCode == surface.RIGHT) {
+				 	rocket.setImageX(rocket.getX()+5);
+			   }
+		}
+		
 //		if (draws % 60 == 0) {
 //			
 //			if (Math.random() > rocket.getEngine().getReliability()) {
@@ -122,19 +131,32 @@ public class Launch1 extends LaunchScreen{
 
 		
 	}
+	
 	public void keyPressed() {
 		if(count == 1 && !start) {
 			return;
 		}
 		else {
 			start = true;
-			 if (surface.keyCode== surface.LEFT) {
-				 rocket.setImageX(rocket.getX()-25);
-			     }
-			 if (surface.keyCode==surface.RIGHT) {
-				 	rocket.setImageX(rocket.getX()+25);
-			   }
-		}	
+//			 if (surface.keyCode== surface.LEFT) {
+//				 rocket.setImageX(rocket.getX()-25);
+//			     }
+//			 if (surface.keyCode==surface.RIGHT) {
+//				 	rocket.setImageX(rocket.getX()+25);
+//			   }
+		}
+//		if (surface.key == 's') { 
+//	  		rocket.moveInLimits(thisLevel, 0, -5);
+//		}
+//	  	if (surface.key == 'a') 
+//	  		rocket.moveInLimits(thisLevel, 0, 5);
+//	  	if (surface.key == 'd') 
+//	  		rocket.moveInLimits(thisLevel, -5, 0);
+//	  	if (surface.key == 'w') { 
+//	  		rocket.moveInLimits(thisLevel, 5, 0);
+//	  	}
+//	  	
+//	  	slideWorldToImage(mario);
 	}
 //	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
 //		if(currentPosX == windowX || currentPosY == windowY || currentPosX < 0 || currentPosY < 0) {
@@ -148,21 +170,6 @@ public class Launch1 extends LaunchScreen{
 		 }
 		return false;
 	}
-//	public void bounce(Rectangle window) {
-//		if(rocket.getImage().X <0) {
-//			rocket.setImageX(0); // The bounds of the window
-//		}
-//		if(rocket.getImage().Y < 0) {
-//			rocket.setImageY(0);
-//		}
-//		if(rocket.getImage().X >= window.getWidth()-10) {
-//			rocket.setImageX(window.getWidth()-10);
-//		}
-//		if(rocket.getImage().Y >= window.getHeight()-10) {
-//			rocket.setImageY(window.getHeight()-10);
-//			
-//		}
-//	}
 	public void moveBy(double amountX, double amountY) {
 		double x1 = rocket.getX();
 		double y1 = rocket.getY();
