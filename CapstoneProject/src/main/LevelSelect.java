@@ -67,7 +67,7 @@ public class LevelSelect extends Screen{
 			surface.switchScreen(ScreenSwitcher.BUILD_2);
 		
 		if (button3.contains(p)) {
-			
+			surface.switchScreen(ScreenSwitcher.INSTRUCTIONS);
 		}
 	}
 
