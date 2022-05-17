@@ -25,8 +25,8 @@ public class Instructions extends Screen{
 			+ "\n" + "- In each level, the user will be given certain components to build a rocket"
 			+ "\n" + "- Drag and drop different components of the rocket into their location"
 			+ "\n" + "- After the rocket is built, there will be a test to see how efficient it is"
-			+ "\n" + ""
-			+ "\n" + ""
+			+ "\n" + "- The velocity of the rocket will be controlled by the side arrow keys"
+			+ "\n" + "- When controlling side trojectory dont hold more that one key at a time"
 			+ "\n" + ""
 			+ "\n" + ""
 			+ "\n" + "", 10, 20);
