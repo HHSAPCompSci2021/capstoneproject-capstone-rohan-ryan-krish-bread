@@ -12,6 +12,7 @@ public class LevelSelect extends Screen{
 	private DrawingSurface surface;
 	private Rectangle button1;
 	private Rectangle button2;
+	private Rectangle button3;
 	
 	public LevelSelect(int width, int height, DrawingSurface surface) {
 		super(width, height);
@@ -19,6 +20,8 @@ public class LevelSelect extends Screen{
 		
 		button1 = new Rectangle(800/2-250,600/2-50,200,100);
 		button2 = new Rectangle(800/2+50,600/2-50,200,100);
+		
+		button3 = new Rectangle(625, 550, 150, 30);
 	}
 	
 	public void draw() {
@@ -44,6 +47,14 @@ public class LevelSelect extends Screen{
 		surface.text(str2, button2.x+button2.width/2-w2/2, button2.y+button2.height/2);
 		surface.fill(255);
 		
+		surface.rect(button3.x, button3.y, button3.width, button3.height, 10, 10, 10, 10);
+		surface.fill(0);
+		String str3 = "Instructions";
+		float w3 = surface.textWidth(str3);
+		surface.stroke(0);
+		surface.text(str3, button3.x+button3.width/2-w3/2, button3.y+button3.height/2);
+		surface.fill(255);
+		
 	}
 	
 	public void mousePressed() {
@@ -54,6 +65,10 @@ public class LevelSelect extends Screen{
 			
 		if (button2.contains(p)) 
 			surface.switchScreen(ScreenSwitcher.BUILD_2);
+		
+		if (button3.contains(p)) {
+			
+		}
 	}
 
 }
