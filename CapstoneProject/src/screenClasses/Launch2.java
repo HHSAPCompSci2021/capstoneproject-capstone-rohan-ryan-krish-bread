@@ -58,6 +58,10 @@ public class Launch2 extends LaunchScreen{
 //			meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX+(int)(Math.random()*100), this.meteorY + (int)(Math.random()*100));
 //		}
 //	}
+//	public void drawBackground() {
+//		PImage image1 = surface.loadImage("img/night.png");
+//		surface.image(image1, -50, 0);
+//	}
 	public void setup() {
 		spawnRocket();
 		spawnMeteors();
