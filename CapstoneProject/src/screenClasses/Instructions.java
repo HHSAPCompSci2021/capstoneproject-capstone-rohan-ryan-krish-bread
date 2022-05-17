@@ -19,6 +19,18 @@ public class Instructions extends Screen{
 	
 	public void draw() {
 		surface.background(255);
+			
+		surface.fill(0);
+		surface.text("- Users will start by clicking the level 1 button"
+			+ "\n" + "- In each level, the user will be given certain components to build a rocket"
+			+ "\n" + "- Drag and drop different components of the rocket into their location"
+			+ "\n" + "- After the rocket is built, there will be a test to see how efficient it is"
+			+ "\n" + "- The velocity of the rocket will be controlled by the side arrow keys"
+			+ "\n" + "- When controlling side trojectory dont hold more that one key at a time"
+			+ "\n" + ""
+			+ "\n" + ""
+			+ "\n" + "", 10, 20);
+        surface.fill(255);
 		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
