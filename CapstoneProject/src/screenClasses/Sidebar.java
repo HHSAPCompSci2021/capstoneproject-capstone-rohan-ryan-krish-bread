@@ -108,6 +108,19 @@ public class Sidebar {
 		
 	}
 	
+	public String getESelected() {
+		return elist.getSelectedText();
+	}
+	
+	public String getMSelected() {
+		return mlist.getSelectedText();
+	}
+	
+	public String getFSelected() {
+		return flist.getSelectedText();
+	}
+	
+	
 	public boolean getEngineVis() {
 		return elist.isVisible();
 	}

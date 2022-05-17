@@ -44,7 +44,7 @@ public class Launch2 extends LaunchScreen{
 	public void spawnRocket() {
 		
 		//	img = surface.loadImage("img/rocket.png");
-		rocket = new Rocket(this.rocketX, this.rocketY, 50,50);
+		rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
 	

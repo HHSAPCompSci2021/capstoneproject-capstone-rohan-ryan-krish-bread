@@ -17,6 +17,7 @@ public class Engine  {
 	private double weight;
 	private double reliability;
 	private double thurst;
+	private boolean hide;
 	
 	// 
 	// counter for how many times draw is called.
@@ -24,6 +25,7 @@ public class Engine  {
 	
 	public Engine(PImage image, double x, double y, double width, double height, String name, double weight, double reliability, double thrust) {
 		
+		hide = true;
 		this.image = image;
 		this.x = x;
 		this.y = y;
@@ -46,6 +48,10 @@ public class Engine  {
 		return image;
 	}
 	
+	public void setVis() {
+		hide = false;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -63,8 +69,14 @@ public class Engine  {
 	}
 	public void draw(PApplet g) {
 		
-		if (image != null)
-			g.image(image,(float)x,(float)y,(float)width,(float)height);
+		if (image != null) {
+			
+			if (hide == false) {
+				g.image(image,(float)x,(float)y,(float)width,(float)height);
+			}
+			
+		}
+			
 		else {
 			g.fill(100);
 			g.rect((float)x,(float)y,(float)width,(float)height);

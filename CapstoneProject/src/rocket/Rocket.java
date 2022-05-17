@@ -24,6 +24,7 @@ public class Rocket {
 	private Fuel fuel;
 	private Data data;
 	private boolean blownUp;
+	private boolean eHide, fHide, mHide;
 	
 	private double x,y,width,height;
 	private PImage img;
@@ -36,6 +37,9 @@ public class Rocket {
 		this.width = width;
 		this.height = height;
 		
+		eHide = true;
+		mHide = true;
+		fHide = true;
 		
 		blownUp = false;
 	}
@@ -43,6 +47,18 @@ public class Rocket {
 	// setters
 	public void setMaterial(Material mat) {
 		material = mat;
+	}
+	
+	public void ehide(boolean isVisible) {
+		eHide = isVisible;
+	}
+	
+	public void mhide(boolean isVisible) {
+		mHide = isVisible;
+	}
+	
+	public void fhide(boolean isVisible) {
+		fHide = isVisible;
 	}
 	
 	public void setEngine(Engine e) {
@@ -92,16 +108,24 @@ public class Rocket {
 		//if (img != null) {
 			
 			if (blownUp == false) {
+				
 				drawer.noFill();
-				drawer.rect((float)x,(float)y,(float)50,(float)250);
+				drawer.rect((float)x,(float)y,(float)width,(float)height);
+				drawer.triangle((float)x,(float)y,(float)(x+(width/2)),(float)(y-50),(float)(x+width),(float)y);
+				
+				if (engine != null && material != null && fuel != null) {
+					engine.draw(drawer);
+					material.draw(drawer);
+					fuel.draw(drawer);
+					
+				}
+				
 			}
 			
 			else {
 				drawer.image(drawer.loadImage("img/th.png"),(float)x,(float)y,(float)50,(float)50);
 			}
-	
 			
-		
 		// if material not null, then draw it
 		
 	}
