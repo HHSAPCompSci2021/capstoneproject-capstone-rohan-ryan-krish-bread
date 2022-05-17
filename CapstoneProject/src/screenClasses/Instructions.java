@@ -14,10 +14,12 @@ public class Instructions extends Screen{
 		super(width, height);
 		this.surface = surface;
 		
-		button = new Rectangle(425,550,150,30);
+		button = new Rectangle(625, 550, 150, 30);
 	}
 	
 	public void draw() {
+		surface.background(255);
+		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
 		String str = "Back To Level Select";
