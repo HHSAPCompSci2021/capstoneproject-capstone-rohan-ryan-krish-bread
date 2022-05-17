@@ -34,7 +34,7 @@ public class Launch1 extends LaunchScreen{
 		this.rocketY = 200;
 		this.meteorX = 300;
 		this.meteorY = 0;
-		button = new Rectangle(800/2-100,600/2-50,200,100);
+		button = new Rectangle(650,-40,125, 150);
 		start = false;
 		count = 0;
 		win = new Rectangle(0, 0 , 800, 600);
@@ -46,7 +46,6 @@ public class Launch1 extends LaunchScreen{
 		rocket = new Rocket(this.rocketX, this.rocketY, 50,50);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
-	
 	public void spawnMeteors() {
 		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
@@ -66,21 +65,28 @@ public class Launch1 extends LaunchScreen{
 		
 		draws++;
 		
-		surface.background(100,100,255);
-		surface.fill(0);
+////		surface.background(100,100,255);
+//		surface.fill(0);
+//		surface.text("Launch 1", 10, 20);
+//		surface.fill(255);
+		
+		
+		
+//		meteor.draw(surface);
+		PImage image1 = surface.loadImage("img/night.png");
+		surface.image(image1, -50, 0);
 		surface.text("Launch 1", 10, 20);
-		surface.fill(255);
+		surface.fill(0);
+		rocket.draw(surface);
 		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
-		surface.fill(0);
+		surface.fill(255);
 		String str = "Back To Level Select";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 		surface.fill(255);
-		rocket.draw(surface);
-
-		meteor.draw(surface);
-		if(rocket.getX() > win.getWidth()){
+		
+		if(rocket.getX() > win.getWidth()-20){
 			rocket.setImageX(win.getWidth()-30);
 		}
 		else if(rocket.getX() < 0) {
