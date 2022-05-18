@@ -12,6 +12,7 @@ public class Fuel {
 	private double x, y, width, height;
 	private String name;
 	private double weight;
+	private boolean hide;
 	
 	public Fuel(PImage image, double x, double y, double width, double height, String name, double weight) {
 		this.image = image;
@@ -21,6 +22,7 @@ public class Fuel {
 		this.height = height;
 		this.name = name;
 		this.weight = weight;
+		hide = true;
 	}
 	
 	public PImage getImage() {
@@ -31,14 +33,46 @@ public class Fuel {
 		return weight;
 	}
 	
+	public void setX(double x) {
+		this.x = x;
+	}
+	
+	public void setY(double y) {
+		this.y = y;
+	}
+	
+	public void setWidth(double w) {
+		width = w;
+	}
+	
+	public void setHeight(double h) {
+		height = h;
+	}
+	
 	public String getName() {
 		return name;
 	}
 	
+	public void setVis() {
+		hide = false;
+	}
+	
+	public void hide() {
+		hide = true;
+	}
+	
+	
+	
 	public void draw(PApplet g) {
 		
-		if (image != null)
-			g.image(image,(float)x,(float)y,(float)width,(float)height);
+		if (image != null) {
+			
+			if (hide == false) {
+				g.image(image,(float)x,(float)y,(float)width,(float)height);
+			}
+			
+		}
+			
 		else {
 			g.fill(100);
 			g.rect((float)x,(float)y,(float)width,(float)height);

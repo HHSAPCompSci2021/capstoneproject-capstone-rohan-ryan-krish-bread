@@ -52,12 +52,32 @@ public class Engine  {
 		hide = false;
 	}
 	
+	public void hide() {
+		hide = true;
+	}
+	
 	public String getName() {
 		return name;
 	}
 	
 	public double getWeight() {
 		return weight;
+	}
+	
+	public void setX(double x) {
+		this.x = x;
+	}
+	
+	public void setY(double y) {
+		this.y = y;
+	}
+	
+	public void setWidth(double w) {
+		width = w;
+	}
+	
+	public void setHeight(double h) {
+		height = h;
 	}
 	
 	public double getReliability() {
