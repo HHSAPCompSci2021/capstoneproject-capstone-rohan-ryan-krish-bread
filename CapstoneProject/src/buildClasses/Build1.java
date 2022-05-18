@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import main.DrawingSurface;
 import processing.core.PImage;
 import rocket.Engine;
+import rocket.Rocket;
 import screenClasses.ScreenSwitcher;
 import screenClasses.Sidebar;
 
@@ -92,6 +93,10 @@ public class Build1 extends BuildScreen {
 	/**
 	 * detects where the mouse was pressed, and activates the button if it was pressed
 	 */
+	
+	public Rocket getRocket() {
+		return rocket;
+	}
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {

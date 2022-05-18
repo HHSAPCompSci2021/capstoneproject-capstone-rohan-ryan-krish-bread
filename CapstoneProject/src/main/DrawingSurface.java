@@ -25,6 +25,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private ArrayList<Integer> keys;
 	private Sidebar sidebar;
 	private Screen activeScreen;
+	private Build1 buildScreen1;
 	private ArrayList<Screen> screens;
 
 	
@@ -38,7 +39,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		LevelSelect levels = new LevelSelect(800, 600, this);
 		screens.add(levels);
 		
-		Build1 buildScreen1 = new Build1(this);
+		buildScreen1 = new Build1(this);
 		screens.add(buildScreen1);
 		
 		Build2 buildScreen2 = new Build2(this);
@@ -120,6 +121,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
 	public Screen getActiveScreen() {
 		return activeScreen;
+	}
+	
+	public Build1 getBuild1() {
+		return buildScreen1;
 	}
 	
 	public ArrayList<Screen> getScreens(){
