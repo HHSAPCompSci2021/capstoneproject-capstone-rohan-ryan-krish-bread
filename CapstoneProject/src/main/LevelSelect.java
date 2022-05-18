@@ -29,11 +29,7 @@ public class LevelSelect extends Screen{
 		
 		surface.background(0);
 		PImage image1 = surface.loadImage("img/background.jpg");
-		surface.image(image1, 55, 45);
-		
-		surface.fill(0);
-		surface.text("Level Select", 10, 20);
-		surface.fill(255);
+		surface.image(image1, 0, 10, 800, 600);
 		
 		surface.rect(button1.x, button1.y, button1.width, button1.height, 10, 10, 10, 10);
 		surface.fill(0);
