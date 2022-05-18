@@ -6,7 +6,6 @@ import java.awt.Shape;
 
 import buildClasses.BuildScreen;
 import main.DrawingSurface;
-import main.Main;
 import processing.core.PImage;
 import rocket.Engine;
 import rocket.Fuel;
