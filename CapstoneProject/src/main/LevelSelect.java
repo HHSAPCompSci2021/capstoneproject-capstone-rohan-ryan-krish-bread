@@ -28,7 +28,7 @@ public class LevelSelect extends Screen{
 	public void draw() {
 		
 		surface.background(0);
-		PImage image1 = surface.loadImage("img/among us background.jpg");
+		PImage image1 = surface.loadImage("img/background.jpg");
 		surface.image(image1, 55, 45);
 		
 		surface.fill(0);
