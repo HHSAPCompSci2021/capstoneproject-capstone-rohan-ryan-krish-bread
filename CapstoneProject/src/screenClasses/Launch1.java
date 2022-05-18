@@ -67,6 +67,7 @@ public class Launch1 extends LaunchScreen{
 		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
 	public void setup() {
+		
 		spawnRocket();
 		spawnMeteors();
 		spawnImage();
