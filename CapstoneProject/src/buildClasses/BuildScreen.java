@@ -181,6 +181,7 @@ public class BuildScreen extends Screen{
 				
 				if (sideBar.getESelected().equals(engines.get(i).getName())) {
 					rocket.setEngine(engines.get(i));
+					data.setEngine(engines.get(i));
 					engines.get(i).setVis();
 				}
 				
@@ -200,6 +201,7 @@ public class BuildScreen extends Screen{
 				
 				if (sideBar.getMSelected().equals(materials.get(i).getName())) {
 					rocket.setMaterial(materials.get(i));
+					data.setMaterial(materials.get(i));
 					materials.get(i).setVis();
 				}
 				
@@ -216,6 +218,7 @@ public class BuildScreen extends Screen{
 				
 				if (sideBar.getFSelected().equals(fuels.get(i).getName())) {
 					rocket.setFuel(fuels.get(i));
+					data.setFuel(fuels.get(i));
 					fuels.get(i).setVis();
 				}
 				

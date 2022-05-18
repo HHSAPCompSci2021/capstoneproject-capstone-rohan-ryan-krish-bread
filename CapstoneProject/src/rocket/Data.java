@@ -40,6 +40,14 @@ public class Data {
 		this.e = e;
 	}
 	
+	public void setMaterial(Material m) {
+		this.m = m;
+	}
+	
+	public void setFuel(Fuel f) {
+		this.f = f;
+	}
+	
 	public void setThrust(double t) {
 		thrust = t;
 	}
@@ -52,11 +60,10 @@ public class Data {
 		p.noFill();
 		p.rect((float)x,(float) y, (float)width, (float)height);
 		
-		if (e != null && m != null && f != null ) {
+		if (e != null && m != null && f != null) {
 			thrust = e.getThrust();
 			probability = e.getReliability() * 100;
 			weight = e.getWeight() + m.getWeight() + f.getWeight();
-			
 		}
 		
 		p.push();
