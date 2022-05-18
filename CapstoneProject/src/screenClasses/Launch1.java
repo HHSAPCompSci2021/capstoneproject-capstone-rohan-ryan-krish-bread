@@ -105,7 +105,7 @@ public class Launch1 extends LaunchScreen{
 //		meteor.draw(surface);
 //		img2 = surface.loadImage("img/night.png");
 //		surface.image(img2, (float) this.imgX, (float) this.imgY);
-		surface.text("Launch 1", 10, 20);
+		surface.text("Level 1 Launch", 10, 20);
 		surface.fill(0);
 		rocket.draw(surface);
 		

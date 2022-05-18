@@ -54,7 +54,7 @@ public class Build1 extends BuildScreen {
 		super.draw();
 		
 		surface.fill(0);
-		surface.text("Build 1", 10, 20);
+		surface.text("Level 1 Build", 10, 20);
 		surface.fill(255);
 		
 //		if (rocket == null) {
@@ -82,7 +82,7 @@ public class Build1 extends BuildScreen {
 		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
-		String str = "To Launch 1";
+		String str = "Launch";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2+3);
 		surface.fill(255);
