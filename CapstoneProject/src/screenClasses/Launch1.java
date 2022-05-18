@@ -26,7 +26,11 @@ public class Launch1 extends LaunchScreen{
 	private int count;
 	private Rectangle win;
 	private int draws; // number of times draw() has been called
-	
+	private PImage img2;
+	private int offSetY;
+	private int imgX, imgY;
+	private int scale;
+	private PImage img3;
 	public Launch1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -39,6 +43,12 @@ public class Launch1 extends LaunchScreen{
 		count = 0;
 		win = new Rectangle(0, 0 , 800, 600);
 		draws = 0;
+		offSetY = 0;
+		this.imgX = -50;
+		this.imgY = 0;
+		this.img2 = img2;
+		this.img3 = img3;
+		scale = 0;
 	}
 	
 	public void spawnRocket() {
@@ -46,18 +56,36 @@ public class Launch1 extends LaunchScreen{
 		rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
+	public void spawnImage() {
+		img2 = surface.loadImage("img/night.png");
+	}
+	public void spawnNight() {
+		img3 = surface.loadImage("img/NightStar.png");
+	}
 	public void spawnMeteors() {
 		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
 	public void setup() {
 		spawnRocket();
 		spawnMeteors();
+		spawnImage();
+		spawnNight();
 	}
 	
 	public void draw() {
+//		if() {
+//			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
+//		}
 		
+//		scale+=0.01;
 		draws++;
-		
+//		if(rocket.getY() < win.getHeight()) {
+			surface.image(img2, (float) this.imgX, (float) this.imgY);
+//		}
+//		else if(rocket.getY() >= win.getHeight()) {
+			this.imgY++;
+			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
+//			img3.resize(img3.width+scale, img3.height+scale);
 ////		surface.background(100,100,255);
 //		surface.fill(0);
 //		surface.text("Launch 1", 10, 20);
@@ -66,8 +94,8 @@ public class Launch1 extends LaunchScreen{
 		
 		
 //		meteor.draw(surface);
-		PImage image1 = surface.loadImage("img/night.png");
-		surface.image(image1, -50, 0);
+//		img2 = surface.loadImage("img/night.png");
+//		surface.image(img2, (float) this.imgX, (float) this.imgY);
 		surface.text("Launch 1", 10, 20);
 		surface.fill(0);
 		rocket.draw(surface);
@@ -84,12 +112,6 @@ public class Launch1 extends LaunchScreen{
 		}
 		else if(rocket.getX() < 0) {
 			rocket.setImageX(0);
-		}
-		else if(rocket.getY() == win.getHeight()) {
-			rocket.setImageY(0);
-		}
-		else if(rocket.getY() < 0) {
-			rocket.setImageY(win.getHeight());
 		}
 		if (start) {
 			rocket.setImageY(rocket.getY()-2);
@@ -164,6 +186,7 @@ public class Launch1 extends LaunchScreen{
 //		}
 //		return false;
 //	}
+	
 	public boolean touchMeteor(double yMeteor, double xMeteor, double xRocket, double yRocket) {
 		   if (xMeteor == xRocket && yMeteor==yRocket) { 
 			   return true;
