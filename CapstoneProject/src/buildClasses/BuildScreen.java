@@ -161,9 +161,9 @@ public class BuildScreen extends Screen{
 		}
 	}
 	
-	public Rocket getRocket() {
-		return rocket;
-	}
+//	public Rocket getRocket() {
+//		return rocket;
+//	}
 	
 	public void mousePressed() {
 		dragThisOne(r1);

@@ -52,8 +52,9 @@ public class Launch1 extends LaunchScreen{
 	}
 	
 	public void spawnRocket() {
+		this.rocket = surface.getBuild1().rocket;
 		
-		rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
+	//rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
 	public void spawnImage() {
@@ -66,7 +67,6 @@ public class Launch1 extends LaunchScreen{
 		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
 	public void setup() {
-		
 		spawnRocket();
 		spawnMeteors();
 		spawnImage();
@@ -77,7 +77,14 @@ public class Launch1 extends LaunchScreen{
 //		if() {
 //			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
 //		}
-		
+//		if(imgY > 46) {
+//			return;
+//		}
+		if (this.imgY > 143) {
+			surface.text("Congratulations! You completed the level"
+					+ "Click where you want to land", imgX, imgY);
+			surface.fill(255);
+		}
 //		scale+=0.01;
 		draws++;
 //		if(rocket.getY() < win.getHeight()) {
@@ -86,6 +93,7 @@ public class Launch1 extends LaunchScreen{
 //		else if(rocket.getY() >= win.getHeight()) {
 			this.imgY++;
 			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
+			System.out.println(imgY);
 //			img3.resize(img3.width+scale, img3.height+scale);
 ////		surface.background(100,100,255);
 //		surface.fill(0);
@@ -115,7 +123,7 @@ public class Launch1 extends LaunchScreen{
 			rocket.setImageX(0);
 		}
 		if (start) {
-			rocket.setImageY(rocket.getY()-2);
+//			rocket.setImageY(rocket.getY()-2);
 			meteor.setMeteorY(meteor.getY()+3);
 			if(touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
 				start = false;
@@ -143,7 +151,9 @@ public class Launch1 extends LaunchScreen{
 		
 	
 	}
-	
+	public void land() {
+		
+	}
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
