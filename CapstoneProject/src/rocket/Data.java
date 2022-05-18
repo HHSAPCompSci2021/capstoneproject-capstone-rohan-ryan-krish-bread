@@ -36,6 +36,10 @@ public class Data {
 		weight = w;
 	}
 	
+	public void setEngine(Engine e) {
+		this.e = e;
+	}
+	
 	public void setThrust(double t) {
 		thrust = t;
 	}
@@ -52,14 +56,15 @@ public class Data {
 			thrust = e.getThrust();
 			probability = e.getReliability() * 100;
 			weight = e.getWeight() + m.getWeight() + f.getWeight();
+			
 		}
 		
-			p.push();
-			p.fill(0);
-			p.text("Weight: " + weight + "kg", 620, 70);
-			p.text("Thrust: " + thrust + "N", 620, 90);
-			p.text("Probability of success: " + probability + "%", 620, 110);
-			p.pop();
+		p.push();
+		p.fill(0);
+		p.text("Weight: " + weight + "kg", 620, 70);
+		p.text("Thrust: " + thrust + "N", 620, 90);
+		p.text("Probability of success: " + probability + "%", 620, 110);
+		p.pop();
 		
 		
 		

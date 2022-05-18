@@ -70,9 +70,19 @@ public class BuildScreen extends Screen{
 	public void spawnRocket() {
 	//	img = surface.loadImage("img/rocket.png");
 		rocket = new Rocket(400,100,50,250);
-		rocket.setEngine(engines.get(0));
-		rocket.setMaterial(materials.get(0));
-		rocket.setFuel(fuels.get(0));
+		
+//		rocket.setEngine(engines.get(0));
+//		rocket.setMaterial(materials.get(0));
+//		rocket.setFuel(fuels.get(0));
+		
+//		rocket.getEngine().setX(rocket.getX());
+//		rocket.getEngine().setY(rocket.getY());
+//		
+//		rocket.getMaterial().setX(rocket.getX());
+//		rocket.getMaterial().setY(rocket.getY());
+//		
+//		rocket.getFuel().setX(rocket.getX());
+//		rocket.getFuel().setY(rocket.getY());
 	}
 	
 	/**
@@ -83,7 +93,7 @@ public class BuildScreen extends Screen{
 	}
 	
 	public void spawnDataDisplay() {
-		data = new Data(engines.get(0), materials.get(0), fuels.get(0),600,50,200,600);
+		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,50,200,600);
 	}
 	
 	/**
@@ -172,14 +182,16 @@ public class BuildScreen extends Screen{
 				if (sideBar.getESelected().equals(engines.get(i).getName())) {
 					rocket.setEngine(engines.get(i));
 					engines.get(i).setVis();
-				
 				}
+				
 				
 			}
 			
 			//rocket.setEngine(engines.get(0));
 			
 		}
+		
+		
 		if (meterialLoc.contains(surface.mouseX,surface.mouseY)) {
 			r2.x = meterialLoc.x;
 			r2.y = meterialLoc.y;
@@ -188,13 +200,14 @@ public class BuildScreen extends Screen{
 				
 				if (sideBar.getMSelected().equals(materials.get(i).getName())) {
 					rocket.setMaterial(materials.get(i));
-					rocket.mhide(false);
+					materials.get(i).setVis();
 				}
 				
 			}
 			
 			//rocket.setMaterial(materials.get(0));
 		}
+		
 		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
 			r3.x = fuelLoc.x;
 			r3.y = fuelLoc.y;
@@ -203,13 +216,14 @@ public class BuildScreen extends Screen{
 				
 				if (sideBar.getFSelected().equals(fuels.get(i).getName())) {
 					rocket.setFuel(fuels.get(i));
-					rocket.fhide(false);
+					fuels.get(i).setVis();
 				}
 				
 			}
 			
 			//rocket.setFuel(fuels.get(0));
 		}
+		
 	}
 	
 	public void mouseDragged() {

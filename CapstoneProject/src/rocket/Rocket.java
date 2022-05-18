@@ -42,6 +42,8 @@ public class Rocket {
 		fHide = true;
 		
 		blownUp = false;
+		
+		
 	}
 	
 	// setters
@@ -106,25 +108,51 @@ public class Rocket {
 	public void draw(PApplet drawer) { // change
 		
 		//if (img != null) {
+		
+		
 			
-			if (blownUp == false) {
+		if (blownUp == false) {
 				
-				drawer.noFill();
-				drawer.rect((float)x,(float)y,(float)width,(float)height);
-				drawer.triangle((float)x,(float)y,(float)(x+(width/2)),(float)(y-50),(float)(x+width),(float)y);
+			drawer.noFill();
+			drawer.rect((float)x,(float)y,(float)width,(float)height);
+			drawer.triangle((float)x,(float)y,(float)(x+(width/2)),(float)(y-50),(float)(x+width),(float)y);
 				
-				if (engine != null && material != null && fuel != null) {
-					engine.draw(drawer);
-					material.draw(drawer);
-					fuel.draw(drawer);
+			if (engine != null) {
+				
+				engine.setX(x);
+				engine.setY(y+height);
+				engine.setWidth(width);
+				engine.setHeight(50);
+				
+				engine.draw(drawer);
 					
-				}
-				
 			}
 			
-			else {
-				drawer.image(drawer.loadImage("img/th.png"),(float)x,(float)y,(float)50,(float)50);
+			if (material != null) {
+				
+				material.setX(x);
+				material.setY(y);
+				material.setWidth(width);
+				material.setHeight(height);
+				
+				material.draw(drawer);
+				
+					
 			}
+
+			if (fuel != null) {
+	
+				fuel.draw(drawer);
+		
+			}
+			
+			
+				
+		}
+			
+		else {
+			drawer.image(drawer.loadImage("img/th.png"),(float)x,(float)y,(float)50,(float)50);
+		}
 			
 		// if material not null, then draw it
 		
