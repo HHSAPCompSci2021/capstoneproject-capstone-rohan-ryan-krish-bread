@@ -90,15 +90,6 @@ public class Rocket {
 	public double getY() {
 		return y;
 	}
-	
-	public void setWidth(double w) {
-		width = w;
-	}
-	
-	public void setHeight(double h) {
-		height = h;
-	}
-	
 	public PImage getImage() {
 		return img;
 	}

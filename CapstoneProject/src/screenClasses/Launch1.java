@@ -57,7 +57,6 @@ public class Launch1 extends LaunchScreen{
 	public void spawnRocket() {
 		this.rocket = surface.getBuild1().rocket;
 		
-		
 	//rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
@@ -79,13 +78,15 @@ public class Launch1 extends LaunchScreen{
 	
 	public void draw() {
 		if(imgY > 340) {
+			
 			return;
 		}
 			draws++;
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
 			this.imgY++;
 			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
-			System.out.println(imgY);
+
+//		surface.text("Launch 1", 10, 20);
 
 //			img3.resize(img3.width+scale, img3.height+scale);
 ////		surface.background(100,100,255);
