@@ -6,6 +6,7 @@ import java.awt.Shape;
 
 import buildClasses.BuildScreen;
 import main.DrawingSurface;
+import main.Main;
 import processing.core.PImage;
 import rocket.Engine;
 import rocket.Fuel;
@@ -66,6 +67,7 @@ public class Launch1 extends LaunchScreen{
 		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
 	public void setup() {
+		
 		spawnRocket();
 		spawnMeteors();
 		spawnImage();

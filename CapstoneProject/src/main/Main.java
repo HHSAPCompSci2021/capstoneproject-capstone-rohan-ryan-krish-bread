@@ -23,6 +23,7 @@ public class Main {
 		
 		
 		canvas.requestFocus();
+		main(args);
 	}
 
 }
