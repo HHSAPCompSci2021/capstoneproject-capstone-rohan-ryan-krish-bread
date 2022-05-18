@@ -29,8 +29,9 @@ public class Launch1 extends LaunchScreen{
 	private PImage img2;
 	private int offSetY;
 	private int imgX, imgY;
-	private int scale;
+	private double scaleX, scaleY, actualScaleX, actualScaleY;
 	private PImage img3;
+	private boolean isDone;
 	public Launch1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -48,7 +49,9 @@ public class Launch1 extends LaunchScreen{
 		this.imgY = 0;
 		this.img2 = img2;
 		this.img3 = img3;
-		scale = 0;
+		actualScaleX = 0;
+		actualScaleY = 0;
+		isDone = true;
 	}
 	
 	public void spawnRocket() {
@@ -74,26 +77,17 @@ public class Launch1 extends LaunchScreen{
 	}
 	
 	public void draw() {
-//		if() {
-//			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
-//		}
-//		if(imgY > 46) {
-//			return;
-//		}
-		if (this.imgY > 143) {
-			surface.text("Congratulations! You completed the level"
-					+ "Click where you want to land", imgX, imgY);
-			surface.fill(255);
+		if(imgY > 340) {
+			return;
 		}
-//		scale+=0.01;
-		draws++;
-//		if(rocket.getY() < win.getHeight()) {
+			draws++;
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
-//		}
-//		else if(rocket.getY() >= win.getHeight()) {
 			this.imgY++;
 			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
 			System.out.println(imgY);
+<<<<<<< HEAD
+		surface.text("Launch 1", 10, 20);
+=======
 //			img3.resize(img3.width+scale, img3.height+scale);
 ////		surface.background(100,100,255);
 //		surface.fill(0);
@@ -106,6 +100,10 @@ public class Launch1 extends LaunchScreen{
 //		img2 = surface.loadImage("img/night.png");
 //		surface.image(img2, (float) this.imgX, (float) this.imgY);
 		surface.text("Level 1 Launch", 10, 20);
+<<<<<<< Updated upstream
+=======
+>>>>>>> a402a4c22e5f448b5e5e36eb73ac30b4e77ef4d9
+>>>>>>> Stashed changes
 		surface.fill(0);
 		rocket.draw(surface);
 		
@@ -141,6 +139,15 @@ public class Launch1 extends LaunchScreen{
 				 	rocket.setImageX(rocket.getX()+5);
 			   }
 		}
+//		if (this.imgY > 270) {
+//			if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
+//				return;
+//			}
+//			actualScaleX++;
+//			actualScaleY--;
+//			change();
+//			rocket.setImageY(scaleY);
+//		}
 		
 //		if (draws % 60 == 0) {
 //			
@@ -149,10 +156,34 @@ public class Launch1 extends LaunchScreen{
 //			}
 //		}
 		
+		}
+//		else if(this.imgY > 400) {
+//			isDone = false;
+//			return;
+////			if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
+////				return;
+////			}
+////			actualScaleX++;
+////			actualScaleY--;
+////			change();
+////			rocket.setImageY(scaleY);
+////		}
+//		}
 	
+	public void change() {
+		scaleX = rocket.getX()+actualScaleX;
+		scaleY = rocket.getY()+actualScaleY;
 	}
 	public void land() {
+		if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
+			return;
+		}
+		actualScaleX++;
+		actualScaleY++;
+		change();
 		
+		rocket.setImageX(scaleX);
+		rocket.setImageY(scaleY);
 	}
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
