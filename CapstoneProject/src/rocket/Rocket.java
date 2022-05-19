@@ -80,6 +80,10 @@ public class Rocket {
 	public void setImageY(double yVal) {
 		this.y = yVal;
 	}
+	public void setImageXAndY(double xVal, double yVal) {
+		this.x = xVal;
+		this.y = yVal;
+	}
 	// getters
 	public Material getMaterial() {
 		return material;

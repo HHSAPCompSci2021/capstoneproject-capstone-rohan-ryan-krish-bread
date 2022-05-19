@@ -26,6 +26,13 @@ public class Launch2 extends LaunchScreen{
 	private int count;
 	private Rectangle win;
 	private int draws; // number of times draw() has been called
+	private PImage img2;
+	private int offSetY;
+	private int imgX, imgY;
+	private double scaleX, scaleY, actualScaleX, actualScaleY;
+	private PImage img3, img4;
+	private boolean isDone;
+	private int checkPoints;
 	
 	public Launch2(DrawingSurface surface) {
 		super(800,600,surface);
@@ -39,93 +46,177 @@ public class Launch2 extends LaunchScreen{
 		count = 0;
 		win = new Rectangle(0, 0 , 800, 600);
 		draws = 0;
+		offSetY = 0;
+		this.imgX = -50;
+		this.imgY = 0;
+		actualScaleX = 0;
+		actualScaleY = 0;
+		isDone = false;
+		checkPoints = 0;
 	}
 	
 	public void spawnRocket() {
+		this.rocket = surface.getBuild1().rocket;
 		
-		//	img = surface.loadImage("img/rocket.png");
-		rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
+	//rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
-	
+	public void spawnImage() {
+		img2 = surface.loadImage("img/night.png");
+	}
+	public void spawnNight() {
+		img3 = surface.loadImage("img/NightStar.png");
+	}
 	public void spawnMeteors() {
 		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
 	}
-	
-//	public void spawnMeteorImages() {
-//		meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
-//		while(!touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
-//			meteor = new Meteors(surface.loadImage("img/download.png"), this.meteorX+(int)(Math.random()*100), this.meteorY + (int)(Math.random()*100));
-//		}
-//	}
-//	public void drawBackground() {
-//		PImage image1 = surface.loadImage("img/night.png");
-//		surface.image(image1, -50, 0);
-//	}
+	public void spawnSpace() {
+		img4 = surface.loadImage("img/ColdSpace.png");
+	}
 	public void setup() {
 		spawnRocket();
 		spawnMeteors();
+		spawnImage();
+		spawnSpace();
+		spawnNight();
 	}
 	
 	public void draw() {
-		
-		
-			
+		System.out.println(imgY);
+		if(imgY <= 1033) {
 			draws++;
-			PImage image1 = surface.loadImage("img/night.png");
-			surface.image(image1, -50, 0);
-			surface.text("Launch 1", 10, 20);
-			surface.fill(0);
-			rocket.draw(surface);
+			surface.image(img2, (float) this.imgX, (float) this.imgY);
+			this.imgY++;
+			surface.image(img4, (float) this.imgX, (float)this.imgY - img4.height);
+			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height-img4.height);
 			
-			surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
-			surface.fill(255);
-			String str = "Back To Level Select";
-			float w = surface.textWidth(str);
-			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
-			surface.fill(255);
-			
-			if(rocket.getX() > win.getWidth()-20){
-				rocket.setImageX(win.getWidth()-30);
+//		surface.text("Launch 1", 10, 20);
+
+//			img3.resize(img3.width+scale, img3.height+scale);
+////		surface.background(100,100,255);
+//		surface.fill(0);
+//		surface.text("Launch 1", 10, 20);
+//		surface.fill(255);
+		
+		
+		
+//		meteor.draw(surface);
+//		img2 = surface.loadImage("img/night.png");
+//		surface.image(img2, (float) this.imgX, (float) this.imgY);
+		surface.text("Level 2 Launch", 10, 20);
+		surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
+		surface.fill(0);
+		rocket.draw(surface);
+		
+		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
+		surface.fill(255);
+		String str = "Back To Level Select";
+		float w = surface.textWidth(str);
+		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+		surface.fill(255);
+		
+		if(rocket.getX() > win.getWidth()-20){
+			rocket.setImageX(win.getWidth()-30);
+		}
+		else if(rocket.getX() < 0) {
+			rocket.setImageX(0);
+		}
+		if (start) {
+//			rocket.setImageY(rocket.getY()-2);
+			meteor.setMeteorY(meteor.getY()+3);
+			if(touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
+				start = false;
+				count++;
+				surface.loadImage("img/giphy.gif");
+				surface.image(surface.loadImage("img/giphy.gif"),(float) rocket.getX(),(float) rocket.getY());
 			}
-			else if(rocket.getX() < 0) {
-				rocket.setImageX(0);
+		}
+		
+		if (surface.keyPressed) {
+			 if (surface.keyCode == surface.LEFT) {
+				 rocket.setImageX(rocket.getX()-5);
+			     }
+			 if (surface.keyCode == surface.RIGHT) {
+				 	rocket.setImageX(rocket.getX()+5);
+			   }
+		}
+	}
+		else {
+			if(!isDone) {
+				surface.text("Congratulations! You have completed the level."
+						+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 300);
+				isDone = true;
 			}
-			else if(rocket.getY() == win.getHeight()) {
-				rocket.setImageY(0);
-			}
-			else if(rocket.getY() < 0) {
-				rocket.setImageY(win.getHeight());
-			}
-			if (start) {
-				rocket.setImageY(rocket.getY()-2);
-				meteor.setMeteorY(meteor.getY()+3);
-				if(touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
-					start = false;
-					count++;
-					surface.loadImage("img/giphy.gif");
-					surface.image(surface.loadImage("img/giphy.gif"),(float) rocket.getX(),(float) rocket.getY());
-				}
-			}
-			
-			if (surface.keyPressed) {
-				 if (surface.keyCode == surface.LEFT) {
-					 rocket.setImageX(rocket.getX()-5);
-				     }
-				 if (surface.keyCode == surface.RIGHT) {
-					 	rocket.setImageX(rocket.getX()+5);
-				   }
-			}
-//			if (draws % 60 == 0) {
-//				
-//				if (Math.random() > rocket.getEngine().getReliability()) {
-//					rocket.setState(true);
-//				}
+//			if(surface.mousePressed) {
+//				change();
 //			}
+//			change();
+			
+//				rocket.setImageXAndY(surface.mouseX, surface.mouseY);
+		}
+		
 			
 		
-		}
+		
+			
+}
+			
+//			rocket.setImageXAndY(rocket.getX() + (surface.mouseX-rocket.getX()), rocket.getY() + (surface.mouseY-rocket.getY()));
+			
+		
 	
+//		if (this.imgY > 270) {
+//			if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
+//				return;
+//			}
+//			actualScaleX++;
+//			actualScaleY--;
+//			change();
+//			rocket.setImageY(scaleY);
+//		}
+		
+//		if (draws % 60 == 0) {
+//			
+//			if (Math.random() > rocket.getEngine().getReliability()) {
+//				rocket.setState(true);
+//			}
+//		}
+		
+		
+//		else if(this.imgY > 400) {
+//			isDone = false;
+//			return;
+////			if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
+////				return;
+////			}
+////			actualScaleX++;
+////			actualScaleY--;
+////			change();
+////			rocket.setImageY(scaleY);
+////		}
+//		}
+	public void change() {
+		if(actualScaleX != surface.mouseX - rocket.getX()) {
+			actualScaleX++;
+			rocket.setImageX(rocket.getX() + actualScaleX);
+		}
+		if(actualScaleY != surface.mouseY - rocket.getY()) {
+			actualScaleY++;
+			rocket.setImageY(rocket.getY() + actualScaleY);
+		}
+		
+	}
+//	public void land() {
+//		if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
+//			return;
+//		}
+//		actualScaleX++;
+//		actualScaleY++;
+//		change();
+//		
+//		rocket.setImageX(scaleX);
+//		rocket.setImageY(scaleY);
+//	}
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
@@ -136,14 +227,40 @@ public class Launch2 extends LaunchScreen{
 
 		
 	}
+	
 	public void keyPressed() {
 		if(count == 1 && !start) {
 			return;
 		}
 		else {
-			start = true;	
+			start = true;
+//			 if (surface.keyCode== surface.LEFT) {
+//				 rocket.setImageX(rocket.getX()-25);
+//			     }
+//			 if (surface.keyCode==surface.RIGHT) {
+//				 	rocket.setImageX(rocket.getX()+25);
+//			   }
+		}
+//		if (surface.key == 's') { 
+//	  		rocket.moveInLimits(thisLevel, 0, -5);
+//		}
+//	  	if (surface.key == 'a') 
+//	  		rocket.moveInLimits(thisLevel, 0, 5);
+//	  	if (surface.key == 'd') 
+//	  		rocket.moveInLimits(thisLevel, -5, 0);
+//	  	if (surface.key == 'w') { 
+//	  		rocket.moveInLimits(thisLevel, 5, 0);
+//	  	}
+//	  	
+//	  	slideWorldToImage(mario);
 	}
-}
+//	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
+//		if(currentPosX == windowX || currentPosY == windowY || currentPosX < 0 || currentPosY < 0) {
+//			return true;
+//		}
+//		return false;
+//	}
+	
 	public boolean touchMeteor(double yMeteor, double xMeteor, double xRocket, double yRocket) {
 		   if (xMeteor == xRocket && yMeteor==yRocket) { 
 			   return true;
@@ -155,5 +272,14 @@ public class Launch2 extends LaunchScreen{
 		double y1 = rocket.getY();
 		this.rocket.setImageX(x1+=amountX);
 		this.rocket.setImageY(y1+=amountY);
+	}
+	public int countCheckPoints() {
+		if(imgY == 150 || imgY == 806) {
+			checkPoints++;
+		}
+		return checkPoints;
+	}
+	public String parseString(int string) {
+		return " " + string + " ";
 	}
 }

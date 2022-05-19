@@ -27,11 +27,11 @@ public class Launch1 extends LaunchScreen{
 	private Rectangle win;
 	private int draws; // number of times draw() has been called
 	private PImage img2;
-	private int offSetY;
 	private int imgX, imgY;
-	private double scaleX, scaleY, actualScaleX, actualScaleY;
+	private double actualScaleX, actualScaleY;
 	private PImage img3;
 	private boolean isDone;
+	private int checkPoints;
 	public Launch1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -44,14 +44,12 @@ public class Launch1 extends LaunchScreen{
 		count = 0;
 		win = new Rectangle(0, 0 , 800, 600);
 		draws = 0;
-		offSetY = 0;
 		this.imgX = -50;
 		this.imgY = 0;
-		this.img2 = img2;
-		this.img3 = img3;
 		actualScaleX = 0;
 		actualScaleY = 0;
-		isDone = true;
+		isDone = false;
+		checkPoints = 0;
 	}
 	
 	public void spawnRocket() {
@@ -77,10 +75,7 @@ public class Launch1 extends LaunchScreen{
 	}
 	
 	public void draw() {
-		if(imgY > 340) {
-			
-			return;
-		}
+		if(imgY <= 340) { 
 			draws++;
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
 			this.imgY++;
@@ -100,18 +95,18 @@ public class Launch1 extends LaunchScreen{
 //		img2 = surface.loadImage("img/night.png");
 //		surface.image(img2, (float) this.imgX, (float) this.imgY);
 		surface.text("Level 1 Launch", 10, 20);
-
+		surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 		surface.fill(0);
 		rocket.draw(surface);
 		
-		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
-		surface.fill(255);
+//		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
+//		surface.fill(255);
 		String str = "Back To Level Select";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
-		surface.fill(255);
+		surface.fill(0);
 		
-		if(rocket.getX() > win.getWidth()-20){
+		if(rocket.getX() > win.getWidth()-20) {
 			rocket.setImageX(win.getWidth()-30);
 		}
 		else if(rocket.getX() < 0) {
@@ -136,6 +131,22 @@ public class Launch1 extends LaunchScreen{
 				 	rocket.setImageX(rocket.getX()+5);
 			   }
 		}
+	}
+		else {
+			if(!isDone) {
+				surface.text("Congratulations! You have completed the level."
+					+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 300);
+				isDone = true;
+			}
+			
+			
+			
+				}
+			
+//			rocket.setImageXAndY(rocket.getX() + (surface.mouseX-rocket.getX()), rocket.getY() + (surface.mouseY-rocket.getY()));
+			
+		}
+	
 //		if (this.imgY > 270) {
 //			if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
 //				return;
@@ -153,7 +164,7 @@ public class Launch1 extends LaunchScreen{
 //			}
 //		}
 		
-		}
+		
 //		else if(this.imgY > 400) {
 //			isDone = false;
 //			return;
@@ -166,22 +177,28 @@ public class Launch1 extends LaunchScreen{
 ////			rocket.setImageY(scaleY);
 ////		}
 //		}
-	
 	public void change() {
-		scaleX = rocket.getX()+actualScaleX;
-		scaleY = rocket.getY()+actualScaleY;
-	}
-	public void land() {
-		if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
-			return;
+		if(actualScaleX != surface.mouseX - rocket.getX()) {
+			actualScaleX++;
+			rocket.setImageX(rocket.getX() + actualScaleX);
 		}
-		actualScaleX++;
-		actualScaleY++;
-		change();
+		if(actualScaleY != surface.mouseY - rocket.getY()) {
+			actualScaleY++;
+			rocket.setImageY(rocket.getY() + actualScaleY);
+		}
 		
-		rocket.setImageX(scaleX);
-		rocket.setImageY(scaleY);
 	}
+//	public void land() {
+//		if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
+//			return;
+//		}
+//		actualScaleX++;
+//		actualScaleY++;
+//		change();
+//		
+//		rocket.setImageX(scaleX);
+//		rocket.setImageY(scaleY);
+//	}
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
@@ -238,4 +255,17 @@ public class Launch1 extends LaunchScreen{
 		this.rocket.setImageX(x1+=amountX);
 		this.rocket.setImageY(y1+=amountY);
 	}
+	public String parseString(int string) {
+		return " " + string + " ";
+	}
+	public int countCheckPoints() {
+		if(imgY == 150) {
+			checkPoints++;
+		}
+		return checkPoints;
+	}
+	public void print(Object o) {
+		System.out.println(o);
+	}
+	
 }
