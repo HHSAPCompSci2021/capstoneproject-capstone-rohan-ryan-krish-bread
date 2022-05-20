@@ -25,6 +25,7 @@ public class Rocket {
 	private Data data;
 	private boolean blownUp;
 	private boolean eHide, fHide, mHide;
+	private float rAngle;
 	
 	private double x,y,width,height;
 	private PImage img;
@@ -105,6 +106,10 @@ public class Rocket {
 		return fuel;
 	}
 	
+	public void rotate(float angle) {
+		rAngle = angle;
+	}
+	
 	public boolean getState() {
 		return blownUp;
 	}
@@ -118,8 +123,12 @@ public class Rocket {
 		if (blownUp == false) {
 				
 			drawer.fill(255);
+			drawer.push();
+			drawer.rotate(rAngle);
 			drawer.rect((float)x,(float)y,(float)width,(float)height);
 			drawer.triangle((float)x,(float)y,(float)(x+(width/2)),(float)(y-50),(float)(x+width),(float)y);
+			drawer.pop();
+			
 				
 			if (engine != null) {
 				

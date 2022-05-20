@@ -88,31 +88,14 @@ public class Launch2 extends LaunchScreen{
 			this.imgY++;
 			surface.image(img4, (float) this.imgX, (float)this.imgY - img4.height);
 			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height-img4.height);
-			
-//		surface.text("Launch 1", 10, 20);
-
-//			img3.resize(img3.width+scale, img3.height+scale);
-////		surface.background(100,100,255);
-//		surface.fill(0);
-//		surface.text("Launch 1", 10, 20);
-//		surface.fill(255);
-		
-		
-		
-//		meteor.draw(surface);
-//		img2 = surface.loadImage("img/night.png");
-//		surface.image(img2, (float) this.imgX, (float) this.imgY);
-		surface.text("Level 2 Launch", 10, 20);
-		surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
-		surface.fill(0);
-		rocket.draw(surface);
-		
-		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
-		surface.fill(255);
-		String str = "Back To Level Select";
-		float w = surface.textWidth(str);
-		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
-		surface.fill(255);
+			surface.text("Level 2 Launch", 10, 20);
+			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
+			surface.fill(0);
+			rocket.draw(surface);
+			String str = "Back To Level Select";
+			float w = surface.textWidth(str);
+			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+			surface.fill(0);
 		
 		if(rocket.getX() > win.getWidth()-20){
 			rocket.setImageX(win.getWidth()-30);
@@ -134,7 +117,7 @@ public class Launch2 extends LaunchScreen{
 		if (surface.keyPressed) {
 			 if (surface.keyCode == surface.LEFT) {
 				 rocket.setImageX(rocket.getX()-5);
-			     }
+			   }
 			 if (surface.keyCode == surface.RIGHT) {
 				 	rocket.setImageX(rocket.getX()+5);
 			   }
@@ -146,6 +129,7 @@ public class Launch2 extends LaunchScreen{
 						+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 400);
 				isDone = true;
 			}
+			
 //			if(surface.mousePressed) {
 //				change();
 //			}
