@@ -117,7 +117,7 @@ public class Rocket {
 			
 		if (blownUp == false) {
 				
-			drawer.noFill();
+			drawer.fill(255);
 			drawer.rect((float)x,(float)y,(float)width,(float)height);
 			drawer.triangle((float)x,(float)y,(float)(x+(width/2)),(float)(y-50),(float)(x+width),(float)y);
 				
