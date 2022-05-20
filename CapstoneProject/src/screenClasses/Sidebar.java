@@ -64,6 +64,10 @@ public class Sidebar {
 		
 	}
 	
+	/**
+	 * makes the dropdown menus and fills them with values 
+	 * @param p PApplet on which to draw dropdowns 
+	 */
 	public void setup (PApplet p) {
 		
 		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
@@ -108,6 +112,11 @@ public class Sidebar {
 		
 		
 	}
+	
+	/**
+	 * gets the selected engine from the list
+	 * @return the selected engine from the list
+	 */
 	
 	public String getESelected() {
 		return elist.getSelectedText();
