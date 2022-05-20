@@ -3,6 +3,8 @@ package screenClasses;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Ellipse2D.Float;
 
 import buildClasses.BuildScreen;
 import main.DrawingSurface;
@@ -18,6 +20,7 @@ public class Launch1 extends LaunchScreen{
 	private DrawingSurface surface;
 	private Rectangle button, win;
 	private Shape s;
+	private Ellipse2D.Float land;
 	private Rocket rocket;
 	private Meteor meteor;
 	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
@@ -67,12 +70,19 @@ public class Launch1 extends LaunchScreen{
 	}
 	
 	public void draw() {
+//		surface.fill(255, 0, 0);
+//		surface.rect(imgX, imgY, 500, 10);
+//		surface.fill(255);
 		if(imgY <= 340) { 
 			draws++;
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
 			this.imgY++;
 			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
-
+			surface.fill(0, 255, 0);
+			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
+			surface.circle(land.x, land.y, 880);
+			surface.fill(255);
+			
 //		surface.text("Launch 1", 10, 20);
 
 //			img3.resize(img3.width+scale, img3.height+scale);
@@ -197,15 +207,16 @@ public class Launch1 extends LaunchScreen{
 			rocket.setState(false);
 			surface.switchScreen(ScreenSwitcher.LEVEL_SELECT);
 		}
+//		if () {
+//			
+//		}
 			
-
-		
 	}
 	
 	public void keyPressed() {
 		if(count == 1 && !start) {
 			return;
-		}
+		} 
 		else {
 			start = true;
 //			 if (surface.keyCode== surface.LEFT) {
