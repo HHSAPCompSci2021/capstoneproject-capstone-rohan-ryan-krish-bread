@@ -68,9 +68,9 @@ public class Data {
 		
 		p.push();
 		p.fill(0);
-		p.text("Weight: " + weight + "kg", 620, 70);
-		p.text("Thrust: " + thrust + "N", 620, 90);
-		p.text("Probability of success: " + probability + "%", 620, 110);
+		p.text("Weight: " + weight + "kg", 610, 70);
+		p.text("Thrust: " + thrust + "N", 610, 90);
+		p.text("Probability of success: " + probability + "%", 610, 110);
 		p.pop();
 		
 		

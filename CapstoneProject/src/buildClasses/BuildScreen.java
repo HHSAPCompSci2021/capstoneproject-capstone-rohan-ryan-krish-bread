@@ -142,7 +142,7 @@ public class BuildScreen extends Screen{
 			surface.fill(0);
 			surface.text(sideBar.getList("f").getSelectedText(), r3.x+15, r3.y+15);
 		}
-		surface.noFill();
+		surface.fill(255);
 		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
 		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
 		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
