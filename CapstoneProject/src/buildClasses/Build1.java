@@ -40,7 +40,7 @@ public class Build1 extends BuildScreen {
 	public void setup() {
 		super.setup();
 		sideBar.setup(surface);
-		// remove build2 parts from list then add them back in when screen is switched
+
 	}
 	
 	/**

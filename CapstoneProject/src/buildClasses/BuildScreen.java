@@ -60,7 +60,8 @@ public class BuildScreen extends Screen{
 		r1 = new Rectangle(25, 150, 100, 30);
 		r2 = new Rectangle(25, 255, 100, 30);
 		r3 = new Rectangle(25, 360, 100, 30);
-		engineLoc = new Rectangle(300, 150, 100, 30);
+		
+		engineLoc = new Rectangle(300, 150, 100, 30); // move these so that they correspond
 		meterialLoc = new Rectangle(300, 180, 100, 30);
 		fuelLoc = new Rectangle(300, 210, 100, 30);
 		currentDrag = null;
