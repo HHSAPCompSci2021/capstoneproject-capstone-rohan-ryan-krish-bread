@@ -178,7 +178,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 
 	/**
 	 * Changed the screen that is currently being displayed
-	 * @param i Int of the screen to be displayed
+	 * @param i Int of the screen to be displayed 
 	 */
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
