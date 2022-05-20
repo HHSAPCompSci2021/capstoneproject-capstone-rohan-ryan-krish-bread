@@ -14,9 +14,8 @@ import screenClasses.Launch1;
 import screenClasses.Launch2;
 
 /**
- * 
  * This class holds and keeps track of screens that can be changed and drawn on
- *
+ * @author Ryan Wagner, Krish Jhurani, Rohan Gupta
  */
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 
@@ -28,7 +27,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private Build1 buildScreen1;
 	private ArrayList<Screen> screens;
 
-	
+	/**
+	 * Gives all of the variable values, and makes screens
+	 */
 	public DrawingSurface() {
 		
 		
@@ -57,12 +58,20 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		activeScreen = screens.get(0);
 	}
 	
+	/**
+	 * sets up all of the screens
+	 */
 	public void setup() {
 		
 		for (Screen s : screens)
 			s.setup();
 	}
 	
+	/**
+	 * Draws the screen currently being used and the things on it
+	 * Scales the current screen to the correct size
+	 * @post DrawingSurface will be changed and will have things drawn on it
+	 */
 	public void draw() {
 		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
 		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
@@ -77,6 +86,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		pop();
 	}
 	
+	/**
+	 * Detects when a key is pressed, and uses the appropriate method for the current screen
+	 */
 	public void keyPressed() {
 		keys.add(keyCode);
 		if (key == ESC) {
@@ -85,53 +97,89 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		activeScreen.keyPressed();
 	}
 
+	/**
+	 * Detects when a key is released, and uses the appropriate method for the current screen
+	 */
 	public void keyReleased() {
 		while(keys.contains(keyCode))
 			keys.remove(new Integer(keyCode));
 	}
-
-	public boolean isPressed(Integer code) {
-		return keys.contains(code);
-	}
 	
+	/**
+	 * Detects when the mouse is pressed, and uses the appropriate method for the current screen
+	 */
 	public void mousePressed() {
 		activeScreen.mousePressed();
-		//changeVisibility();
 	}
 	
+	/**
+	 * Detects when the mouse is moved, and uses the appropriate method for the current screen
+	 */
 	public void mouseMoved() {
 		activeScreen.mouseMoved();
 	}
 	
+	
+	/**
+	 * Detects when the mouse is dragged, and uses the appropriate method for the current screen
+	 */
 	public void mouseDragged() {
 		activeScreen.mouseDragged();
 	}
 	
+	/**
+	 * Detects when the mouse is released, and uses the appropriate method for the current screen
+	 */
 	public void mouseReleased() {
 		activeScreen.mouseReleased();
 	}
 	
+	/**
+	 * Converts the assumed coordinates to the actual coordinates
+	 * @param assumed Point that contains the assumed coordinates 
+	 * @return Returns a Point that contains the Actual coordinates
+	 */
 	public Point assumedCoordinatesToActual(Point assumed) {
 		return new Point((int)(assumed.getX()*ratioX), (int)(assumed.getY()*ratioY));
 	}
 
+	/**
+	 * Converts the actual coordinates to the assumed coordinates
+	 * @param actual Point that contains the actual coordinates 
+	 * @return Returns a Point that contains the assumed coordinates
+	 */
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
 	
+	/**
+	 * Gets the current screen being displayed
+	 * @return The Screen being displayed
+	 */
 	public Screen getActiveScreen() {
 		return activeScreen;
 	}
 	
+	/**
+	 * Gets the level one build
+	 * @return The build for level one
+	 */
 	public Build1 getBuild1() {
 		return buildScreen1;
 	}
 	
+	/**
+	 * Gets all of the screen that can be displayed on the DrawingSurface
+	 * @return The ArrayList of Screens
+	 */
 	public ArrayList<Screen> getScreens(){
 		return screens;
 	}
 
-	@Override
+	/**
+	 * Changed the screen that is currently being displayed
+	 * @param i Int of the screen to be displayed
+	 */
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
 	}
