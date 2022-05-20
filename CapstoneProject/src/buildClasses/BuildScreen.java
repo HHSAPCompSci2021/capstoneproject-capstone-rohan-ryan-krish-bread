@@ -19,9 +19,8 @@ import screenClasses.Sidebar;
 // all build screens have button to click once done
 // build screens have lists of materials, engines, etc. Subclasses add to these lists depending on level
 /**
- * 
- * Provides layout for build screens
- *
+ * Provides layout and general set up for build screens
+ * @author Ryan Wagner, Krish Jhurani, Rohan Gupta
  */
 
 // 
@@ -95,13 +94,16 @@ public class BuildScreen extends Screen{
 		sideBar = new Sidebar(0, 50, 200, 600, engines, fuels, materials);
 	}
 	
+	/**
+	 * Creates the data that will be displayed on the builds
+	 */
 	public void spawnDataDisplay() {
 		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,50,200,600);
 	}
 	
 	/**
-	 * sets up the Rocket and SideBar for the build
-	 * fills up lists with default values (level 1 values)
+	 * Sets up the Rocket, SideBar and Data for the build
+	 * Fills up lists with default values (level 1 values)
 	 */
 	public void setup() {
 		
@@ -129,7 +131,8 @@ public class BuildScreen extends Screen{
 	}
 	
 	/**
-	 * Is a method that is to be overridden in its subclasses
+	 * Draws the drop down lists to the build along with drop locations for rocket customization
+	 * @post rectangles, drop down lists, and text will be drawn to the DrawingSurface
 	 */
 	public void draw() {
 		
@@ -163,6 +166,10 @@ public class BuildScreen extends Screen{
 	
 	}
 	
+	/**
+	 * Keeps track of data for dragging the customization box
+	 * @param r Rectangle that is to be dragged
+	 */
 	public void dragThisOne(Rectangle r) {
 		if (r.contains(surface.mouseX,surface.mouseY)) {
 			currentDrag = r;
@@ -175,12 +182,19 @@ public class BuildScreen extends Screen{
 //		return rocket;
 //	}
 	
+	/**
+	 * Gets ready to drag the customization box's if mouse is pressed
+	 */
 	public void mousePressed() {
 		dragThisOne(r1);
 		dragThisOne(r2);
 		dragThisOne(r3);
 	}
 
+	/**
+	 * Clicks customization box's into place if they are close to the drop location
+	 * @post location of customization boxe's could be changed
+	 */
 	public void mouseReleased() {
 		currentDrag = null;
 		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
@@ -222,6 +236,10 @@ public class BuildScreen extends Screen{
 		
 	}
 	
+	/**
+	 * Drags the customization box that is currently being dragged
+	 * @post coordinate of the box being dragged will change
+	 */
 	public void mouseDragged() {
 		if (currentDrag != null) {
 			currentDrag.x = surface.mouseX - dragOffsetX;

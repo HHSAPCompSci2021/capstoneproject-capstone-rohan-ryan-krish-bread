@@ -15,9 +15,8 @@ import screenClasses.ScreenSwitcher;
 import screenClasses.Sidebar;
 
 /**
- * 
  * This class represents the level two rocket build screen 
- *
+ * @author Ryan Wagner, Krish Jhurani, Rohan Gupta
  */
 public class Build2 extends BuildScreen {
 
@@ -139,14 +138,14 @@ public class Build2 extends BuildScreen {
 	}
 	
 	/**
-	 * when mouse is released the super class mouseReleased() method is run
+	 * When mouse is released the super class mouseReleased() method is run
 	 */
 	public void mouseReleased() {
 		super.mouseReleased();
 	}
 	
 	/**
-	 * when mouse is dragged the super class mouseDragged() method is run
+	 * When mouse is dragged the super class mouseDragged() method is run
 	 */
 	public void mouseDragged() {
 		super.mouseDragged();
