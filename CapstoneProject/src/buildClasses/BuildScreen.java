@@ -145,7 +145,20 @@ public class BuildScreen extends Screen{
 			surface.rect(r3.x,r3.y,r3.width,r3.height);
 			surface.fill(0);
 			surface.text(sideBar.getList("f").getSelectedText(), r3.x+15, r3.y+15);
+
 		}		
+
+		}
+	//	surface.fill(255);
+		surface.noFill();
+		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
+		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
+		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
+		
+		
+
+		}		
+
 		
 //		if (rocket.getEngine() != null) {
 //			System.out.println(rocket.getEngine().getName());

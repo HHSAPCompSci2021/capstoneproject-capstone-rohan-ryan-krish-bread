@@ -8,20 +8,21 @@ import javax.swing.JFrame;
 import main.DrawingSurface;
 import processing.core.PImage;
 import rocket.Engine;
-import rocket.Fuel;
+import rocket.Rocket;
 import screenClasses.ScreenSwitcher;
 import screenClasses.Sidebar;
 
 /**
  * 
- * This class represents the second rocket build screen 
+ * This class represents the first rocket build screen 
  *
  */
+
 public class Build2 extends BuildScreen {
 
 	private DrawingSurface surface;
 	private Rectangle button;
-//	private Sidebar sidebar;
+	
 	/**
 	 * This constructor instantiates the drawing surface and button to move onto the launch
 	 * @param surface the DrawingSurface that the build will be drawn on
@@ -31,17 +32,15 @@ public class Build2 extends BuildScreen {
 		this.surface = surface;
 		
 		button = new Rectangle(425,550,150,30);
+		
+		// add engines, fuels, and materials to the arraylists stored in BuildScreen
+		
 	}
 	
 	public void setup() {
 		super.setup();
 		sideBar.setup(surface);
-		
-		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle", 1, 1,1); // change wieght and reliabilty params
-		//Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1");
-		
-		engines.add(closedCycle);
+		// remove build2 parts from list then add them back in when screen is switched
 	}
 	
 	/**
@@ -49,14 +48,38 @@ public class Build2 extends BuildScreen {
 	 */
 	public void draw() {
 		
-		surface.background(0,255,0);
+		
+		surface.background(255);
+		
+		PImage image1 = surface.loadImage("img/steel plating.jpg");
+		surface.image(image1, 0, 10, 250, 200);
+		surface.image(image1, 250, 10, 250, 200);
+		surface.image(image1, 500, 10, 250, 200);
+		surface.image(image1, 750, 10, 250, 200);
+		
+		surface.image(image1, 0, 210, 250, 200);
+		surface.image(image1, 250, 210, 250, 200);
+		surface.image(image1, 500, 210, 250, 200);
+		surface.image(image1, 750, 210, 250, 200);
+		
+		surface.image(image1, 0, 410, 250, 200);
+		surface.image(image1, 250, 410, 250, 200);
+		surface.image(image1, 500, 410, 250, 200);
+		surface.image(image1, 750, 410, 250, 200);
+		
+		super.draw();
 		
 		surface.fill(0);
-		surface.text("Build 2", 10, 20);
+		surface.text("Level 2 Build", 10, 20);
 		surface.fill(255);
 		
+//		if (rocket == null) {
+//			System.out.println("debug");	
+//		}
+	
 		rocket.draw(surface);
 		sideBar.draw(surface);
+		data.draw(surface);
 		
 		if (sideBar.getEngineVis() == false) {
 			sideBar.setVisible();
@@ -70,27 +93,42 @@ public class Build2 extends BuildScreen {
 			sideBar.setVisible();
 		}
 		
+		
+//		materials.get(0).draw(surface);
+		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
-		String str = "To Launch 2";
+		String str = "Launch";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2+3);
 		surface.fill(255);
-	//	Sidebar sidebar = new Sidebar();
-	//  sidebar.draw(surface);
+		
 		
 	}
 	
 	/**
 	 * detects where the mouse was pressed, and activates the button if it was pressed
 	 */
+	
+	public Rocket getRocket() {
+		return rocket;
+	}
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
 			sideBar.hide();
 			surface.switchScreen(ScreenSwitcher.LAUNCH_2);
 		}
+		super.mousePressed();
 			
+	}
+	
+	public void mouseReleased() {
+		super.mouseReleased();
+	}
+	
+	public void mouseDragged() {
+		super.mouseDragged();
 	}
 
 }

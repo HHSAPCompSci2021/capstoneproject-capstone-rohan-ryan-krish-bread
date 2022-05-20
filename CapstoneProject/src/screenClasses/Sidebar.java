@@ -149,8 +149,13 @@ public class Sidebar {
 	public void draw(PApplet p) {
 		//setVisible();
 		
+
+		//p.fill(255);
+		p.noFill();
+
 		p.fill(255);
 //		p.noFill();
+
 		p.rect((float)x, (float)y, (float)width,(float)height);
 		
 //		fuel = elist.getSelectedText();

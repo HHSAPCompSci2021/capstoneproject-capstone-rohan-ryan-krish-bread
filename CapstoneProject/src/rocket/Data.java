@@ -57,7 +57,8 @@ public class Data {
 	
 	public void draw(PApplet p) {
 		
-		p.fill(255);
+	//	p.fill(255);
+		p.noFill();
 		p.rect((float)x,(float) y, (float)width, (float)height);
 		
 		if (e != null && m != null && f != null) {
