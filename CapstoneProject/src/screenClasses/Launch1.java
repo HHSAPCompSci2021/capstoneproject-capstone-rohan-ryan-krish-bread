@@ -78,10 +78,9 @@ public class Launch1 extends LaunchScreen{
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
 			this.imgY++;
 			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
-			surface.fill(0, 255, 0);
 			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
-			surface.circle(land.x, land.y, land.width);
-			surface.fill(255);
+//			surface.circle(land.x, land.y, land.width);
+			
 			
 //		surface.text("Launch 1", 10, 20);
 
@@ -137,7 +136,7 @@ public class Launch1 extends LaunchScreen{
 		else {
 			if(!isDone) {
 				surface.text("Congratulations! You have completed the level."
-					+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 300);
+					+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 400);
 				isDone = true;
 			}
 			
