@@ -33,7 +33,10 @@ public class Launch2 extends LaunchScreen{
 	private PImage img3, img4;
 	private boolean isDone;
 	private int checkPoints;
-	
+	/**
+	 * The launch test for the rocket for level 2
+	 * @param surface the drawing surface on which to draw
+	 */
 	public Launch2(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -54,33 +57,45 @@ public class Launch2 extends LaunchScreen{
 		isDone = false;
 		checkPoints = 0;
 	}
-	
+	/**
+	 * Loads the image of the built rocket
+	 */
 	public void spawnRocket() {
 		this.rocket = surface.getBuild1().rocket;
 		
 	//rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
-	public void spawnImage() {
+	/**
+	 * Loads image of the Earth
+	 */
+	public void spawnNightSky() {
 		img2 = surface.loadImage("img/night.png");
 	}
+	/**
+	 * Loads image of space (with stars)
+	 */
 	public void spawnNight() {
 		img3 = surface.loadImage("img/NightStar.png");
 	}
-	public void spawnMeteors() {
-		meteor = new Meteor(surface.loadImage("img/download.png"), this.meteorX, this.meteorY);
-	}
+	/**
+	 * Spawns another image of space (with stars)
+	 */
 	public void spawnSpace() {
 		img4 = surface.loadImage("img/ColdSpace.png");
 	}
+	/**
+	 * Spawns the default images like background and built rocket once program begins
+	 */
 	public void setup() {
 		spawnRocket();
-		spawnMeteors();
-		spawnImage();
+		spawnNightSky();
 		spawnSpace();
 		spawnNight();
 	}
-	
+	/**
+	 * Draws new instances of images, and text
+	 */
 	public void draw() {
 		if(imgY <= 1033) {
 			draws++;
@@ -102,16 +117,6 @@ public class Launch2 extends LaunchScreen{
 		}
 		else if(rocket.getX() < 0) {
 			rocket.setImageX(0);
-		}
-		if (start) {
-//			rocket.setImageY(rocket.getY()-2);
-			meteor.setMeteorY(meteor.getY()+3);
-			if(touchMeteor(meteor.getY(), meteor.getX(), rocket.getX(), rocket.getY())) {
-				start = false;
-				count++;
-				surface.loadImage("img/giphy.gif");
-				surface.image(surface.loadImage("img/giphy.gif"),(float) rocket.getX(),(float) rocket.getY());
-			}
 		}
 		
 		if (surface.keyPressed) {
@@ -178,17 +183,18 @@ public class Launch2 extends LaunchScreen{
 ////			rocket.setImageY(scaleY);
 ////		}
 //		}
-	public void change() {
-		if(actualScaleX != surface.mouseX - rocket.getX()) {
-			actualScaleX++;
-			rocket.setImageX(rocket.getX() + actualScaleX);
-		}
-		if(actualScaleY != surface.mouseY - rocket.getY()) {
-			actualScaleY++;
-			rocket.setImageY(rocket.getY() + actualScaleY);
-		}
-		
-	}
+	
+//	public void change() {
+//		if(actualScaleX != surface.mouseX - rocket.getX()) {
+//			actualScaleX++;
+//			rocket.setImageX(rocket.getX() + actualScaleX);
+//		}
+//		if(actualScaleY != surface.mouseY - rocket.getY()) {
+//			actualScaleY++;
+//			rocket.setImageY(rocket.getY() + actualScaleY);
+//		}
+//		
+//	}
 //	public void land() {
 //		if(surface.mouseX == scaleX && surface.mouseY == scaleY) {
 //			return;
@@ -200,6 +206,9 @@ public class Launch2 extends LaunchScreen{
 //		rocket.setImageX(scaleX);
 //		rocket.setImageY(scaleY);
 //	}
+	/**
+	 * Executes commands based on the click of the mouse
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
@@ -210,7 +219,9 @@ public class Launch2 extends LaunchScreen{
 
 		
 	}
-	
+	/**
+	 * Executes commands based on the click of key(s)
+	 */
 	public void keyPressed() {
 		if(count == 1 && !start) {
 			return;
@@ -243,25 +254,21 @@ public class Launch2 extends LaunchScreen{
 //		}
 //		return false;
 //	}
-	
-	public boolean touchMeteor(double yMeteor, double xMeteor, double xRocket, double yRocket) {
-		   if (xMeteor == xRocket && yMeteor==yRocket) { 
-			   return true;
-		 }
-		return false;
-	}
-	public void moveBy(double amountX, double amountY) {
-		double x1 = rocket.getX();
-		double y1 = rocket.getY();
-		this.rocket.setImageX(x1+=amountX);
-		this.rocket.setImageY(y1+=amountY);
-	}
+	/**
+	 * Counts the checkpoints that the rocket has crossed for each level
+	 * @return the number of checkpoints
+	 */
 	public int countCheckPoints() {
 		if(imgY == 150 || imgY == 806) {
 			checkPoints++;
 		}
 		return checkPoints;
 	}
+	/**
+	 * Turns an integer into a string
+	 * @param string the integer that will be converted to a string
+	 * @return an integer in the format of a string
+	 */
 	public String parseString(int string) {
 		return " " + string + " ";
 	}
