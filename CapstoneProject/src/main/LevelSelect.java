@@ -8,6 +8,10 @@ import processing.core.PImage;
 import screenClasses.Screen;
 import screenClasses.ScreenSwitcher;
 
+/**
+ * Acts as the main menu, that has all the levels and info
+ * @author Ryan Wagner, Krish Jhurani, Rohan Gupta
+ */
 public class LevelSelect extends Screen{
 
 	private DrawingSurface surface;
@@ -15,6 +19,12 @@ public class LevelSelect extends Screen{
 	private Rectangle button2;
 	private Rectangle button3;
 	
+	/**
+	 * Makes the buttons used to go to the different levels
+	 * @param width Width of the screen
+	 * @param height Height of the build
+	 * @param surface DrawingSurface used to draw the level selection screen
+	 */
 	public LevelSelect(int width, int height, DrawingSurface surface) {
 		super(width, height);
 		this.surface = surface;
@@ -25,6 +35,9 @@ public class LevelSelect extends Screen{
 		button3 = new Rectangle(625, 550, 150, 30);
 	}
 	
+	/**
+	 * 
+	 */
 	public void draw() {
 		
 		surface.background(0);
