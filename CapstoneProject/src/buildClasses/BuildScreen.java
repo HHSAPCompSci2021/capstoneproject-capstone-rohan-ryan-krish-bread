@@ -136,7 +136,7 @@ public class BuildScreen extends Screen{
 	 * @post rectangles, drop down lists, and text will be drawn to the DrawingSurface
 	 */
 	public void draw() {
-		
+			
 		surface.fill(255);
 		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
 		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
