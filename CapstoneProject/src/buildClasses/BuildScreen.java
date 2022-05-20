@@ -108,9 +108,14 @@ public class BuildScreen extends Screen{
 	//	PImage merlin = surface.loadImage("img/merlin1d.png"); // change later; just a temp variable for testing 
 		
 		Engine pressureFed = new Engine(surface.loadImage("img/merlin1d.png"), 20,20,20,50, "pressureFed", 500, 0.95, 100000);
+
 	//	Engine closedCycle = new Engine(merlin, 20,20,20,20, "Closed Cycle", 1, 1,1); // change wieght and reliabilty params
-		Material steel = new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000);
+	//	Material steel = new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000);
+	//	Fuel RP1 = new Fuel(img, 400,20,20,20, "RP-1", 1000);
+
 		Fuel RP1 = new Fuel(img, 400,20,20,20, "RP-1", 1000);
+		Material steel = new Material(surface.loadImage("img/steel plating.jpg"), 300, 170, 20, 20, "Steel", 1000);
+
 		
 		engines.add(pressureFed);
 	//	engines.add(closedCycle);
