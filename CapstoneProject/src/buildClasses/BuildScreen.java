@@ -123,6 +123,10 @@ public class BuildScreen extends Screen{
 	 */
 	public void draw() {
 		
+		surface.fill(255);
+		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
+		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
+		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
 	
 		if (!sideBar.getList("e").getSelectedText().equals("Engines")) {
 			surface.fill(225);
@@ -141,13 +145,7 @@ public class BuildScreen extends Screen{
 			surface.rect(r3.x,r3.y,r3.width,r3.height);
 			surface.fill(0);
 			surface.text(sideBar.getList("f").getSelectedText(), r3.x+15, r3.y+15);
-		}
-		surface.fill(255);
-		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
-		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
-		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
-		
-		
+		}		
 		
 //		if (rocket.getEngine() != null) {
 //			System.out.println(rocket.getEngine().getName());
@@ -177,55 +175,38 @@ public class BuildScreen extends Screen{
 		currentDrag = null;
 		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
 			r1.x = engineLoc.x;
-			r1.y = engineLoc.y;
-			
-			for (int i = 0; i < engines.size(); i++) {
-				
+			r1.y = engineLoc.y;	
+			for (int i = 0; i < engines.size(); i++) {	
 				if (sideBar.getESelected().equals(engines.get(i).getName())) {
 					rocket.setEngine(engines.get(i));
 					data.setEngine(engines.get(i));
 					engines.get(i).setVis();
-				}
-				
-				
-			}
-			
+				}	
+			}	
 			//rocket.setEngine(engines.get(0));
-			
 		}
-		
-		
 		if (meterialLoc.contains(surface.mouseX,surface.mouseY)) {
 			r2.x = meterialLoc.x;
-			r2.y = meterialLoc.y;
-			
+			r2.y = meterialLoc.y;	
 			for (int i = 0; i < materials.size(); i++) {
-				
 				if (sideBar.getMSelected().equals(materials.get(i).getName())) {
 					rocket.setMaterial(materials.get(i));
 					data.setMaterial(materials.get(i));
 					materials.get(i).setVis();
 				}
-				
-			}
-			
+			}	
 			//rocket.setMaterial(materials.get(0));
 		}
-		
 		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
 			r3.x = fuelLoc.x;
-			r3.y = fuelLoc.y;
-			
-			for (int i = 0; i < fuels.size(); i++) {
-				
+			r3.y = fuelLoc.y;	
+			for (int i = 0; i < fuels.size(); i++) {	
 				if (sideBar.getFSelected().equals(fuels.get(i).getName())) {
 					rocket.setFuel(fuels.get(i));
 					data.setFuel(fuels.get(i));
 					fuels.get(i).setVis();
-				}
-				
+				}	
 			}
-			
 			//rocket.setFuel(fuels.get(0));
 		}
 		
