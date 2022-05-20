@@ -94,7 +94,7 @@ public class Launch2 extends LaunchScreen{
 		spawnNight();
 	}
 	/**
-	 * Draws new instances of images, and text
+	 * Draws new instances of rocket, backgrounds, and text
 	 */
 	public void draw() {
 		if(imgY <= 1033) {
@@ -207,7 +207,7 @@ public class Launch2 extends LaunchScreen{
 //		rocket.setImageY(scaleY);
 //	}
 	/**
-	 * Executes commands based on the click of the mouse
+	 * Detects where the mouse was pressed, and activates the button if it was pressed
 	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
@@ -215,45 +215,7 @@ public class Launch2 extends LaunchScreen{
 			rocket.setState(false);
 			surface.switchScreen(ScreenSwitcher.LEVEL_SELECT);
 		}
-			
-
-		
 	}
-	/**
-	 * Executes commands based on the click of key(s)
-	 */
-	public void keyPressed() {
-		if(count == 1 && !start) {
-			return;
-		}
-		else {
-			start = true;
-//			 if (surface.keyCode== surface.LEFT) {
-//				 rocket.setImageX(rocket.getX()-25);
-//			     }
-//			 if (surface.keyCode==surface.RIGHT) {
-//				 	rocket.setImageX(rocket.getX()+25);
-//			   }
-		}
-//		if (surface.key == 's') { 
-//	  		rocket.moveInLimits(thisLevel, 0, -5);
-//		}
-//	  	if (surface.key == 'a') 
-//	  		rocket.moveInLimits(thisLevel, 0, 5);
-//	  	if (surface.key == 'd') 
-//	  		rocket.moveInLimits(thisLevel, -5, 0);
-//	  	if (surface.key == 'w') { 
-//	  		rocket.moveInLimits(thisLevel, 5, 0);
-//	  	}
-//	  	
-//	  	slideWorldToImage(mario);
-	}
-//	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
-//		if(currentPosX == windowX || currentPosY == windowY || currentPosX < 0 || currentPosY < 0) {
-//			return true;
-//		}
-//		return false;
-//	}
 	/**
 	 * Counts the checkpoints that the rocket has crossed for each level
 	 * @return the number of checkpoints
