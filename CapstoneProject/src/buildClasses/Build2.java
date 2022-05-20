@@ -52,14 +52,38 @@ public class Build2 extends BuildScreen {
 	 */
 	public void draw() {
 		
-		surface.background(0,255,0);
+		
+		surface.background(255);
+		
+		PImage image1 = surface.loadImage("img/steel plating.jpg");
+		surface.image(image1, 0, 10, 250, 200);
+		surface.image(image1, 250, 10, 250, 200);
+		surface.image(image1, 500, 10, 250, 200);
+		surface.image(image1, 750, 10, 250, 200);
+		
+		surface.image(image1, 0, 210, 250, 200);
+		surface.image(image1, 250, 210, 250, 200);
+		surface.image(image1, 500, 210, 250, 200);
+		surface.image(image1, 750, 210, 250, 200);
+		
+		surface.image(image1, 0, 410, 250, 200);
+		surface.image(image1, 250, 410, 250, 200);
+		surface.image(image1, 500, 410, 250, 200);
+		surface.image(image1, 750, 410, 250, 200);
+		
+		super.draw();
 		
 		surface.fill(0);
-		surface.text("Build 2", 10, 20);
+		surface.text("Level 1 Build", 10, 20);
 		surface.fill(255);
 		
+//		if (rocket == null) {
+//			System.out.println("debug");	
+//		}
+	
 		rocket.draw(surface);
 		sideBar.draw(surface);
+		data.draw(surface);
 		
 		if (sideBar.getEngineVis() == false) {
 			sideBar.setVisible();
@@ -73,13 +97,16 @@ public class Build2 extends BuildScreen {
 			sideBar.setVisible();
 		}
 		
+		
+//		materials.get(0).draw(surface);
+		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
-		String str = "To Launch 2";
+		String str = "Launch";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2+3);
 		surface.fill(255);
-	//	Sidebar sidebar = new Sidebar();
+		
 	//  sidebar.draw(surface);
 		
 	}
