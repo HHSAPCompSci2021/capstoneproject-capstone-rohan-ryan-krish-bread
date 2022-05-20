@@ -131,6 +131,12 @@ public class Launch1 extends LaunchScreen{
 			 if (surface.keyCode == surface.RIGHT) {
 				 	rocket.setImageX(rocket.getX()+5);
 			   }
+			 if(surface.key == 'd') {
+				 rocket.rotate((float) Math.PI/4);
+			 }
+//			 if(surface.key == 'd') {
+//				 rocket.rotate((float) )
+//			 }
 		}
 	}
 		else {
@@ -179,11 +185,11 @@ public class Launch1 extends LaunchScreen{
 ////		}
 //		}
 	public void change() {
-		if(actualScaleX != surface.mouseX - rocket.getX()) {
+		while (actualScaleX != surface.mouseX - rocket.getX()) {
 			actualScaleX++;
 			rocket.setImageX(rocket.getX() + actualScaleX);
 		}
-		if(actualScaleY != surface.mouseY - rocket.getY()) {
+		while (actualScaleY != surface.mouseY - rocket.getY()) {
 			actualScaleY++;
 			rocket.setImageY(rocket.getY() + actualScaleY);
 		}
