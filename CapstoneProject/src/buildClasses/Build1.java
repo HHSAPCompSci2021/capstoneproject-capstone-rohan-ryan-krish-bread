@@ -14,7 +14,7 @@ import screenClasses.Sidebar;
 
 /**
  * 
- * This class represents the first rocket build screen 
+ * This class represents the level one rocket build screen 
  *
  */
 
@@ -24,7 +24,7 @@ public class Build1 extends BuildScreen {
 	private Rectangle button;
 	
 	/**
-	 * This constructor instantiates the drawing surface and button to move onto the launch
+	 * Instantiates the drawing surface and button to move onto the launch
 	 * @param surface the DrawingSurface that the build will be drawn on
 	 */
 	public Build1(DrawingSurface surface) {
@@ -37,6 +37,9 @@ public class Build1 extends BuildScreen {
 		
 	}
 	
+	/**
+	 * Sets up the Sidebar Rocket and Data for the build
+	 */
 	public void setup() {
 		super.setup();
 		sideBar.setup(surface);
@@ -45,6 +48,7 @@ public class Build1 extends BuildScreen {
 	
 	/**
 	 * Draws the rocket and displays the screen for making the rocket
+	 * @post DrawingSurface will have images, a Sidebar, Rocket, Data, and text drawn on it
 	 */
 	public void draw() {
 		
@@ -107,12 +111,17 @@ public class Build1 extends BuildScreen {
 	}
 	
 	/**
-	 * detects where the mouse was pressed, and activates the button if it was pressed
+	 * Gets the Rocket that is being built in this level
+	 * @return rocket Rocket used in this build
 	 */
-	
 	public Rocket getRocket() {
 		return rocket;
 	}
+	
+	/**
+	 * Detects where the mouse was pressed, and activates the button if it was pressed
+	 * @post screen will change if the launch button is pressed
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
@@ -123,10 +132,16 @@ public class Build1 extends BuildScreen {
 			
 	}
 	
+	/**
+	 * when mouse is released the super class mouseReleased() method is run
+	 */
 	public void mouseReleased() {
 		super.mouseReleased();
 	}
 	
+	/**
+	 * when mouse is dragged the super class mouseDragged() method is run
+	 */
 	public void mouseDragged() {
 		super.mouseDragged();
 	}

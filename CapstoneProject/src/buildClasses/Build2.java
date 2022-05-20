@@ -10,12 +10,13 @@ import processing.core.PImage;
 import rocket.Engine;
 import rocket.Fuel;
 import rocket.Material;
+import rocket.Rocket;
 import screenClasses.ScreenSwitcher;
 import screenClasses.Sidebar;
 
 /**
  * 
- * This class represents the second rocket build screen 
+ * This class represents the level two rocket build screen 
  *
  */
 public class Build2 extends BuildScreen {
@@ -23,8 +24,9 @@ public class Build2 extends BuildScreen {
 	private DrawingSurface surface;
 	private Rectangle button;
 //	private Sidebar sidebar;
+	
 	/**
-	 * This constructor instantiates the drawing surface and button to move onto the launch
+	 * Instantiates the drawing surface and button to move onto the launch
 	 * @param surface the DrawingSurface that the build will be drawn on
 	 */
 	public Build2(DrawingSurface surface) {
@@ -34,6 +36,9 @@ public class Build2 extends BuildScreen {
 		button = new Rectangle(425,550,150,30);
 	}
 	
+	/**
+	 * Sets up the Sidebar Rocket and Data for the build
+	 */
 	public void setup() {
 		super.setup();
 		
@@ -49,6 +54,7 @@ public class Build2 extends BuildScreen {
 	
 	/**
 	 * Draws the rocket and displays the screen for making the rocket
+	 * @post DrawingSurface will have images, a Sidebar, Rocket, Data, and text drawn on it
 	 */
 	public void draw() {
 		
@@ -78,7 +84,7 @@ public class Build2 extends BuildScreen {
 		super.draw();
 		
 		surface.fill(0);
-		surface.text("Level 1 Build", 10, 20);
+		surface.text("Level 2 Build", 10, 20);
 		surface.fill(255);
 		
 //		if (rocket == null) {
@@ -112,7 +118,16 @@ public class Build2 extends BuildScreen {
 	}
 	
 	/**
-	 * detects where the mouse was pressed, and activates the button if it was pressed
+	 * Gets the Rocket that is being built in this level
+	 * @return rocket Rocket used in this build
+	 */
+	public Rocket getRocket() {
+		return rocket;
+	}
+	
+	/**
+	 * Detects where the mouse was pressed, and activates the button if it was pressed
+	 * @post screen will change if the launch button is pressed
 	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
@@ -122,5 +137,20 @@ public class Build2 extends BuildScreen {
 		}
 			
 	}
+	
+	/**
+	 * when mouse is released the super class mouseReleased() method is run
+	 */
+	public void mouseReleased() {
+		super.mouseReleased();
+	}
+	
+	/**
+	 * when mouse is dragged the super class mouseDragged() method is run
+	 */
+	public void mouseDragged() {
+		super.mouseDragged();
+	}
+
 
 }
