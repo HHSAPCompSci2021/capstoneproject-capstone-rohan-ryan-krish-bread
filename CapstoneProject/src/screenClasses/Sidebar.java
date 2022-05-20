@@ -10,6 +10,7 @@ import java.util.List;
 
 import buildClasses.BuildScreen;
 import processing.core.PApplet;
+import processing.core.PImage;
 import rocket.Engine;
 import rocket.Fuel;
 import rocket.Material;
@@ -149,9 +150,10 @@ public class Sidebar {
 	public void draw(PApplet p) {
 		//setVisible();
 		
-	//	p.fill(255);
-		p.noFill();
+		p.fill(255);
 		p.rect((float)x, (float)y, (float)width,(float)height);
+		PImage image1 = p.loadImage("img/sidebar-orange-background.jpg");
+		p.image(image1,(float)x, (float)y, (float)width,(float)height);
 		
 //		fuel = elist.getSelectedText();
 //		p.fill(0);

@@ -71,6 +71,10 @@ public class Build2 extends BuildScreen {
 		surface.image(image1, 500, 410, 250, 200);
 		surface.image(image1, 750, 410, 250, 200);
 		
+		rocket.draw(surface);
+		sideBar.draw(surface);
+		data.draw(surface);
+		
 		super.draw();
 		
 		surface.fill(0);
@@ -80,10 +84,6 @@ public class Build2 extends BuildScreen {
 //		if (rocket == null) {
 //			System.out.println("debug");	
 //		}
-	
-		rocket.draw(surface);
-		sideBar.draw(surface);
-		data.draw(surface);
 		
 		if (sideBar.getEngineVis() == false) {
 			sideBar.setVisible();
