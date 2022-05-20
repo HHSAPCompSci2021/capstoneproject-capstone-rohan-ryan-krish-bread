@@ -1,5 +1,6 @@
 package main;
 import java.awt.Dimension;
+import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 
@@ -7,7 +8,6 @@ import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 public class Main {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		DrawingSurface drawing = new DrawingSurface();
 		PApplet.runSketch(new String[]{"Rocket Simulation"}, drawing);
 		PSurfaceAWT surf = (PSurfaceAWT) drawing.getSurface();
