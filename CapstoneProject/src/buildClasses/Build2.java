@@ -9,6 +9,7 @@ import main.DrawingSurface;
 import processing.core.PImage;
 import rocket.Engine;
 import rocket.Fuel;
+import rocket.Material;
 import screenClasses.ScreenSwitcher;
 import screenClasses.Sidebar;
 
@@ -35,13 +36,15 @@ public class Build2 extends BuildScreen {
 	
 	public void setup() {
 		super.setup();
-		sideBar.setup(surface);
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
 		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle", 1, 1,1); // change wieght and reliabilty params
-		//Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1");
-		
 		engines.add(closedCycle);
+		
+		sideBar.setup(surface);
+		
+		//Fuel RP1 = new Fuel(img, 20,20,20,20, "RP-1");
+
 	}
 	
 	/**
