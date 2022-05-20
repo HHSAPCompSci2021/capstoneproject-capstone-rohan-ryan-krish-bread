@@ -2,13 +2,15 @@ package rocket;
 
 import processing.core.PApplet;
 
-// All data for rocket, to be displayed on both build and launch screens by DataDisplay
+/**
+ * Contains all data for rocket, to be displayed on both build and launch screens by DataDisplay
+ * @author Ryan Wagner, Krish Jhurani, Rohan Gupta
+ */
 public class Data {
 	
 	private double weight;
 	private double thrust;
 	private double probability;
-	
 	
 	private double x,y,width,height;
 	
@@ -18,7 +20,16 @@ public class Data {
 	
 	// fields for each metric (fuel, material, etc.) as well as cost, weight etc.
 	// field for each statistic
-	
+	/**
+	 * Makes 
+	 * @param e
+	 * @param m
+	 * @param f
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 */
 	public Data(Engine e, Material m, Fuel f, double x, double y, double width, double height) {
 		this.e = e;
 		this.m = m;
