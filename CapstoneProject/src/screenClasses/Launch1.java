@@ -16,22 +16,14 @@ import rocket.Rocket;
 public class Launch1 extends LaunchScreen{
 
 	private DrawingSurface surface;
-	private Rectangle button;
+	private Rectangle button, win;
 	private Shape s;
 	private Rocket rocket;
 	private Meteor meteor;
-	private double rocketX, rocketY;
-	private double meteorX, meteorY;
-	private boolean start;
-	private int count;
-	private Rectangle win;
-	private int draws; // number of times draw() has been called
-	private PImage img2;
-	private int imgX, imgY;
-	private double actualScaleX, actualScaleY;
-	private PImage img3;
-	private boolean isDone;
-	private int checkPoints;
+	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
+	private boolean start, isDone;
+	private int draws, imgX, imgY, checkPoints, count;
+	private PImage img2, img3;
 	public Launch1(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
