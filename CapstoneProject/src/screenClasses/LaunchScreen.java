@@ -58,14 +58,14 @@ public class LaunchScreen extends Screen{
 //	}
 	
 	/**
-	 * sets up the Rocket and SideBar for the build
+	 * Sets up the Rocket and SideBar for the build
 	 */
 	public void setup() {
 		spawnCompletedRocket();
 	}
 	
 	/**
-	 * Is a method that is to be overridden in its subclasses
+	 * Draws new instances of rocket, backgrounds, and text
 	 */
 	public void draw() {
 		

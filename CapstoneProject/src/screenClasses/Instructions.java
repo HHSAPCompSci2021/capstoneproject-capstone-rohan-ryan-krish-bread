@@ -9,14 +9,21 @@ public class Instructions extends Screen{
 
 	private DrawingSurface surface;
 	private Rectangle button;
-	
+	/**
+	 * The instructions of the program and how to use it
+	 * @param width width of the instruction's text
+	 * @param height height of the instruction's text
+	 * @param surface the drawing surface on which to draw
+	 */
 	public Instructions(int width, int height, DrawingSurface surface) {
 		super(width, height);
 		this.surface = surface;
 		
 		button = new Rectangle(625, 550, 150, 30);
 	}
-	
+	/**
+	 * Displays the instructions
+	 */
 	public void draw() {
 		surface.background(255);
 			
@@ -43,7 +50,7 @@ public class Instructions extends Screen{
 	}
 	
 	/**
-	 * detects where the mouse was pressed, and activates the button if it was pressed
+	 * Detects where the mouse was pressed, and activates the button if it was pressed
 	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
