@@ -1,4 +1,5 @@
 package buildClasses;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
@@ -171,11 +172,20 @@ public class BuildScreen extends Screen{
 	 * @param r Rectangle that is to be dragged
 	 */
 	public void dragThisOne(Rectangle r) {
-		if (r.contains(surface.mouseX,surface.mouseY)) {
+		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
+		
+		
+		if (r.contains(p)) {
 			currentDrag = r;
 			dragOffsetX = surface.mouseX - r.x;
 			dragOffsetY = surface.mouseY - r.y;
 		}
+		
+//		if (r.contains(surface.mouseX,surface.mouseY)) {
+//			currentDrag = r;
+//			dragOffsetX = surface.mouseX - r.x;
+//			dragOffsetY = surface.mouseY - r.y;
+//		}
 	}
 	
 //	public Rocket getRocket() {
@@ -200,6 +210,7 @@ public class BuildScreen extends Screen{
 		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
 			r1.x = engineLoc.x;
 			r1.y = engineLoc.y;	
+			
 			for (int i = 0; i < engines.size(); i++) {	
 				if (sideBar.getESelected().equals(engines.get(i).getName())) {
 					rocket.setEngine(engines.get(i));
