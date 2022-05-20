@@ -207,7 +207,9 @@ public class BuildScreen extends Screen{
 	 */
 	public void mouseReleased() {
 		currentDrag = null;
-		if (engineLoc.contains(surface.mouseX,surface.mouseY)) {
+		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
+		
+		if (engineLoc.contains(p)) {
 			r1.x = engineLoc.x;
 			r1.y = engineLoc.y;	
 			
@@ -220,7 +222,7 @@ public class BuildScreen extends Screen{
 			}	
 			//rocket.setEngine(engines.get(0));
 		}
-		if (meterialLoc.contains(surface.mouseX,surface.mouseY)) {
+		if (meterialLoc.contains(p)) {
 			r2.x = meterialLoc.x;
 			r2.y = meterialLoc.y;	
 			for (int i = 0; i < materials.size(); i++) {
@@ -232,7 +234,7 @@ public class BuildScreen extends Screen{
 			}	
 			//rocket.setMaterial(materials.get(0));
 		}
-		if (fuelLoc.contains(surface.mouseX,surface.mouseY)) {
+		if (fuelLoc.contains(p)) {
 			r3.x = fuelLoc.x;
 			r3.y = fuelLoc.y;	
 			for (int i = 0; i < fuels.size(); i++) {	
