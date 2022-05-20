@@ -24,6 +24,7 @@ public class LevelSelect extends Screen{
 	 * @param width Width of the screen
 	 * @param height Height of the build
 	 * @param surface DrawingSurface used to draw the level selection screen
+	 * @pre Surface is not null
 	 */
 	public LevelSelect(int width, int height, DrawingSurface surface) {
 		super(width, height);
@@ -36,7 +37,8 @@ public class LevelSelect extends Screen{
 	}
 	
 	/**
-	 * 
+	 * Draws the background for level selection screen, along with the buttons for the levels and instructions
+	 * @post The DrawingSurface will have a background, and buttons drawn to it
 	 */
 	public void draw() {
 		
@@ -71,6 +73,10 @@ public class LevelSelect extends Screen{
 		
 	}
 	
+	/**
+	 * Changes the screen that is being drawn if one of the button is pressed
+	 * @post The screen being drawn to the DrawingSurface may be changed
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button1.contains(p)) {
