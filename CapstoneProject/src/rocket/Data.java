@@ -20,15 +20,16 @@ public class Data {
 	
 	// fields for each metric (fuel, material, etc.) as well as cost, weight etc.
 	// field for each statistic
+	
 	/**
-	 * Makes 
-	 * @param e
-	 * @param m
-	 * @param f
-	 * @param x
-	 * @param y
-	 * @param width
-	 * @param height
+	 * contructs a display of data
+	 * @param e engine of rocket
+	 * @param m material of rocket
+	 * @param f fuel of rocket
+	 * @param x x coord of display
+	 * @param y y coord of display
+	 * @param width width of display
+	 * @param height height of display
 	 */
 	public Data(Engine e, Material m, Fuel f, double x, double y, double width, double height) {
 		this.e = e;
@@ -43,29 +44,58 @@ public class Data {
 		
 	}
 	
+	/**
+	 * sets the weight of the rocket
+	 * @param w weight to be set
+	 */
 	public void setWeight(double w) {
 		weight = w;
 	}
 	
+	/**
+	 * sets the engine to be used for data
+	 * @param e engine to be set
+	 */
 	public void setEngine(Engine e) {
 		this.e = e;
 	}
 	
+	/**
+	 * sets the material to be used for data
+	 * @param m material to be set
+	 */
 	public void setMaterial(Material m) {
 		this.m = m;
 	}
 	
+	/**
+	 * sets the fuel to be used for data
+	 * @param f fuel to be set
+	 */
 	public void setFuel(Fuel f) {
 		this.f = f;
 	}
 	
+	/**
+	 * sets the thrust to be used for data
+	 * @param e thrust to be set
+	 */
 	public void setThrust(double t) {
 		thrust = t;
 	}
+	
+	/**
+	 * sets the probability to be used for data
+	 * @param p probability to be set
+	 */
 	public void setProbability(double p) {
 		probability = p;
-}
+	}
 	
+	/**
+	 * draws the display of data
+	 * @param p PApplet on which to draw
+	 */
 	public void draw(PApplet p) {
 		
 		p.fill(255);
