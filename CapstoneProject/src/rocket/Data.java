@@ -21,12 +21,12 @@ public class Data {
 	// fields for each metric (fuel, material, etc.) as well as cost, weight etc.
 	// field for each statistic
 	/**
-	 * Makes 
-	 * @param e
-	 * @param m
-	 * @param f
-	 * @param x
-	 * @param y
+	 * Makes the engines, materials, and fuels used
+	 * @param e Engine used to calculate data
+	 * @param m Material used to calculate data
+	 * @param f Fuel used to calculate data
+	 * @param x X-value of the data box
+	 * @param y Y-value of the data box
 	 * @param width
 	 * @param height
 	 */
@@ -43,29 +43,58 @@ public class Data {
 		
 	}
 	
+	/**
+	 * Sets the weight of the Rocket
+	 * @param w New weight of the Rocket
+	 */
 	public void setWeight(double w) {
 		weight = w;
 	}
 	
+	/**
+	 * Sets the Engine of the Rocket
+	 * @param w New engine of the Rocket
+	 */
 	public void setEngine(Engine e) {
 		this.e = e;
 	}
 	
+	/**
+	 * Sets the Material of the Rocket
+	 * @param w New material of the Rocket
+	 */
 	public void setMaterial(Material m) {
 		this.m = m;
 	}
 	
+	/**
+	 * Sets the Fuel of the Rocket
+	 * @param w New fuel of the Rocket
+	 */
 	public void setFuel(Fuel f) {
 		this.f = f;
 	}
 	
+	/**
+	 * Sets the thrust of the Rocket
+	 * @param w New thrust of the Rocket
+	 */
 	public void setThrust(double t) {
 		thrust = t;
 	}
+	
+	/**
+	 * Sets the probability the Rocket will successfully fly
+	 * @param w New probability of flight success
+	 */
 	public void setProbability(double p) {
 		probability = p;
 }
-	
+	/**
+	 * Draws the data box and displays the data in it
+	 * @param p DrawingSurface that the data will get drawn on
+	 * @post DrawingSurface being used will have a rectangle and text drawn to it
+	 */
 	public void draw(PApplet p) {
 		
 		p.fill(255);
