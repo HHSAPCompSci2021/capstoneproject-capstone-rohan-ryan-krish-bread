@@ -22,12 +22,12 @@ public class Data {
 	// field for each statistic
 	
 	/**
-	 * contructs a display of data
+	 * constructs a display of data
 	 * @param e engine of rocket
 	 * @param m material of rocket
 	 * @param f fuel of rocket
-	 * @param x x coord of display
-	 * @param y y coord of display
+	 * @param x x coordinate of display
+	 * @param y y coordinate of display
 	 * @param width width of display
 	 * @param height height of display
 	 */

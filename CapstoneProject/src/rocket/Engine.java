@@ -31,8 +31,8 @@ public class Engine  {
 	/**
 	 * constructs an engine object 
 	 * @param image image of engine
-	 * @param x x-cord at which to draw
-	 * @param y y-cord at which to draw
+	 * @param x x-coordinate at which to draw
+	 * @param y y-coordinate at which to draw
 	 * @param width width of engine
 	 * @param height height of engine
 	 * @param name name of engine
@@ -101,16 +101,16 @@ public class Engine  {
 	}
 	
 	/**
-	 * sets the x-coord of the engine 
-	 * @param x x-coord of the engine 
+	 * sets the x-coordinate of the engine 
+	 * @param x x-coordinate of the engine 
 	 */
 	public void setX(double x) {
 		this.x = x;
 	}
 	
 	/**
-	 * sets the y-coord of the engine 
-	 * @param y y-coord of the engine 
+	 * sets the y-coordinate of the engine 
+	 * @param y y-coordiate of the engine 
 	 */
 	public void setY(double y) {
 		this.y = y;
