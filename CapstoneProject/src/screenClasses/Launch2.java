@@ -82,7 +82,6 @@ public class Launch2 extends LaunchScreen{
 	}
 	
 	public void draw() {
-		System.out.println(imgY);
 		if(imgY <= 1033) {
 			draws++;
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
@@ -144,7 +143,7 @@ public class Launch2 extends LaunchScreen{
 		else {
 			if(!isDone) {
 				surface.text("Congratulations! You have completed the level."
-						+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 300);
+						+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 400);
 				isDone = true;
 			}
 //			if(surface.mousePressed) {
