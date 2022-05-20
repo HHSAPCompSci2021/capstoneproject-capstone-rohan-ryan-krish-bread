@@ -5,7 +5,6 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import screenClasses.Sidebar;
 
-// Represents engines. Rocket class will make engine objects 
 public class Engine  {
 	
 	//private static List<Engine> engine;
@@ -23,6 +22,18 @@ public class Engine  {
 	// counter for how many times draw is called.
 	// check if reliabilty less than equal to math.random every 60 times
 	
+	/**
+	 * 
+	 * @param image
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param name
+	 * @param weight
+	 * @param reliability
+	 * @param thrust
+	 */
 	public Engine(PImage image, double x, double y, double width, double height, String name, double weight, double reliability, double thrust) {
 		
 		hide = true;
