@@ -1,4 +1,5 @@
 package rocket;
+import java.awt.geom.Rectangle2D;
 import java.util.List;
 
 import processing.core.PApplet;
@@ -11,7 +12,7 @@ import screenClasses.Sidebar;
  *
  */
 // Represents engines. Rocket class will make engine objects 
-public class Engine  {
+public class Engine extends Rectangle2D.Double {
 	
 	//private static List<Engine> engine;
 	private PImage image;
@@ -23,6 +24,9 @@ public class Engine  {
 	private double reliability;
 	private double thurst;
 	private boolean hide;
+	
+	private double dir;
+	private double vel; // turning velocity
 	
 	
 	// counter for how many times draw is called.
@@ -54,6 +58,9 @@ public class Engine  {
 		this.weight = weight;
 		this.reliability = reliability;
 		this.thurst = thrust;
+		
+		dir = 0;
+		vel = 0;
 	
 		// TODO Auto-generated constructor stub
 	}
@@ -149,6 +156,17 @@ public class Engine  {
 		return thurst;
 	}
 	
+	public void applyWindowLimits(int windowWidth, int windowHeight) {
+		x = Math.min(x,windowWidth-width);
+		y = Math.min(y,windowHeight-height);
+		x = Math.max(0,x);
+		y = Math.max(0,y);
+	}
+	
+	public void setDir(double dir) {
+		this.dir = dir;
+	}
+	
 	/**
 	 * draws the engine 
 	 * @param g PApplet on which to draw
@@ -158,7 +176,14 @@ public class Engine  {
 		if (image != null) {
 			
 			if (hide == false) {
-				g.image(image,(float)x,(float)y,(float)width,(float)height);
+				
+				g.pushMatrix();
+				g.translate((float)(x+width/2), (float)(y+height/2));
+				g.rotate((float)Math.toRadians(dir));
+				g.image(image,(int)(-width/2),(int)(-height/2),(int)width,(int)height);
+				g.popMatrix();
+				
+				//g.image(image,(float)x,(float)y,(float)width,(float)height);
 			}
 			
 		}

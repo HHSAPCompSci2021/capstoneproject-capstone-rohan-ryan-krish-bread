@@ -87,16 +87,25 @@ public class Launch1 extends LaunchScreen{
 //		surface.fill(255, 0, 0);
 //		surface.rect(imgX, imgY, 500, 10);
 //		surface.fill(255);
-		if(imgY <= 340) { 
+		
+	//	surface.background(255);
+		
+		
+		if(imgY <= 340 && !isDone) { 
 			
 			if (rocket.getMoving()) {
-				this.imgY+=2;
+				this.imgX += rocket.getVX() * Math.cos(Math.toRadians(rocket.getDirection() + 90));
+				this.imgY += rocket.getVY() * Math.sin(Math.toRadians(rocket.getDirection() + 90));
 			}
 			
 			draws++;
+			
+			PImage sky1 = surface.loadImage("img/ColdSpace.png");
+			
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
-		
 			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
+			surface.image(sky1, imgX + img2.width, img2.height);
+		
 			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
 //			surface.circle(land.x, land.y, land.width);
 			
@@ -109,30 +118,44 @@ public class Launch1 extends LaunchScreen{
 //		surface.text("Launch 1", 10, 20);
 //		surface.fill(255);
 		
-		
+			if (draws % 99999999 == 0) { // STITCH TOGETHER NIGHTSKY PICTURES TO EXPAND BOUNDS
+				
+				if (Math.random() > rocket.getEngine().getReliability()) {
+					rocket.setState(true);
+				}
+			}	
+			
+
+			if (rocket.getState()) {
+				surface.text("rocket blew up", 400, 400);
+				isDone = true;
+			}
 		
 //		meteor.draw(surface);
 //		img2 = surface.loadImage("img/night.png");
 //		surface.image(img2, (float) this.imgX, (float) this.imgY);
-		surface.text("Level 1 Launch", 10, 20);
-		surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
-		surface.fill(0);
-		rocket.draw(surface);
-		rocket.act();
-		
-//		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
-//		surface.fill(255);
-		String str = "Back To Level Select";
-		float w = surface.textWidth(str);
-		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
-		surface.fill(0);
-		
-		if(rocket.getX() > win.getWidth()-20) {
-			rocket.setImageX(win.getWidth()-30);
-		}
-		else if(rocket.getX() < 0) {
-			rocket.setImageX(0);
-		}
+			surface.text("Level 1 Launch", 10, 20);
+			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
+			surface.fill(0);
+			rocket.setHeight(150);
+			rocket.draw(surface);
+			rocket.act();
+			
+			
+			
+	//		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
+	//		surface.fill(255);
+			String str = "Back To Level Select";
+			float w = surface.textWidth(str);
+			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+			surface.fill(0);
+			
+			if(rocket.getX() > win.getWidth()-20) {
+				rocket.setImageX(win.getWidth()-30);
+			}
+			else if(rocket.getX() < 0) {
+				rocket.setImageX(0);
+			}
 		
 //		if (surface.keyPressed) {
 //			 if (surface.keyCode == surface.LEFT) {
@@ -149,16 +172,19 @@ public class Launch1 extends LaunchScreen{
 ////			 }
 //		}
 	}
-		else {
-			if(!isDone) {
-				surface.text("Congratulations! You have completed the level."
-					+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 400);
-				isDone = true;
-			}
+		
+	else {
+		
+		if(!isDone) {
+			surface.text("Congratulations! You have completed the level."
+				+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 400);
+			isDone = true;
+		}
 			
 			
 			
-				}
+			
+		}
 			
 //			rocket.setImageXAndY(rocket.getX() + (surface.mouseX-rocket.getX()), rocket.getY() + (surface.mouseY-rocket.getY()));
 			
@@ -174,12 +200,7 @@ public class Launch1 extends LaunchScreen{
 //			rocket.setImageY(scaleY);
 //		}
 		
-//		if (draws % 60 == 0) {
-//			
-//			if (Math.random() > rocket.getEngine().getReliability()) {
-//				rocket.setState(true);
-//			}
-//		}
+
 		
 		
 //		else if(this.imgY > 400) {
@@ -223,6 +244,8 @@ public class Launch1 extends LaunchScreen{
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
 			rocket.setState(false);
+			rocket.setHeight(250);
+			rocket.setDirection(0);
 			surface.switchScreen(ScreenSwitcher.LEVEL_SELECT);
 		}
 		if (land.contains(p)) {
@@ -234,28 +257,45 @@ public class Launch1 extends LaunchScreen{
 	public void keyPressed() {
 		
 		if (surface.keyCode ==  KeyEvent.VK_A) {
-			rocket.accelerate(-0.25);
+			rocket.tilt(-0.25);
 			
 		}
 		
 		if (surface.keyCode ==  KeyEvent.VK_D) {
-			rocket.accelerate(0.25);
+			rocket.tilt(0.25);
 			
 		}
 		
-		if (surface.keyCode ==  KeyEvent.VK_UP) {
+		if (surface.keyCode ==  KeyEvent.VK_W) {
 			rocket.moveForward(true);
+			rocket.accelerate(0.75, 0.75);
 		}
+		
+		if (surface.keyCode ==  KeyEvent.VK_S) {
+			
+			if (!(rocket.getVX() <= 0) && !(rocket.getVY() <= 0)) {
+				rocket.accelerate(-0.75, -0.75);
+			}
+			
+			else {
+				rocket.moveForward(false);
+			}
+			
+		}
+
+
 		
 	}
 	
-	public void keyReleased() {
-		System.out.print("debug");
-		if (surface.keyCode == KeyEvent.VK_W || surface.keyCode == KeyEvent.VK_UP) {
-		
-			//rocket.moveForward(false);
-		}
-	}
+//	public void keyReleased() {
+//		
+//		System.out.print("debug");
+//		if (surface.keyCode == KeyEvent.VK_W) {
+//			rocket.accelerate(-1, -1);
+//		
+//			//rocket.moveForward(false);
+//		}
+//	}
 //	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
 //		if(currentPosX == windowX || currentPosY == windowY || currentPosX < 0 || currentPosY < 0) {
 //			return true;

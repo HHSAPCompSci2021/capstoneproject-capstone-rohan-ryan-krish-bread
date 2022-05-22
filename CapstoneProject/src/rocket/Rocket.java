@@ -1,4 +1,5 @@
 package rocket;
+import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,14 +87,17 @@ public class Rocket extends Rectangle2D.Double {
 	public void setState(boolean s) {
 		blownUp = s;
 	}
+	public void setWidth(double w) {
+		width = w;
+	}
+	public void setHeight(double h) {
+		height = h;
+	}
 	public void setImageX(double xVal) {
 		this.x = xVal;
 	}
+	
 	public void setImageY(double yVal) {
-		this.y = yVal;
-	}
-	public void setImageXAndY(double xVal, double yVal) {
-		this.x = xVal;
 		this.y = yVal;
 	}
 	// getters
@@ -106,6 +110,14 @@ public class Rocket extends Rectangle2D.Double {
 	public double getY() {
 		return y;
 	}
+	
+	public double getVX() {
+		return vx;
+	}
+	public double getVY() {
+		return vy;
+	}
+	
 	public PImage getImage() {
 		return img;
 	}
@@ -121,9 +133,10 @@ public class Rocket extends Rectangle2D.Double {
 		
 	//	System.out.println(dir);
 		dir += vel;
+		//engine.setDir(dir);
 		
 		if (moving) {
-			moveByAmount(1.5*Math.cos(Math.toRadians(dir + 90)), 1.5*Math.sin(Math.toRadians(dir + 90)));
+		//	moveByAmount(vx*Math.cos(Math.toRadians(dir + 90)), vy*Math.sin(Math.toRadians(dir + 90)));
 		}
 			
 		
@@ -132,13 +145,22 @@ public class Rocket extends Rectangle2D.Double {
 //			dir += Math.PI;
 	}
 	
-	public void accelerate(double vel) {
+	public void tilt(double vel) {
 		this.vel += vel;
+	}
+	
+	public void accelerate(double vx, double vy) {
+		this.vx += vx;
+		this.vy += vy;
 		
 	}
 	
 	public double getDirection() {
 		return dir;
+	}
+	
+	public void setDirection(double dir) {
+		this.dir = dir;
 	}
 	
 	public void moveForward(boolean moving) {
@@ -184,14 +206,28 @@ public class Rocket extends Rectangle2D.Double {
 			drawer.popMatrix();
 		//	drawer.triangle((float)x,(float)y,(float)(x+(width/2)),(float)(y-50),(float)(x+width),(float)y);
 			
-			if (engine != null) {
+			if (engine != null) { // height * sin(dir) = x
 				
-				engine.setX(x);
-				engine.setY(y+height);
+				if (dir != 0) {
+					engine.setX(height * Math.cos(Math.toRadians(dir)));
+					engine.setY(height * Math.sin(Math.toRadians(dir)));
+					System.out.println(x + "," + y);
+				}
+				
+				else {
+					engine.setX(x);
+					engine.setY(y+height);
+				}
+				
+//				engine.setX(x);
+//				engine.setY(y+height);
 				engine.setWidth(width);
 				engine.setHeight(50);
 				
 				engine.draw(drawer);
+				
+			
+				
 					
 			}
 			
