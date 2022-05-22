@@ -37,7 +37,12 @@ public abstract class Screen {
 	public void mouseReleased() {
 		
 	}
+	
 	public void keyPressed() {
+		
+	}
+	
+	public void keyReleased() {
 		
 	}
 	

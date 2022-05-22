@@ -27,7 +27,9 @@ public class Rocket extends Rectangle2D.Double {
 	private boolean blownUp;
 	private boolean eHide, fHide, mHide;
 	private double dir;
-	private double vel;
+	private double vel; // turning velocity
+	private double vx, vy;
+	private boolean moving;
 	
 	//private double x,y,width,height;
 	private PImage img;
@@ -47,7 +49,11 @@ public class Rocket extends Rectangle2D.Double {
 		fHide = true;
 		
 		vel = 0;
+		vx = 0;
+		vy = 0;
+		
 		blownUp = false;
+		moving  = false;
 		
 		
 	}
@@ -112,10 +118,15 @@ public class Rocket extends Rectangle2D.Double {
 	}
 	
 	public void act() {
-	
-		System.out.println(Math.toDegrees(dir));
-		dir+= vel;
-		System.out.println(Math.toDegrees(dir));
+		
+	//	System.out.println(dir);
+		dir += vel;
+		
+		if (moving) {
+			moveByAmount(1.5*Math.cos(Math.toRadians(dir + 90)), 1.5*Math.sin(Math.toRadians(dir + 90)));
+		}
+			
+		
 //		dir = Math.atan(((double)this.y-y)/(this.x-x));
 //		if (this.x > x)
 //			dir += Math.PI;
@@ -126,10 +137,26 @@ public class Rocket extends Rectangle2D.Double {
 		
 	}
 	
-//	public void act() {
-//		
-//	}
+	public double getDirection() {
+		return dir;
+	}
 	
+	public void moveForward(boolean moving) {
+		this.moving = moving;
+	}
+	
+	public boolean getMoving() {
+		return moving;
+	}
+	
+	
+	public void moveByAmount(double x, double y) { 
+		
+		System.out.println(super.x + "," + super.y);
+		super.x -= x;
+		super.y -= y;
+	}
+
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		x = Math.min(x,windowWidth-width);
 		y = Math.min(y,windowHeight-height);

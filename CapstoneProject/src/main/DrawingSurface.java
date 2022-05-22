@@ -101,8 +101,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * Detects when a key is released, and uses the appropriate method for the current screen
 	 */
 	public void keyReleased() {
-		while(keys.contains(keyCode))
-			keys.remove(new Integer(keyCode));
+//		while(keys.contains(keyCode))
+//			keys.remove(new Integer(keyCode));
+		activeScreen.keyReleased();
 	}
 	
 	/**

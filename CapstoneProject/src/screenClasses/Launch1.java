@@ -83,14 +83,19 @@ public class Launch1 extends LaunchScreen{
 	/**
 	 * Draws new instances of rocket, backgrounds, and text
 	 */
-	public void draw() {
+	public void draw() { // move the screen according to speed of rocket
 //		surface.fill(255, 0, 0);
 //		surface.rect(imgX, imgY, 500, 10);
 //		surface.fill(255);
 		if(imgY <= 340) { 
+			
+			if (rocket.getMoving()) {
+				this.imgY+=2;
+			}
+			
 			draws++;
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
-			this.imgY++;
+		
 			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
 			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
 //			surface.circle(land.x, land.y, land.width);
@@ -230,12 +235,26 @@ public class Launch1 extends LaunchScreen{
 		
 		if (surface.keyCode ==  KeyEvent.VK_A) {
 			rocket.accelerate(-0.25);
+			
 		}
 		
 		if (surface.keyCode ==  KeyEvent.VK_D) {
 			rocket.accelerate(0.25);
+			
 		}
 		
+		if (surface.keyCode ==  KeyEvent.VK_UP) {
+			rocket.moveForward(true);
+		}
+		
+	}
+	
+	public void keyReleased() {
+		System.out.print("debug");
+		if (surface.keyCode == KeyEvent.VK_W || surface.keyCode == KeyEvent.VK_UP) {
+		
+			//rocket.moveForward(false);
+		}
 	}
 //	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
 //		if(currentPosX == windowX || currentPosY == windowY || currentPosX < 0 || currentPosY < 0) {
