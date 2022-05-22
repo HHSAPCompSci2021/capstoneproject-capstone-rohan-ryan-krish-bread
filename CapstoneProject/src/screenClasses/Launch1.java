@@ -3,6 +3,7 @@ package screenClasses;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.event.KeyEvent;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Ellipse2D.Float;
 
@@ -112,6 +113,7 @@ public class Launch1 extends LaunchScreen{
 		surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 		surface.fill(0);
 		rocket.draw(surface);
+		rocket.act();
 		
 //		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 //		surface.fill(255);
@@ -127,20 +129,20 @@ public class Launch1 extends LaunchScreen{
 			rocket.setImageX(0);
 		}
 		
-		if (surface.keyPressed) {
-			 if (surface.keyCode == surface.LEFT) {
-				 rocket.setImageX(rocket.getX()-5);
-			     }
-			 if (surface.keyCode == surface.RIGHT) {
-				 	rocket.setImageX(rocket.getX()+5);
-			   }
-			 if(surface.key == 'd') {
-				 rocket.rotate((float) Math.PI/4);
-			 }
+//		if (surface.keyPressed) {
+//			 if (surface.keyCode == surface.LEFT) {
+//				 rocket.setImageX(rocket.getX()-5);
+//			     }
+//			 if (surface.keyCode == surface.RIGHT) {
+//				 	rocket.setImageX(rocket.getX()+5);
+//			   }
 //			 if(surface.key == 'd') {
-//				 rocket.rotate((float) )
+//				 rocket.rotate((float) Math.PI/4);
 //			 }
-		}
+////			 if(surface.key == 'd') {
+////				 rocket.rotate((float) )
+////			 }
+//		}
 	}
 		else {
 			if(!isDone) {
@@ -222,6 +224,18 @@ public class Launch1 extends LaunchScreen{
 			
 		}
 			
+	}
+	
+	public void keyPressed() {
+		
+		if (surface.keyCode ==  KeyEvent.VK_A) {
+			rocket.accelerate(-0.25);
+		}
+		
+		if (surface.keyCode ==  KeyEvent.VK_D) {
+			rocket.accelerate(0.25);
+		}
+		
 	}
 //	public boolean resetPosition(double windowX, double windowY, double currentPosX, double currentPosY) {
 //		if(currentPosX == windowX || currentPosY == windowY || currentPosX < 0 || currentPosY < 0) {

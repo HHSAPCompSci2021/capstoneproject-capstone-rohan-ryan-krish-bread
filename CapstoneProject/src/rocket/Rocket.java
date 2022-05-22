@@ -1,4 +1,5 @@
 package rocket;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import screenClasses.Sidebar;
 import java.util.LinkedHashMap;
 
 // Represents the rocket itself. Each build and launch screen will have a rocket object and draw it
-public class Rocket {
+public class Rocket extends Rectangle2D.Double {
 
 	// state of the rocket. If rocket still flying / not blown up, then draw the rocket. Else (rocket has blown up) and draw an explosion 
 	// Rocket HAS-A data 
@@ -25,14 +26,17 @@ public class Rocket {
 	private Data data;
 	private boolean blownUp;
 	private boolean eHide, fHide, mHide;
-	private float rAngle;
+	private double dir;
+	private double vel;
 	
-	private double x,y,width,height;
+	//private double x,y,width,height;
 	private PImage img;
 	
 	
-	public Rocket(double x, double y, double width, double height) {
-		//this.img = img;
+	public Rocket(PImage img, double x, double y, double width, double height) {
+		super(x,y,width,height);
+		dir = 0;
+		this.img = img;
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -42,6 +46,7 @@ public class Rocket {
 		mHide = true;
 		fHide = true;
 		
+		vel = 0;
 		blownUp = false;
 		
 		
@@ -106,8 +111,30 @@ public class Rocket {
 		return fuel;
 	}
 	
-	public void rotate(float angle) {
-		rAngle = angle;
+	public void act() {
+	
+		System.out.println(Math.toDegrees(dir));
+		dir+= vel;
+		System.out.println(Math.toDegrees(dir));
+//		dir = Math.atan(((double)this.y-y)/(this.x-x));
+//		if (this.x > x)
+//			dir += Math.PI;
+	}
+	
+	public void accelerate(double vel) {
+		this.vel += vel;
+		
+	}
+	
+//	public void act() {
+//		
+//	}
+	
+	public void applyWindowLimits(int windowWidth, int windowHeight) {
+		x = Math.min(x,windowWidth-width);
+		y = Math.min(y,windowHeight-height);
+		x = Math.max(0,x);
+		y = Math.max(0,y);
 	}
 	
 	public boolean getState() {
@@ -121,15 +148,15 @@ public class Rocket {
 		
 			
 		if (blownUp == false) {
-				
-			drawer.fill(255);
-			drawer.push();
-			drawer.rotate(rAngle);
-			drawer.rect((float)x,(float)y,(float)width,(float)height);
-			drawer.triangle((float)x,(float)y,(float)(x+(width/2)),(float)(y-50),(float)(x+width),(float)y);
-			drawer.pop();
 			
-				
+			drawer.fill(255);
+			drawer.pushMatrix();
+			drawer.translate((float)(x+width/2), (float)(y+height/2));
+			drawer.rotate((float)Math.toRadians(dir));
+			drawer.image(img,(int)(-width/2),(int)(-height/2),(int)width,(int)height);
+			drawer.popMatrix();
+		//	drawer.triangle((float)x,(float)y,(float)(x+(width/2)),(float)(y-50),(float)(x+width),(float)y);
+			
 			if (engine != null) {
 				
 				engine.setX(x);
