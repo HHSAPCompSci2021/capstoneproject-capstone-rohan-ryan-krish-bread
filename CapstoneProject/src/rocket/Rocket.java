@@ -11,6 +11,9 @@ import screenClasses.Sidebar;
 import java.util.LinkedHashMap;
 
 // Represents the rocket itself. Each build and launch screen will have a rocket object and draw it
+/**
+*Class reprenting the rocket that is drawn on both the build and launch screens
+ */
 public class Rocket extends Rectangle2D.Double {
 
 	// state of the rocket. If rocket still flying / not blown up, then draw the rocket. Else (rocket has blown up) and draw an explosion 
@@ -35,7 +38,14 @@ public class Rocket extends Rectangle2D.Double {
 	//private double x,y,width,height;
 	private PImage img;
 	
-	
+	/**
+	* Contructs a rocket object with the image of the rocket, x and y coords, and dimensions
+	* @param img image of the rocket to be drawn on both build and launch screens 
+	* @param x x-coord of the rocket 
+	* @param y y-coord of the rocket
+	* @param width width of the rocket
+	* @param height height of the rocket
+	 */
 	public Rocket(PImage img, double x, double y, double width, double height) {
 		super(x,y,width,height);
 		dir = 0;
@@ -60,74 +70,156 @@ public class Rocket extends Rectangle2D.Double {
 	}
 	
 	// setters
+	/**
+	* Sets the rocket's material 
+	* @param mat material to be set
+	 */
 	public void setMaterial(Material mat) {
 		material = mat;
 	}
 	
+	/**
+	* hides the rocket's engine so that it is not drawn 
+	* @param isVisible whether or not the engine is to be visble or not
+	 */
 	public void ehide(boolean isVisible) {
 		eHide = isVisible;
 	}
-	
+	/**
+	* hides the rocket's material so that it is not drawn 
+	* @param isVisible whether or not the material is to be visble or not
+	 */
 	public void mhide(boolean isVisible) {
 		mHide = isVisible;
 	}
 	
+	/**
+	* hides the rocket's fuel so that it is not drawn 
+	* @param isVisible whether or not the fuel is to be visble or not
+	 */
 	public void fhide(boolean isVisible) {
 		fHide = isVisible;
 	}
-	
+
+	/**
+	* Sets the rocket's engine 
+	* @param e engine to be set
+	 */
 	public void setEngine(Engine e) {
 		engine = e;
 	}
 	
+	/**
+	* Sets the rocket's fuel 
+	* @param f fuel to be set
+	 */
 	public void setFuel(Fuel f) {
 		fuel = f;
 	}
-	
+
+	/**
+	* Sets the state of the rocket and whether or not it is blown up. Setting to true results in the rocket blowing up, and setting to false results in rocket drawing and flying normally
+	* @param s whether or not rocket is to be blown up
+	 */
 	public void setState(boolean s) {
 		blownUp = s;
 	}
+
+	/**
+	* Sets the rocket's width 
+	* @param w width to be set
+	 */
 	public void setWidth(double w) {
 		width = w;
 	}
+	/**
+	* Sets the rocket's height 
+	* @param h height to be set
+	 */
 	public void setHeight(double h) {
 		height = h;
 	}
+
+	/**
+	* Sets the rocket's x-coord 
+	* @param xVal x-coord to be set
+	 */
 	public void setImageX(double xVal) {
 		this.x = xVal;
 	}
-	
+
+	/**
+	* Sets the rocket's y-coord 
+	* @param yVal y-coord to be set
+	 */
 	public void setImageY(double yVal) {
 		this.y = yVal;
 	}
-	// getters
+
+	/**
+	* Gets the rocket's current material
+	* @return current material of the rocket
+	 */
 	public Material getMaterial() {
 		return material;
 	}
+	/**
+	* Gets the rocket's current x-coord
+	* @return current x-coord of the rocket
+	 */
 	public double getX() {
 		return x;
 	}
+	/**
+	* Gets the rocket's current y-coord
+	* @return current y-coord of the rocket
+	 */
 	public double getY() {
 		return y;
 	}
 	
+	/**
+	* Gets the rocket's current velocity in the x-direction
+	* @return current x-velocity of the rocket
+	 */
 	public double getVX() {
 		return vx;
 	}
+	/**
+	* Gets the rocket's current velocity in the y-direction
+	* @return current y-velocity of the rocket
+	 */
 	public double getVY() {
 		return vy;
 	}
 	
+	/**
+	* Gets the rocket's current image
+	* @return current image of the rocket
+	 */
 	public PImage getImage() {
 		return img;
 	}
+
+	/**
+	* Gets the rocket's current engine
+	* @return current engine of the rocket
+	 */
 	public Engine getEngine() {
 		return engine;
 	}
 	
+	/**
+	* Gets the rocket's current fuel
+	* @return current fuel of the rocket
+	 */
 	public Fuel getFuel() {
 		return fuel;
 	}
+
+	/**
+	*Calculates and updates the angle of tilt or rotation for the rocket 
+	 */
 	
 	public void act() {
 		
@@ -145,24 +237,44 @@ public class Rocket extends Rectangle2D.Double {
 //			dir += Math.PI;
 	}
 	
+	/**
+	*Updates the velocity at which the rocket tilts / rotates
+	@param vel amount to increase tiliting velocity by
+	 */
 	public void tilt(double vel) {
 		this.vel += vel;
 	}
 	
+	/**
+	*Accelerates the the rocket and updates its velocity
+	@param vx amount to increase x-velocity by
+	@param vy amount to increase y-velocity by
+	 */
 	public void accelerate(double vx, double vy) {
 		this.vx += vx;
 		this.vy += vy;
 		
 	}
 	
+	/**
+	*Gets the angle at which the rocket is facing
+	*@return angle at which rocket is facing
+	 */
 	public double getDirection() {
 		return dir;
 	}
 	
+	/**
+	*Sets the angle of rotation for rocket
+	*@param angle at which to rotate rocket 
+	 */
 	public void setDirection(double dir) {
 		this.dir = dir;
 	}
 	
+	/**
+	* Sets the rocket's move state. Setting to true results in rocket moving / flying, setting to false results in rocket not moving
+	 */
 	public void moveForward(boolean moving) {
 		this.moving = moving;
 	}
