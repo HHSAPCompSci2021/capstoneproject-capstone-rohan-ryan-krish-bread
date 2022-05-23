@@ -208,23 +208,24 @@ public class Rocket extends Rectangle2D.Double {
 			
 			if (engine != null) { // height * sin(dir) = x
 				
-				if (dir != 0) {
-					engine.setX(height * Math.cos(Math.toRadians(dir)));
-					engine.setY(height * Math.sin(Math.toRadians(dir)));
-					System.out.println(x + "," + y);
-				}
-				
-				else {
-					engine.setX(x);
-					engine.setY(y+height);
-				}
-				
-//				engine.setX(x);
-//				engine.setY(y+height);
-				engine.setWidth(width);
-				engine.setHeight(50);
-				
-				engine.draw(drawer);
+				img = drawer.loadImage("img/image-removebg-preview.png");
+//				if (dir != 0) {
+//					engine.setX(height * Math.cos(Math.toRadians(dir)));
+//					engine.setY(height * Math.sin(Math.toRadians(dir)));
+//					System.out.println(x + "," + y);
+//				}
+//				
+//				else {
+//					engine.setX(x);
+//					engine.setY(y+height);
+//				}
+//				
+////				engine.setX(x);
+////				engine.setY(y+height);
+//				engine.setWidth(width);
+//				engine.setHeight(50);
+//				
+//				engine.draw(drawer);
 				
 			
 				

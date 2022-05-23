@@ -118,7 +118,7 @@ public class Launch1 extends LaunchScreen{
 //		surface.text("Launch 1", 10, 20);
 //		surface.fill(255);
 		
-			if (draws % 99999999 == 0) { // STITCH TOGETHER NIGHTSKY PICTURES TO EXPAND BOUNDS
+			if (draws % 60 == 0) {
 				
 				if (Math.random() > rocket.getEngine().getReliability()) {
 					rocket.setState(true);

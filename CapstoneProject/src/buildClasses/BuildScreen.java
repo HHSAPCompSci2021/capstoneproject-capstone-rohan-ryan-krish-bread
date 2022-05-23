@@ -71,8 +71,8 @@ public class BuildScreen extends Screen{
 	 * Makes a new Rocket that will be changed and added to in the building process
 	 */
 	public void spawnRocket() {
-		img = surface.loadImage("img/rocket.png");
-		rocket = new Rocket(img,400,100,50,250);
+		img = surface.loadImage("img/BuildShuttle-removebg-preview.png");
+		rocket = new Rocket(img,400,100,200,250);
 		
 //		rocket.setEngine(engines.get(0));
 //		rocket.setMaterial(materials.get(0));

@@ -54,21 +54,21 @@ public class Build1 extends BuildScreen {
 		
 		surface.background(255);
 		
-		PImage image1 = surface.loadImage("img/steel plating.jpg");
-		surface.image(image1, 0, 10, 250, 200);
-		surface.image(image1, 250, 10, 250, 200);
-		surface.image(image1, 500, 10, 250, 200);
-		surface.image(image1, 750, 10, 250, 200);
-		
-		surface.image(image1, 0, 210, 250, 200);
-		surface.image(image1, 250, 210, 250, 200);
-		surface.image(image1, 500, 210, 250, 200);
-		surface.image(image1, 750, 210, 250, 200);
-		
-		surface.image(image1, 0, 410, 250, 200);
-		surface.image(image1, 250, 410, 250, 200);
-		surface.image(image1, 500, 410, 250, 200);
-		surface.image(image1, 750, 410, 250, 200);
+		PImage image1 = surface.loadImage("img/BuildBackground.png");
+		surface.image(image1, 0, 0, 800, 600);
+//		surface.image(image1, 250, 10, 250, 200);
+//		surface.image(image1, 500, 10, 250, 200);
+//		surface.image(image1, 750, 10, 250, 200);
+//		
+//		surface.image(image1, 0, 210, 250, 200);
+//		surface.image(image1, 250, 210, 250, 200);
+//		surface.image(image1, 500, 210, 250, 200);
+//		surface.image(image1, 750, 210, 250, 200);
+//		
+//		surface.image(image1, 0, 410, 250, 200);
+//		surface.image(image1, 250, 410, 250, 200);
+//		surface.image(image1, 500, 410, 250, 200);
+//		surface.image(image1, 750, 410, 250, 200);
 		
 		rocket.draw(surface);
 		sideBar.draw(surface);
