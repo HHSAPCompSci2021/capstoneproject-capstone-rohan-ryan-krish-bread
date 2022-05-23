@@ -208,6 +208,7 @@ public class Rocket extends Rectangle2D.Double {
 			
 			if (engine != null) { // height * sin(dir) = x
 				
+				System.out.println("debug");
 				img = drawer.loadImage("img/image-removebg-preview.png");
 //				if (dir != 0) {
 //					engine.setX(height * Math.cos(Math.toRadians(dir)));
@@ -232,23 +233,27 @@ public class Rocket extends Rectangle2D.Double {
 					
 			}
 			
-			if (material != null) {
-				
-				material.setX(x);
-				material.setY(y);
-				material.setWidth(width);
-				material.setHeight(height);
-				
-				material.draw(drawer);
-				
-					
+			else {
+				img = drawer.loadImage("img/BuildShuttle-removebg-preview.png");
 			}
-
-			if (fuel != null) {
-	
-				fuel.draw(drawer);
-		
-			}
+			
+//			if (material != null) {
+//				
+//				material.setX(x);
+//				material.setY(y);
+//				material.setWidth(width);
+//				material.setHeight(height);
+//				
+//				material.draw(drawer);
+//				
+//					
+//			}
+//
+//			if (fuel != null) {
+//	
+//				fuel.draw(drawer);
+//		
+//			}
 			
 			
 				

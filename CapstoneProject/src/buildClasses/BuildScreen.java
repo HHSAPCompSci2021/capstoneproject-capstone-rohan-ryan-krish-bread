@@ -188,6 +188,8 @@ public class BuildScreen extends Screen{
 //		}
 	}
 	
+	//public 
+	
 //	public Rocket getRocket() {
 //		return rocket;
 //	}
@@ -222,6 +224,8 @@ public class BuildScreen extends Screen{
 			}	
 			//rocket.setEngine(engines.get(0));
 		}
+		
+		
 		if (meterialLoc.contains(p)) {
 			r2.x = meterialLoc.x;
 			r2.y = meterialLoc.y;	
@@ -234,6 +238,7 @@ public class BuildScreen extends Screen{
 			}	
 			//rocket.setMaterial(materials.get(0));
 		}
+		
 		if (fuelLoc.contains(p)) {
 			r3.x = fuelLoc.x;
 			r3.y = fuelLoc.y;	
@@ -245,6 +250,21 @@ public class BuildScreen extends Screen{
 				}	
 			}
 			//rocket.setFuel(fuels.get(0));
+		}
+		
+		if (r1.x != engineLoc.x && r1.y != engineLoc.y) {
+				rocket.setEngine(null);
+				data.setEngine(null);
+		}
+		
+		if (r2.x != meterialLoc.x && r2.y != meterialLoc.y) {
+			rocket.setMaterial(null);
+			data.setMaterial(null);
+		}
+		
+		if (r3.x != fuelLoc.x && r3.y != fuelLoc.y) {
+			rocket.setFuel(null);
+			data.setFuel(null);
 		}
 		
 	}

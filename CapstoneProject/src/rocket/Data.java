@@ -113,6 +113,23 @@ public class Data {
 		p.text("Weight: " + weight + "kg", 610, 70);
 		p.text("Thrust: " + thrust + "N", 610, 90);
 		p.text("Probability of success: " + probability + "%", 610, 110);
+		
+		if (m != null) {
+			p.text("Material: " + m.getName() , 610, 150);
+		}
+		
+		else {
+			p.text("Material: None" , 610, 150);
+		}
+		
+		if (f != null) {
+			p.text("Fuel: " + f.getName() , 610, 170);
+		}
+		
+		else {
+			p.text("Fuel: None" , 610, 170);
+		}
+		
 		p.pop();
 		
 		
