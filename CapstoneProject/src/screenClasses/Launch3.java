@@ -75,6 +75,9 @@ public class Launch3 extends LaunchScreen{
 	public void spawnSpace() {
 		img4 = surface.loadImage("img/ColdSpace.png");
 	}
+	public void spawnMeteors() {
+		
+	}
 	/**
 	 * Spawns the default images like background and built rocket once program begins
 	 */

@@ -186,6 +186,7 @@ public class Rocket extends Rectangle2D.Double {
 		y = Math.max(0,y);
 	}
 	
+	
 	public boolean getState() {
 		return blownUp;
 	}
