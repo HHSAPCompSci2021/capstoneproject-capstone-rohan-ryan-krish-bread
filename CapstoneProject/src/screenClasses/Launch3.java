@@ -3,6 +3,9 @@ package screenClasses;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.event.KeyEvent;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Ellipse2D.Float;
 
 import main.DrawingSurface;
 import processing.core.PImage;
@@ -10,24 +13,21 @@ import rocket.Meteor;
 import rocket.Rocket;
 
 public class Launch3 extends LaunchScreen{
+	
+	
 	private DrawingSurface surface;
-	private Rectangle button;
-	private Shape s;
+	private Rectangle button, win;
+	private Ellipse2D.Float land;
 	private Rocket rocket;
-	private Meteor meteor;
-	private double rocketX, rocketY;
-	private double meteorX, meteorY;
-	private boolean start;
-	private int count;
-	private Rectangle win;
-	private int draws; // number of times draw() has been called
-	private PImage img2;
-	private int offSetY;
-	private int imgX, imgY;
-	private double scaleX, scaleY, actualScaleX, actualScaleY;
-	private PImage img3, img4;
-	private boolean isDone;
-	private int checkPoints;
+	private PImage meteor;
+	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
+	private boolean start, isDone;
+	private int draws, imgX, imgY, checkPoints, count, count2;
+	private PImage img2, img3, sky1;
+	/**
+	 * The launch test for the rocket for level 1
+	 * @param surface the drawing surface on which to draw
+	 */
 	public Launch3(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
@@ -38,9 +38,9 @@ public class Launch3 extends LaunchScreen{
 		button = new Rectangle(650,-40,125, 150);
 		start = false;
 		count = 0;
+		count2 = 0;
 		win = new Rectangle(0, 0 , 800, 600);
 		draws = 0;
-		offSetY = 0;
 		this.imgX = -50;
 		this.imgY = 0;
 		actualScaleX = 0;
@@ -69,14 +69,11 @@ public class Launch3 extends LaunchScreen{
 	public void spawnNight() {
 		img3 = surface.loadImage("img/NightStar.png");
 	}
-	/**
-	 * Spawns another image of space (with stars)
-	 */
-	public void spawnSpace() {
-		img4 = surface.loadImage("img/ColdSpace.png");
+	public void spawnSky() {
+		sky1 = surface.loadImage("img/ColdSpace.png");
 	}
 	public void spawnMeteors() {
-		
+		meteor = surface.loadImage("img/Meteor.png");
 	}
 	/**
 	 * Spawns the default images like background and built rocket once program begins
@@ -84,64 +81,77 @@ public class Launch3 extends LaunchScreen{
 	public void setup() {
 		spawnRocket();
 		spawnNightSky();
-		spawnSpace();
+		spawnSky();
+		spawnMeteors();
 		spawnNight();
 	}
 	/**
 	 * Draws new instances of rocket, backgrounds, and text
 	 */
-	public void draw() {
-		if(imgY <= 1033) {
+	public void draw() { // move the screen according to speed of rocket
+		if(Math.pow(imgX + 450 - rocket.getX(), 2) + Math.pow(imgY - img3.height -(sky1.height*2) - rocket.getY(), 2) > 140000 && !isDone) { 
+			surface.background(0);
+			
+			
+			if (rocket.getMoving()) {
+				this.imgX += rocket.getVX() * Math.cos(Math.toRadians(rocket.getDirection() + 90));
+				this.imgY += rocket.getVY() * Math.sin(Math.toRadians(rocket.getDirection() + 90));
+			}
+			
 			draws++;
+			
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
-			this.imgY++;
-			surface.image(img4, (float) this.imgX, (float)this.imgY - img4.height);
-			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height-img4.height);
+			surface.image(sky1, imgX, this.imgY-sky1.height);
+			surface.image(sky1, imgX, this.imgY-(sky1.height*2));
+			surface.image(img3, (float) this.imgX, (float) this.imgY-(sky1.height*2)-img3.height);
+			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
 			surface.text("Level 2 Launch", 10, 20);
 			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 			surface.fill(0);
+			rocket.setHeight(150);
 			rocket.draw(surface);
+			rocket.act();
 			String str = "Back To Level Select";
 			float w = surface.textWidth(str);
 			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 			surface.fill(0);
-		
-		if(rocket.getX() > win.getWidth()-20){
-			rocket.setImageX(win.getWidth()-30);
-		}
-		else if(rocket.getX() < 0) {
-			rocket.setImageX(0);
-		}
+			
+			if(rocket.getX() > win.getWidth()-20) {
+				rocket.setImageX(win.getWidth()-30);
+			}
+			else if(rocket.getX() < 0) {
+				rocket.setImageX(0);
+			}
 		
 		if (surface.keyPressed) {
 			 if (surface.keyCode == surface.LEFT) {
 				 rocket.setImageX(rocket.getX()-5);
-			   }
+			     }
 			 if (surface.keyCode == surface.RIGHT) {
 				 	rocket.setImageX(rocket.getX()+5);
 			   }
+//			 if(surface.key == 'd') {
+//				 rocket.rotate((float) Math.PI/4);
+//			 }
+//			 if(surface.key == 'd') {
+//				 rocket.rotate((float) )
+//			 }
 		}
 	}
-		else {
-			if(!isDone) {
-				surface.text("Congratulations! You have completed the level."
-						+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 400);
-				isDone = true;
-			}
-			
-//			if(surface.mousePressed) {
-//				change();
-//			}
-//			change();
-			
-//				rocket.setImageXAndY(surface.mouseX, surface.mouseY);
+		
+	else {
+		
+		if(!isDone) {
+			surface.text("Congratulations! You have completed the level."
+				+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 400);
+			isDone = true;
 		}
-		
+	}
+	}
+			
+			
 			
 		
-		
-			
-}
 			
 //			rocket.setImageXAndY(rocket.getX() + (surface.mouseX-rocket.getX()), rocket.getY() + (surface.mouseY-rocket.getY()));
 			
@@ -157,12 +167,7 @@ public class Launch3 extends LaunchScreen{
 //			rocket.setImageY(scaleY);
 //		}
 		
-//		if (draws % 60 == 0) {
-//			
-//			if (Math.random() > rocket.getEngine().getReliability()) {
-//				rocket.setState(true);
-//			}
-//		}
+
 		
 		
 //		else if(this.imgY > 400) {
@@ -177,13 +182,12 @@ public class Launch3 extends LaunchScreen{
 ////			rocket.setImageY(scaleY);
 ////		}
 //		}
-	
 //	public void change() {
-//		if(actualScaleX != surface.mouseX - rocket.getX()) {
+//		while (actualScaleX != surface.mouseX - rocket.getX()) {
 //			actualScaleX++;
 //			rocket.setImageX(rocket.getX() + actualScaleX);
 //		}
-//		if(actualScaleY != surface.mouseY - rocket.getY()) {
+//		while (actualScaleY != surface.mouseY - rocket.getY()) {
 //			actualScaleY++;
 //			rocket.setImageY(rocket.getY() + actualScaleY);
 //		}
@@ -207,15 +211,54 @@ public class Launch3 extends LaunchScreen{
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
 			rocket.setState(false);
+			rocket.setHeight(250);
+			rocket.setDirection(0);
 			surface.switchScreen(ScreenSwitcher.LEVEL_SELECT);
 		}
+//		if (land.contains(p)) {
+//			
+//		}
+			
+	}
+	
+	public void keyPressed() {
+		
+		if (surface.keyCode ==  KeyEvent.VK_A) {
+			rocket.tilt(-0.25);
+			
+		}
+		
+		if (surface.keyCode ==  KeyEvent.VK_D) {
+			rocket.tilt(0.25);
+			
+		}
+		
+		if (surface.keyCode ==  KeyEvent.VK_W) {
+			rocket.moveForward(true);
+			rocket.accelerate(0.75, 0.75);
+		}
+		
+		if (surface.keyCode ==  KeyEvent.VK_S) {
+			
+			if (!(rocket.getVX() <= 0) && !(rocket.getVY() <= 0)) {
+				rocket.accelerate(-0.75, -0.75);
+			}
+			
+			else {
+				rocket.moveForward(false);
+			}
+			
+		}
+
+
+		
 	}
 	/**
 	 * Counts the checkpoints that the rocket has crossed for each level
 	 * @return the number of checkpoints
 	 */
 	public int countCheckPoints() {
-		if(imgY == 150 || imgY == 806) {
+		if(imgY == 150 || imgY == 806 || imgY == 1512) {
 			checkPoints++;
 		}
 		return checkPoints;

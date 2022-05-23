@@ -88,7 +88,7 @@ public class Launch2 extends LaunchScreen{
 	 * Draws new instances of rocket, backgrounds, and text
 	 */
 	public void draw() { // move the screen according to speed of rocket
-		if(Math.pow(imgX + 450 - rocket.getX(), 2) + Math.pow(imgY - img3.height -sky1.height - rocket.getY(), 2) > 140000 && !isDone) { 
+		if(Math.pow(imgX + 450 - rocket.getX(), 2) + Math.pow(imgY - img3.height -(sky1.height*2) - rocket.getY(), 2) > 140000 && !isDone) { 
 			surface.background(0);
 			
 			
@@ -101,7 +101,8 @@ public class Launch2 extends LaunchScreen{
 			
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
 			surface.image(sky1, imgX, this.imgY-sky1.height);
-			surface.image(img3, (float) this.imgX, (float) this.imgY-sky1.height-img3.height);
+			surface.image(sky1, imgX, this.imgY-(sky1.height*2));
+			surface.image(img3, (float) this.imgX, (float) this.imgY-(sky1.height*2)-img3.height);
 			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
 			surface.text("Level 2 Launch", 10, 20);
 			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
@@ -256,7 +257,7 @@ public class Launch2 extends LaunchScreen{
 	 * @return the number of checkpoints
 	 */
 	public int countCheckPoints() {
-		if(imgY == 150 || imgY == 806) {
+		if(imgY == 150 || imgY == 806 || imgY == 1512) {
 			checkPoints++;
 		}
 		return checkPoints;
