@@ -73,7 +73,7 @@ public class Build4 extends BuildScreen{
 		super.draw();
 		
 		surface.fill(0);
-		surface.text("Level 2 Build", 10, 20);
+		surface.text("Level 4 Build", 10, 20);
 		surface.fill(255);
 		
 //		if (rocket == null) {
@@ -122,7 +122,7 @@ public class Build4 extends BuildScreen{
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
 			sideBar.hide();
-			surface.switchScreen(ScreenSwitcher.LAUNCH_2);
+			surface.switchScreen(ScreenSwitcher.LAUNCH_4);
 		}
 			
 	}
