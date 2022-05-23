@@ -122,12 +122,21 @@ public class Launch1 extends LaunchScreen{
 //		surface.text("Launch 1", 10, 20);
 //		surface.fill(255);
 		
-			if (draws % 60 == 0) {
+			try {
 				
-				if (Math.random() > rocket.getEngine().getReliability()) {
-					rocket.setState(true);
+				if (draws % 60 == 0) {
+					
+					if (Math.random() > rocket.getEngine().getReliability()) {
+						rocket.setState(true);
+					}
 				}
-			}	
+			}
+			
+			catch (NullPointerException e) {
+				rocket.setState(true);
+				System.out.println("Must select an engine");
+			}
+				
 			
 
 			if (rocket.getState()) {
