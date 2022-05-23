@@ -28,7 +28,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private Screen activeScreen;
 	private Build1 buildScreen1;
 	private ArrayList<Screen> screens;
-
 	/**
 	 * Gives all of the variable values, and makes screens
 	 */
