@@ -37,6 +37,10 @@ public class BuildScreen extends Screen{
 	protected List<Fuel> fuels;
 	protected List<Material> materials;
 	
+	private boolean hideEText;
+	private boolean hideMText;
+	private boolean hideFText;
+	
 	private Rectangle r1, r2, r3, engineLoc, meterialLoc, fuelLoc;
 	private Rectangle currentDrag;
 	private int dragOffsetX, dragOffsetY;
@@ -56,6 +60,10 @@ public class BuildScreen extends Screen{
 		engines = new ArrayList<Engine>();
 		materials = new ArrayList<Material>();
 		fuels = new ArrayList<Fuel>();
+		
+		hideEText = false;
+		hideMText = false;
+		hideFText = false;
 		
 		r1 = new Rectangle(25, 150, 100, 30);
 		r2 = new Rectangle(25, 255, 100, 30);
@@ -111,7 +119,7 @@ public class BuildScreen extends Screen{
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
 	//	PImage merlin = surface.loadImage("img/merlin1d.png"); // change later; just a temp variable for testing 
 		
-		Engine pressureFed = new Engine(surface.loadImage("img/merlin1d.png"), 20,20,20,50, "pressureFed", 500, 0.95, 100000);
+		Engine pressureFed = new Engine(surface.loadImage("img/merlin1d.png"), 20,20,20,50, "Pressure Fed", 500, 0.95, 100000);
 
 	//	Engine closedCycle = new Engine(merlin, 20,20,20,20, "Closed Cycle", 1, 1,1); // change wieght and reliabilty params
 	//	Material steel = new Material(surface.loadImage("img/Steel-PNG-File.png"), 300, 170, 20, 20, "Steel", 1000);
@@ -137,28 +145,48 @@ public class BuildScreen extends Screen{
 	 */
 	public void draw() {
 			
-		surface.fill(255);
+		surface.fill(255,125); // chnage opacity + color
+		
 		surface.rect(engineLoc.x,engineLoc.y,engineLoc.width,engineLoc.height);
 		surface.rect(meterialLoc.x,meterialLoc.y,meterialLoc.width,meterialLoc.height);
 		surface.rect(fuelLoc.x,fuelLoc.y,fuelLoc.width,fuelLoc.height);
+		
+		if (hideEText == false) {
+			surface.fill(0);
+			surface.text("Place Engine",engineLoc.x + 10,engineLoc.y + 5,engineLoc.width,engineLoc.height);
+		}
+		
+		if (hideMText == false) {
+			surface.fill(0);
+			surface.text("Place Material",meterialLoc.x + 10,meterialLoc.y + 5,meterialLoc.width,meterialLoc.height);
+		}
+		
+		if (hideFText == false) {
+			surface.fill(0);
+			surface.text("Place Fuel",fuelLoc.x + 10,fuelLoc.y + 5,fuelLoc.width,fuelLoc.height);
+		}
+		
 	
 		if (!sideBar.getList("e").getSelectedText().equals("Engines")) {
-			surface.fill(225);
+			surface.fill(215,215,215,150);
+		//	surface.noFill();
 			surface.rect(r1.x,r1.y,r1.width,r1.height);
 			surface.fill(0);
-			surface.text(sideBar.getList("e").getSelectedText(), r1.x+15, r1.y+15);
+			surface.text(sideBar.getList("e").getSelectedText(), r1.x+10, r1.y+15);
 		}
 		if (!sideBar.getList("m").getSelectedText().equals("Materials")) {
-			surface.fill(225);
+			surface.fill(215,215,215,150);
+		//	surface.noFill();
 			surface.rect(r2.x,r2.y,r2.width,r2.height);
 			surface.fill(0);
-			surface.text(sideBar.getList("m").getSelectedText(), r2.x+15, r2.y+15);
+			surface.text(sideBar.getList("m").getSelectedText(), r2.x+10, r2.y+15);
 		}
 		if (!sideBar.getList("f").getSelectedText().equals("Fuels")) {
-			surface.fill(225);
+			surface.fill(215,215,215,150);
+		//	surface.noFill();
 			surface.rect(r3.x,r3.y,r3.width,r3.height);
 			surface.fill(0);
-			surface.text(sideBar.getList("f").getSelectedText(), r3.x+15, r3.y+15);
+			surface.text(sideBar.getList("f").getSelectedText(), r3.x+10, r3.y+15);
 		}		
 		
 //		if (rocket.getEngine() != null) {
@@ -214,6 +242,7 @@ public class BuildScreen extends Screen{
 		if (engineLoc.contains(p)) {
 			r1.x = engineLoc.x;
 			r1.y = engineLoc.y;	
+			hideEText = true;
 			
 			for (int i = 0; i < engines.size(); i++) {	
 				if (sideBar.getESelected().equals(engines.get(i).getName())) {
@@ -229,6 +258,8 @@ public class BuildScreen extends Screen{
 		if (meterialLoc.contains(p)) {
 			r2.x = meterialLoc.x;
 			r2.y = meterialLoc.y;	
+			hideMText = true;
+			
 			for (int i = 0; i < materials.size(); i++) {
 				if (sideBar.getMSelected().equals(materials.get(i).getName())) {
 					rocket.setMaterial(materials.get(i));
@@ -242,6 +273,8 @@ public class BuildScreen extends Screen{
 		if (fuelLoc.contains(p)) {
 			r3.x = fuelLoc.x;
 			r3.y = fuelLoc.y;	
+			hideFText = true;
+			
 			for (int i = 0; i < fuels.size(); i++) {	
 				if (sideBar.getFSelected().equals(fuels.get(i).getName())) {
 					rocket.setFuel(fuels.get(i));
@@ -255,16 +288,19 @@ public class BuildScreen extends Screen{
 		if (r1.x != engineLoc.x && r1.y != engineLoc.y) {
 				rocket.setEngine(null);
 				data.setEngine(null);
+				hideEText = false;
 		}
 		
 		if (r2.x != meterialLoc.x && r2.y != meterialLoc.y) {
 			rocket.setMaterial(null);
 			data.setMaterial(null);
+			hideMText = false;
 		}
 		
 		if (r3.x != fuelLoc.x && r3.y != fuelLoc.y) {
 			rocket.setFuel(null);
 			data.setFuel(null);
+			hideFText = false;
 		}
 		
 	}

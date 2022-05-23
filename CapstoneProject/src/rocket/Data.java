@@ -114,20 +114,28 @@ public class Data {
 		p.text("Thrust: " + thrust + "N", 610, 90);
 		p.text("Probability of success: " + probability + "%", 610, 110);
 		
-		if (m != null) {
-			p.text("Material: " + m.getName() , 610, 150);
+		if (e != null) {
+			p.text("Engine: " + e.getName() , 610, 150);
 		}
 		
 		else {
-			p.text("Material: None" , 610, 150);
+			p.text("Engine: None" , 610, 150);
+		}
+		
+		if (m != null) {
+			p.text("Material: " + m.getName() , 610, 170);
+		}
+		
+		else {
+			p.text("Material: None" , 610, 170);
 		}
 		
 		if (f != null) {
-			p.text("Fuel: " + f.getName() , 610, 170);
+			p.text("Fuel: " + f.getName() , 610, 190);
 		}
 		
 		else {
-			p.text("Fuel: None" , 610, 170);
+			p.text("Fuel: None" , 610, 190);
 		}
 		
 		p.pop();

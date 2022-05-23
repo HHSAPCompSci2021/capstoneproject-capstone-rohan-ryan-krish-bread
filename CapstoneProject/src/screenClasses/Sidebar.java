@@ -71,17 +71,17 @@ public class Sidebar {
 	public void setup (PApplet p) {
 		
 		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
-		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
+		G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
 		elist = new GDropList(p, 25, 100, 100, 100, 0);
 		elist.setVisible(false);
 		
 		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
-		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
+		G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
 		mlist = new GDropList(p, 25, 200, 100, 100, 0);
 		mlist.setVisible(false);
 		
 		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
-		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
+		G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
 		flist = new GDropList(p, 25, 300, 100, 100, 0);
 		flist.setVisible(false);
 		

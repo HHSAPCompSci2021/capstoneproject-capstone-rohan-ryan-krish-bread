@@ -42,8 +42,13 @@ public class Build2 extends BuildScreen {
 		super.setup();
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle", 1, 1,1); // change wieght and reliabilty params
+		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle", 1500, 0.9, 200000 ); // change wieght and reliabilty params
+		Material carbonComp = new Material(img, 20,20,20,20, "Carbon Comp", 500 );
+		Fuel CH4 = new Fuel(img, 20,20,20,20, "CH4", 400 );
+		
 		engines.add(closedCycle);
+		materials.add(carbonComp);
+		fuels.add(CH4);
 		
 		sideBar.setup(surface);
 		
@@ -60,21 +65,21 @@ public class Build2 extends BuildScreen {
 		
 		surface.background(255);
 		
-		PImage image1 = surface.loadImage("img/steel plating.jpg");
-		surface.image(image1, 0, 10, 250, 200);
-		surface.image(image1, 250, 10, 250, 200);
-		surface.image(image1, 500, 10, 250, 200);
-		surface.image(image1, 750, 10, 250, 200);
-		
-		surface.image(image1, 0, 210, 250, 200);
-		surface.image(image1, 250, 210, 250, 200);
-		surface.image(image1, 500, 210, 250, 200);
-		surface.image(image1, 750, 210, 250, 200);
-		
-		surface.image(image1, 0, 410, 250, 200);
-		surface.image(image1, 250, 410, 250, 200);
-		surface.image(image1, 500, 410, 250, 200);
-		surface.image(image1, 750, 410, 250, 200);
+		PImage image1 = surface.loadImage("img/BuildBackground.png");
+		surface.image(image1, 0, 0, 800, 600);
+//		surface.image(image1, 250, 10, 250, 200);
+//		surface.image(image1, 500, 10, 250, 200);
+//		surface.image(image1, 750, 10, 250, 200);
+//		
+//		surface.image(image1, 0, 210, 250, 200);
+//		surface.image(image1, 250, 210, 250, 200);
+//		surface.image(image1, 500, 210, 250, 200);
+//		surface.image(image1, 750, 210, 250, 200);
+//		
+//		surface.image(image1, 0, 410, 250, 200);
+//		surface.image(image1, 250, 410, 250, 200);
+//		surface.image(image1, 500, 410, 250, 200);
+//		surface.image(image1, 750, 410, 250, 200);
 		
 		rocket.draw(surface);
 		sideBar.draw(surface);
@@ -134,6 +139,7 @@ public class Build2 extends BuildScreen {
 			sideBar.hide();
 			surface.switchScreen(ScreenSwitcher.LAUNCH_2);
 		}
+		super.mousePressed();
 			
 	}
 	

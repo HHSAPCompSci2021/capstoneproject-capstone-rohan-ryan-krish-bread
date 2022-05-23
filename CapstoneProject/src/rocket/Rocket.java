@@ -208,7 +208,6 @@ public class Rocket extends Rectangle2D.Double {
 			
 			if (engine != null) { // height * sin(dir) = x
 				
-				System.out.println("debug");
 				img = drawer.loadImage("img/image-removebg-preview.png");
 //				if (dir != 0) {
 //					engine.setX(height * Math.cos(Math.toRadians(dir)));
