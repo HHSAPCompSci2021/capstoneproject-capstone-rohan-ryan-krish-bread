@@ -24,9 +24,9 @@ public class Launch1 extends LaunchScreen{
 	private Rocket rocket;
 	private Meteor meteor;
 	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
-	private boolean start, isDone;
+	private boolean start, isDone, goneOut;
 	private int draws, imgX, imgY, checkPoints, count, count2;
-	private PImage img2, img3, sky1;
+	private PImage img2, img3, sky1, explosion;
 	/**
 	 * The launch test for the rocket for level 1
 	 * @param surface the drawing surface on which to draw
@@ -75,6 +75,9 @@ public class Launch1 extends LaunchScreen{
 	public void spawnSky() {
 		sky1 = surface.loadImage("img/ColdSpace.png");
 	}
+	public void spawnExplosion() {
+		explosion = surface.loadImage("img/Explosion.png");
+	}
 	/**
 	 * Spawns the default images like background and built rocket once program begins
 	 */
@@ -99,7 +102,8 @@ public class Launch1 extends LaunchScreen{
 		
 //		System.out.println(imgX); // 403 794
 //		count2++;
-		System.out.println(imgY);
+		
+		System.out.println(imgX);
 		if(Math.pow(imgX + 450 - rocket.getX(), 2) + Math.pow(imgY - img3.height -sky1.height - rocket.getY(), 2) > 140000 && !isDone) { 
 			surface.background(0);
 			
@@ -125,7 +129,7 @@ public class Launch1 extends LaunchScreen{
 //		surface.fill(0);
 //		surface.text("Launch 1", 10, 20);
 //		surface.fill(255);
-		
+//		
 //			if (draws % 60 == 0) {
 //				
 //				if (Math.random() > rocket.getEngine().getReliability()) {
@@ -133,12 +137,17 @@ public class Launch1 extends LaunchScreen{
 //				}
 //			}	
 			
-
-			if (rocket.getState()) {
-				surface.text("rocket blew up", 400, 400);
-				isDone = true;
-			}
-		
+			
+//			if (rocket.getState()) {
+//				surface.text("Level Over: Rocket blew up", 400, 400);
+//				isDone = true;
+//			}
+//			if(imgX > 800 || imgX < 0 ) {
+//				surface.text("Level Over: Rocket blew up.", 400, 400);
+//				isDone = true;
+//			}
+			
+	
 //		meteor.draw(surface);
 //		img2 = surface.loadImage("img/night.png");
 //		surface.image(img2, (float) this.imgX, (float) this.imgY);
@@ -149,6 +158,14 @@ public class Launch1 extends LaunchScreen{
 			rocket.draw(surface);
 			rocket.act();
 			
+			if(imgX < -400 || imgX > 400) {
+				spawnExplosion();
+				surface.image(explosion, (float) rocket.getX()-100, (float) rocket.getY()-100);
+				surface.text("Level Over: Rocket blew up.", 400, 400);
+				rocket.stopTilt();
+				rocket.moveForward(false);
+				return;
+			}
 			
 			
 	//		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
@@ -158,12 +175,12 @@ public class Launch1 extends LaunchScreen{
 			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 			surface.fill(0);
 			
-			if(rocket.getX() > win.getWidth()-20) {
-				rocket.setImageX(win.getWidth()-30);
-			}
-			else if(rocket.getX() < 0) {
-				rocket.setImageX(0);
-			}
+//			if(imgX > win.getWidth()-20) {
+//				rocket.setImageX(win.getWidth()-30);
+//			}
+//			else if(imgX < 0) {
+//				rocket.setImageX(0);
+//			}
 		
 		if (surface.keyPressed) {
 			 if (surface.keyCode == surface.LEFT) {
@@ -203,31 +220,58 @@ public class Launch1 extends LaunchScreen{
 	}
 	
 	public void keyPressed() {
-		
-		if (surface.keyCode ==  KeyEvent.VK_A) {
+			if (surface.keyCode ==  KeyEvent.VK_A) {
 			rocket.tilt(-0.25);
+			if(imgX < -400 || imgX > 400) {
+				rocket.stopTilt();
+			}
+//			if(imgX < -400 || imgX > 400) {
+//				spawnExplosion();
+//				surface.text("Level Over: Rocket blew up.", 400, 400);
+//				surface.image(explosion, imgX, imgY);
+//				rocket.stopTilt();
+//				return;
+//			}
 			
 		}
 		
 		if (surface.keyCode ==  KeyEvent.VK_D) {
 			rocket.tilt(0.25);
-			
+			if(imgX < -400 || imgX > 400) {
+				rocket.stopTilt();
+//				spawnExplosion();
+//				surface.text("Level Over: Rocket blew up.", 400, 400);
+//				surface.image(explosion, imgX, imgY);
+//				rocket.stopTilt();
+//				return;
+			}
 		}
 		
 		if (surface.keyCode ==  KeyEvent.VK_W) {
 			rocket.moveForward(true);
 			rocket.accelerate(0.75, 0.75);
+			if(imgX < -400 || imgX > 400) {
+				rocket.moveForward(false);
+				return;
+			}
 		}
 		
 		if (surface.keyCode ==  KeyEvent.VK_S) {
 			
 			if (!(rocket.getVX() <= 0) && !(rocket.getVY() <= 0)) {
 				rocket.accelerate(-0.75, -0.75);
+//				if(imgX < -400 || imgX > 400) {
+//					spawnExplosion();
+//					surface.text("Level Over: Rocket blew up.", 400, 400);
+//					surface.image(explosion, imgX, imgY);
+//					rocket.stopTilt();
+//					return;
+//				}
 			}
 			
-			else {
-				rocket.moveForward(false);
-			}
+//			else {
+//				rocket.moveForward(false);
+//			}
 			
 		}
 

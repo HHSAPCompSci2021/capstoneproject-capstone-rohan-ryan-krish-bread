@@ -23,7 +23,7 @@ public class Launch3 extends LaunchScreen{
 	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
 	private boolean start, isDone;
 	private int draws, imgX, imgY, checkPoints, count, count2;
-	private PImage img2, img3, sky1;
+	private PImage img2, img3, sky1, explosion;
 	/**
 	 * The launch test for the rocket for level 1
 	 * @param surface the drawing surface on which to draw
@@ -75,6 +75,9 @@ public class Launch3 extends LaunchScreen{
 	public void spawnMeteors() {
 		meteor = surface.loadImage("img/Meteor.png");
 	}
+	public void spawnExplosion() {
+		explosion = surface.loadImage("img/Explosion.png");
+	}
 	/**
 	 * Spawns the default images like background and built rocket once program begins
 	 */
@@ -82,7 +85,7 @@ public class Launch3 extends LaunchScreen{
 		spawnRocket();
 		spawnNightSky();
 		spawnSky();
-		spawnMeteors();
+//		spawnMeteors();
 		spawnNight();
 	}
 	/**
@@ -100,28 +103,37 @@ public class Launch3 extends LaunchScreen{
 			
 			draws++;
 			
+//			surface.image(meteor, this.imgX, this.imgY);
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
 			surface.image(sky1, imgX, this.imgY-sky1.height);
 			surface.image(sky1, imgX, this.imgY-(sky1.height*2));
 			surface.image(img3, (float) this.imgX, (float) this.imgY-(sky1.height*2)-img3.height);
+			
 			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
-			surface.text("Level 2 Launch", 10, 20);
+			surface.text("Level 3 Launch", 10, 20);
 			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 			surface.fill(0);
 			rocket.setHeight(150);
 			rocket.draw(surface);
 			rocket.act();
+			
+			
+			if(imgX < -400 || imgX > 400) {
+				surface.text("Level Over: Rocket blew up.", 400, 400);
+				surface.image(explosion, imgX, imgY);
+				return;
+			}
 			String str = "Back To Level Select";
 			float w = surface.textWidth(str);
 			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 			surface.fill(0);
 			
-			if(rocket.getX() > win.getWidth()-20) {
-				rocket.setImageX(win.getWidth()-30);
-			}
-			else if(rocket.getX() < 0) {
-				rocket.setImageX(0);
-			}
+//			if(rocket.getX() > win.getWidth()-20) {
+//				rocket.setImageX(win.getWidth()-30);
+//			}
+//			else if(rocket.getX() < 0) {
+//				rocket.setImageX(0);
+//			}
 		
 		if (surface.keyPressed) {
 			 if (surface.keyCode == surface.LEFT) {

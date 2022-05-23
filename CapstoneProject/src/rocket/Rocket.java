@@ -244,6 +244,9 @@ public class Rocket extends Rectangle2D.Double {
 	public void tilt(double vel) {
 		this.vel += vel;
 	}
+	public void stopTilt() {
+		this.vel = 0;
+	}
 	
 	/**
 	*Accelerates the the rocket and updates its velocity
