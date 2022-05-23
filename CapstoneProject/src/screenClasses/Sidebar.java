@@ -163,7 +163,6 @@ public class Sidebar {
 		p.noFill();
 		p.stroke(211, 211, 211);
 		p.rect((float)x, (float)y, (float)width,(float)height);
-		PImage image1 = p.loadImage("img/sidebar-orange-background.jpg");
 	//	p.image(image1,(float)x, (float)y, (float)width,(float)height);
 		
 //		fuel = elist.getSelectedText();
