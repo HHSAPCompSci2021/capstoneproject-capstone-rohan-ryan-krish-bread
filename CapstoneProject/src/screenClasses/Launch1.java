@@ -27,7 +27,7 @@ public class Launch1 extends LaunchScreen{
 	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
 	private boolean start, isDone;
 	private int draws, imgX, imgY, checkPoints, count;
-	private PImage img2, img3;
+	private PImage img2, img3, sky1;
 	/**
 	 * The launch test for the rocket for level 1
 	 * @param surface the drawing surface on which to draw
@@ -72,6 +72,9 @@ public class Launch1 extends LaunchScreen{
 	public void spawnNight() {
 		img3 = surface.loadImage("img/NightStar.png");
 	}
+//	public void spawnSky() {
+//		sky1 = surface.loadImage("img/ColdSpace.png");
+//	}
 	/**
 	 * Spawns the default images like background and built rocket once program begins
 	 */
@@ -79,6 +82,7 @@ public class Launch1 extends LaunchScreen{
 		spawnRocket();
 		spawnNightSky();
 		spawnNight();
+//		spawnSky();
 	}
 	/**
 	 * Draws new instances of rocket, backgrounds, and text
@@ -100,11 +104,11 @@ public class Launch1 extends LaunchScreen{
 			
 			draws++;
 			
-			PImage sky1 = surface.loadImage("img/ColdSpace.png");
+//			PImage sky1 = surface.loadImage("img/ColdSpace.png");
 			
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
 			surface.image(img3, (float) this.imgX, (float) this.imgY-img3.height);
-			surface.image(sky1, imgX + img2.width, img2.height);
+//			surface.image(sky1, imgX + img2.width, img2.height);
 		
 			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
 //			surface.circle(land.x, land.y, land.width);
@@ -157,20 +161,20 @@ public class Launch1 extends LaunchScreen{
 				rocket.setImageX(0);
 			}
 		
-//		if (surface.keyPressed) {
-//			 if (surface.keyCode == surface.LEFT) {
-//				 rocket.setImageX(rocket.getX()-5);
-//			     }
-//			 if (surface.keyCode == surface.RIGHT) {
-//				 	rocket.setImageX(rocket.getX()+5);
-//			   }
+		if (surface.keyPressed) {
+			 if (surface.keyCode == surface.LEFT) {
+				 rocket.setImageX(rocket.getX()-5);
+			     }
+			 if (surface.keyCode == surface.RIGHT) {
+				 	rocket.setImageX(rocket.getX()+5);
+			   }
 //			 if(surface.key == 'd') {
 //				 rocket.rotate((float) Math.PI/4);
 //			 }
-////			 if(surface.key == 'd') {
-////				 rocket.rotate((float) )
-////			 }
-//		}
+//			 if(surface.key == 'd') {
+//				 rocket.rotate((float) )
+//			 }
+		}
 	}
 		
 	else {

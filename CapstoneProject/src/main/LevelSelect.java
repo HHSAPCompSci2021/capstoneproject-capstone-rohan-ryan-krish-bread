@@ -18,6 +18,8 @@ public class LevelSelect extends Screen{
 	private Rectangle button1;
 	private Rectangle button2;
 	private Rectangle button3;
+	private Rectangle button4;
+	private Rectangle button5;
 	
 	/**
 	 * Makes the buttons used to go to the different levels
@@ -30,10 +32,12 @@ public class LevelSelect extends Screen{
 		super(width, height);
 		this.surface = surface;
 		
-		button1 = new Rectangle(800/2-250,600/2-50,200,100);
-		button2 = new Rectangle(800/2+50,600/2-50,200,100);
+		button1 = new Rectangle(800/2-370,600/2-125,150,60);
+		button2 = new Rectangle(800/2-170,600/2-125,150,60);
 		
 		button3 = new Rectangle(625, 550, 150, 30);
+		button4 = new Rectangle(800/2+30, 600/2-125, 150, 60);
+		button5 = new Rectangle(800/2+230, 600/2-125, 150, 60);
 	}
 	
 	/**
@@ -60,6 +64,22 @@ public class LevelSelect extends Screen{
 		float w2 = surface.textWidth(str2);
 		surface.stroke(0);
 		surface.text(str2, button2.x+button2.width/2-w2/2, button2.y+button2.height/2+10);
+		surface.fill(255);
+		
+		surface.rect(button4.x, button4.y, button4.width, button4.height, 10, 10, 10, 10);
+		surface.fill(0);
+		String str4 = "Level 3";
+		float w4 = surface.textWidth(str4);
+		surface.stroke(0);
+		surface.text(str4, button4.x+button4.width/2-w4/2, button4.y+button4.height/2+10);
+		surface.fill(255);
+		
+		surface.rect(button5.x, button5.y, button5.width, button5.height, 10, 10, 10, 10);
+		surface.fill(0);
+		String str5 = "Level 4";
+		float w5 = surface.textWidth(str5);
+		surface.stroke(0);
+		surface.text(str5, button5.x+button5.width/2-w5/2, button5.y+button5.height/2+10);
 		surface.fill(255);
 		
 		surface.rect(button3.x, button3.y, button3.width, button3.height, 10, 10, 10, 10);
