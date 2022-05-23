@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import buildClasses.Build1;
 import buildClasses.Build2;
+import buildClasses.Build3;
+import buildClasses.Build4;
 import processing.core.PApplet;
 import screenClasses.Screen;
 import screenClasses.ScreenSwitcher;
@@ -45,6 +47,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		Build2 buildScreen2 = new Build2(this);
 		screens.add(buildScreen2);
+		Build3 buildScreen3 = new Build3(this);
+		screens.add(buildScreen3);
+		Build4 buildScreen4 = new Build4(this);
+		screens.add(buildScreen4);
 		
 		Launch1 launchScreen1 = new Launch1(this);
 		screens.add(launchScreen1);
