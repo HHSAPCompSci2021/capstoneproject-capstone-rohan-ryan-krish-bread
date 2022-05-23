@@ -100,7 +100,7 @@ public class Data {
 		
 	//	p.fill(255);
 		p.noFill();
-		p.rect((float)x,(float) y, (float)width, (float)height);
+	//	p.rect((float)x,(float) y, (float)width, (float)height);
 		
 		if (e != null && m != null && f != null) {
 			thrust = e.getThrust();
