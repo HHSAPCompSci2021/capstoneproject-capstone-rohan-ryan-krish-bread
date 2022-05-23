@@ -129,13 +129,24 @@ public class Launch1 extends LaunchScreen{
 //		surface.fill(0);
 //		surface.text("Launch 1", 10, 20);
 //		surface.fill(255);
-//		
+//	
+			
+			if(draws % 60 == 0) {
+				if(Math.random() > rocket.getEngine().getReliability()) {
+						rocket.setState(true);
+				}
+			}
+			
+			//	surface.image(explosion, rocket.getX(), rocket.getY());
+			
+				
 //			if (draws % 60 == 0) {
 //				
 //				if (Math.random() > rocket.getEngine().getReliability()) {
 //					rocket.setState(true);
 //				}
-//			}	
+//			}
+			
 			
 			
 //			if (rocket.getState()) {

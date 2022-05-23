@@ -21,6 +21,7 @@ public class Build1 extends BuildScreen {
 
 	private DrawingSurface surface;
 	private Rectangle button;
+	private boolean hide;
 	
 	/**
 	 * Instantiates the drawing surface and button to move onto the launch
@@ -31,6 +32,7 @@ public class Build1 extends BuildScreen {
 		this.surface = surface;
 		
 		button = new Rectangle(425,550,150,30);
+		hide = true;
 		
 		// add engines, fuels, and materials to the arraylists stored in BuildScreen
 		
@@ -75,6 +77,10 @@ public class Build1 extends BuildScreen {
 		data.draw(surface);
 		
 		super.draw();
+		
+		if (hide == false) {
+			surface.text("Rocket will not launch without an engine." , 200, 200);
+		}
 		
 		surface.fill(0);
 		surface.text("Level 1 Build", 10, 20);
@@ -124,8 +130,17 @@ public class Build1 extends BuildScreen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
-			sideBar.hide();
-			surface.switchScreen(ScreenSwitcher.LAUNCH_1);
+			
+			if (rocket.getEngine() != null) {
+				sideBar.hide();
+				hide = true;
+				surface.switchScreen(ScreenSwitcher.LAUNCH_1);
+			}
+			
+			else {
+				hide = false;
+			}
+			
 		}
 		super.mousePressed();
 			

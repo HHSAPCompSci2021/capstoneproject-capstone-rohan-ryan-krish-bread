@@ -375,7 +375,7 @@ public class Rocket extends Rectangle2D.Double {
 		}
 			
 		else {
-			drawer.image(drawer.loadImage("img/th.png"),(float)x,(float)y,(float)50,(float)50);
+			drawer.image(drawer.loadImage("img/Explosion.png"), (float) x, (float) y);
 		}
 			
 		// if material not null, then draw it
