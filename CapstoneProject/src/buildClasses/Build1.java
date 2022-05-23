@@ -79,16 +79,12 @@ public class Build1 extends BuildScreen {
 		super.draw();
 		
 		if (hide == false) {
-			surface.text("Rocket will not launch without an engine." , 200, 200);
+			surface.text("Rocket will not launch without an engine." , 200, 300);
 		}
 		
 		surface.fill(0);
 		surface.text("Level 1 Build", 10, 20);
 		surface.fill(255);
-		
-//		if (rocket == null) {
-//			System.out.println("debug");	
-//		}
 		
 		if (sideBar.getEngineVis() == false) {
 			sideBar.setVisible();

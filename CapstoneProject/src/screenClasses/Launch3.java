@@ -85,7 +85,7 @@ public class Launch3 extends LaunchScreen{
 		spawnRocket();
 		spawnNightSky();
 		spawnSky();
-//		spawnMeteors();
+		spawnMeteors();
 		spawnNight();
 	}
 	/**
@@ -103,7 +103,7 @@ public class Launch3 extends LaunchScreen{
 			
 			draws++;
 			
-//			surface.image(meteor, this.imgX, this.imgY);
+			surface.image(meteor, this.imgX, this.imgY);
 			surface.image(img2, (float) this.imgX, (float) this.imgY);
 			surface.image(sky1, imgX, this.imgY-sky1.height);
 			surface.image(sky1, imgX, this.imgY-(sky1.height*2));

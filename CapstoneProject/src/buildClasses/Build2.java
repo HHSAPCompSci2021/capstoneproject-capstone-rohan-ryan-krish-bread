@@ -22,6 +22,7 @@ public class Build2 extends BuildScreen {
 
 	private DrawingSurface surface;
 	private Rectangle button;
+	private boolean hide;
 //	private Sidebar sidebar;
 	
 	/**
@@ -33,6 +34,7 @@ public class Build2 extends BuildScreen {
 		this.surface = surface;
 		
 		button = new Rectangle(425,550,150,30);
+		hide = true;
 	}
 	
 	/**
@@ -86,6 +88,9 @@ public class Build2 extends BuildScreen {
 		data.draw(surface);
 		
 		super.draw();
+		if (hide == false) {
+			surface.text("Rocket will not launch without an engine." , 200, 300);
+		}
 		
 		surface.fill(0);
 		surface.text("Level 2 Build", 10, 20);
@@ -106,7 +111,9 @@ public class Build2 extends BuildScreen {
 		if (sideBar.getFuelVis() == false) {
 			sideBar.setVisible();
 		}
-		
+		if(rocket.getEngine() != null) {
+			
+		}
 		
 //		materials.get(0).draw(surface);
 		
@@ -136,8 +143,17 @@ public class Build2 extends BuildScreen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
-			sideBar.hide();
-			surface.switchScreen(ScreenSwitcher.LAUNCH_2);
+			
+			if (rocket.getEngine() != null) {
+				sideBar.hide();
+				hide = true;
+				surface.switchScreen(ScreenSwitcher.LAUNCH_2);
+			}
+			
+			else {
+				hide = false;
+			}
+			
 		}
 		super.mousePressed();
 			

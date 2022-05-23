@@ -29,12 +29,12 @@ public class Instructions extends Screen{
 			
 		surface.fill(0);
 		surface.textSize(20);
-		surface.text("- Users will start by clicking the level 1 button"
-			+ "\n" + "- In each level, the user will be given certain components to build a rocket"
-			+ "\n" + "- Drag and drop different components of the rocket into their location"
-			+ "\n" + "- After the rocket is built, there will be a test to see how efficient it is"
-			+ "\n" + "- The velocity of the rocket will be controlled by the side arrow keys"
-			+ "\n" + "- When controlling side trojectory dont hold more that one key at a time"
+		surface.text("- Users will start by clicking the level 1 button."
+			+ "\n" + "- In each level, the user will be given certain components to build a rocket."
+			+ "\n" + "- Drag and drop different components of the rocket into their location."
+			+ "\n" + "- After the rocket is built, there will be a test to see how efficient it is."
+			+ "\n" + "- The velocity of the rocket will be controlled by the side arrow keys."
+			+ "\n" + "- When controlling side trajectory don't hold more that one key at a time"
 			+ "\n" + ""
 			+ "\n" + ""
 			+ "\n" + "", 10, 20);

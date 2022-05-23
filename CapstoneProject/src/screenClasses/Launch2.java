@@ -26,7 +26,7 @@ public class Launch2 extends LaunchScreen{
 	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
 	private boolean start, isDone;
 	private int draws, imgX, imgY, checkPoints, count, count2;
-	private PImage img2, img3, sky1;
+	private PImage img2, img3, sky1, explosion;
 	/**
 	 * The launch test for the rocket for level 1
 	 * @param surface the drawing surface on which to draw
@@ -75,6 +75,9 @@ public class Launch2 extends LaunchScreen{
 	public void spawnSky() {
 		sky1 = surface.loadImage("img/ColdSpace.png");
 	}
+	public void spawnExplosion() {
+		explosion= surface.loadImage("img/Explosion.png");
+	}
 	/**
 	 * Spawns the default images like background and built rocket once program begins
 	 */
@@ -104,6 +107,18 @@ public class Launch2 extends LaunchScreen{
 			surface.image(sky1, imgX, this.imgY-(sky1.height*2));
 			surface.image(img3, (float) this.imgX, (float) this.imgY-(sky1.height*2)-img3.height);
 			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
+			
+			
+			
+			if(imgX < -400 || imgX > 400) {
+				spawnExplosion();
+				surface.image(explosion, (float) rocket.getX()-100, (float) rocket.getY()-100);
+				surface.text("Level Over: Rocket blew up.", 400, 400);
+				rocket.stopTilt();
+				rocket.moveForward(false);
+				return;
+			}
+			
 			surface.text("Level 2 Launch", 10, 20);
 			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 			surface.fill(0);
@@ -221,33 +236,40 @@ public class Launch2 extends LaunchScreen{
 	}
 	
 	public void keyPressed() {
-		
 		if (surface.keyCode ==  KeyEvent.VK_A) {
-			rocket.tilt(-0.25);
-			
+		rocket.tilt(-0.25);
+		if(imgX < -400 || imgX > 400) {
+			rocket.stopTilt();
 		}
 		
-		if (surface.keyCode ==  KeyEvent.VK_D) {
-			rocket.tilt(0.25);
-			
+	}
+	
+	if (surface.keyCode ==  KeyEvent.VK_D) {
+		rocket.tilt(0.25);
+		if(imgX < -400 || imgX > 400) {
+			rocket.stopTilt();
+		}
+	}
+	
+	if (surface.keyCode ==  KeyEvent.VK_W) {
+		rocket.moveForward(true);
+		rocket.accelerate(0.75, 0.75);
+		if(imgX < -400 || imgX > 400) {
+			rocket.moveForward(false);
+		}
+	}
+	
+	if (surface.keyCode ==  KeyEvent.VK_S) {
+		
+		if (!(rocket.getVX() <= 0) && !(rocket.getVY() <= 0)) {
+			rocket.accelerate(-0.75, -0.75);
 		}
 		
-		if (surface.keyCode ==  KeyEvent.VK_W) {
-			rocket.moveForward(true);
-			rocket.accelerate(0.75, 0.75);
-		}
+//		else {
+//			rocket.moveForward(false);
+//		}
 		
-		if (surface.keyCode ==  KeyEvent.VK_S) {
-			
-			if (!(rocket.getVX() <= 0) && !(rocket.getVY() <= 0)) {
-				rocket.accelerate(-0.75, -0.75);
-			}
-			
-			else {
-				rocket.moveForward(false);
-			}
-			
-		}
+	}
 
 
 		

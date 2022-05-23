@@ -136,32 +136,6 @@ public class Launch1 extends LaunchScreen{
 						rocket.setState(true);
 				}
 			}
-			
-			//	surface.image(explosion, rocket.getX(), rocket.getY());
-			
-				
-//			if (draws % 60 == 0) {
-//				
-//				if (Math.random() > rocket.getEngine().getReliability()) {
-//					rocket.setState(true);
-//				}
-//			}
-			
-			
-			
-//			if (rocket.getState()) {
-//				surface.text("Level Over: Rocket blew up", 400, 400);
-//				isDone = true;
-//			}
-//			if(imgX > 800 || imgX < 0 ) {
-//				surface.text("Level Over: Rocket blew up.", 400, 400);
-//				isDone = true;
-//			}
-			
-	
-//		meteor.draw(surface);
-//		img2 = surface.loadImage("img/night.png");
-//		surface.image(img2, (float) this.imgX, (float) this.imgY);
 			surface.text("Level 1 Launch", 10, 20);
 			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 			surface.fill(0);
