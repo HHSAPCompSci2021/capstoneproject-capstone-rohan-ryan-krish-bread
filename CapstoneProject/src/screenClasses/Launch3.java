@@ -98,6 +98,7 @@ public class Launch3 extends LaunchScreen{
 	 * Draws new instances of rocket, backgrounds, and text
 	 */
 	public void draw() { // move the screen according to speed of rocket
+		
 		if(Math.pow(imgX + 450 - rocket.getX(), 2) + Math.pow(imgY - img3.height -(sky1.height*3) - rocket.getY(), 2) > 140000 && !isDone) { 
 			surface.background(0);
 			
@@ -120,12 +121,6 @@ public class Launch3 extends LaunchScreen{
 			surface.image(sky1, imgX, this.imgY-(sky1.height*3));
 			surface.image(img3, (float) this.imgX, (float) this.imgY-(sky1.height*3)-img3.height);
 //			surface.image(blackHole, imgX+200, this.imgY-(sky1.height*3)+700, 500 ,500);
-//			meteor.draw(surface);
-//			meteor2.draw(surface);
-//			meteor3.draw(surface);
-//			meteor4.draw(surface);
-//			meteor5.draw(surface);
-//			meteor6.draw(surface);
 			surface.image(meteor.img(), (float) meteor.getX()+120, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
 			surface.image(meteor2.img(), (float) meteor.getX()+330, (float) meteor.getY()-150-(sky1.height*3)+20, 60, 60);
 			surface.image(meteor3.img(), (float) meteor.getX()+470, (float) meteor.getY()-300+(sky1.height*3)+20, 60, 60);
