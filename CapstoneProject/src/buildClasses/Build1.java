@@ -34,7 +34,6 @@ public class Build1 extends BuildScreen {
 		button = new Rectangle(425,550,150,30);
 		hide = true;
 		
-		// add engines, fuels, and materials to the arraylists stored in BuildScreen
 		
 	}
 	

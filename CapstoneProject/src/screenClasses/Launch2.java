@@ -119,7 +119,13 @@ public class Launch2 extends LaunchScreen{
 				rocket.moveForward(false);
 				return;
 			}
-			
+			if(draws % 60 == 0) {
+				if(Math.random() > rocket.getEngine().getReliability()) {
+						rocket.setState(true);
+						isDone = true;
+						surface.text("Level Over: Rocket blew up.", 200, 400);
+				}
+			}
 			surface.text("Level 2 Launch", 10, 20);
 			
 			surface.fill(0);
