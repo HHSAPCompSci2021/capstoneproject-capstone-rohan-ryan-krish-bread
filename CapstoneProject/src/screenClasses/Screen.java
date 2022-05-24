@@ -3,6 +3,10 @@ import javax.swing.JFrame;
 
 import rocket.Rocket;
 
+/**
+ * This is an astract class that is used as a template for somthing all screens have
+ * @author Ryan, Rohan, Krish
+ */
 public abstract class Screen {
 
 	public final int DRAWING_WIDTH, DRAWING_HEIGHT;
