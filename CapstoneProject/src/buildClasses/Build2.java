@@ -44,11 +44,11 @@ public class Build2 extends BuildScreen {
 		super.setup();
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle", 1500, 0.9, 200000 ); // change wieght and reliabilty params
+		Engine closedCycle1 = new Engine(img, 20,20,20,20, "Closed Cycle(OR)", 1500, 0.9, 200000 ); // change wieght and reliabilty params
 		Material carbonComp = new Material(img, 20,20,20,20, "Carbon Comp", 500, 100 );
 		Fuel CH4 = new Fuel(img, 20,20,20,20, "CH4", 400 );
 		
-		engines.add(closedCycle);
+		engines.add(closedCycle1);
 		materials.add(carbonComp);
 		fuels.add(CH4);
 		
