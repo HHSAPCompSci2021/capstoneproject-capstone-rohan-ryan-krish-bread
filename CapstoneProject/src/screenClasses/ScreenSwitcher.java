@@ -12,8 +12,8 @@ public interface ScreenSwitcher {
 	public static final int LAUNCH_1 = 3;
 	public static final int LAUNCH_2 = 4;
 	public static final int INSTRUCTIONS = 5;
-	public static final int LAUNCH_3 = 6;
-	public static final int BUILD_3 = 7;
+	public static final int LAUNCH_3 = 7;
+	public static final int BUILD_3 = 6;
 
 	/**
 	 * Switches the screen that is being drawn
