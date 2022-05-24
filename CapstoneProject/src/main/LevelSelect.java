@@ -32,7 +32,7 @@ public class LevelSelect extends Screen{
 		this.surface = surface;
 		
 		button1 = new Rectangle(800/2-370,600/2-125,150,60);
-//		button2 = new Rectangle(800/2-170,600/2-125,150,60);
+		button2 = new Rectangle(800/2-170,600/2-125,150,60);
 		
 		button3 = new Rectangle(625, 550, 150, 30);
 		button4 = new Rectangle(800/2+30, 600/2-125, 150, 60);
