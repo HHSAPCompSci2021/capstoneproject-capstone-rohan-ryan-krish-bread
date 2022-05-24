@@ -142,6 +142,7 @@ public class Launch1 extends LaunchScreen{
 				if(Math.random() > rocket.getEngine().getReliability()) {
 						rocket.setState(true);
 						isDone = true;
+						surface.text("Level Over: Rocket blew up.", 200, 400);
 				}
 			}
 			surface.text("Level 1 Launch", 10, 20);
