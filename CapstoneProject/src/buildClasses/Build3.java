@@ -47,7 +47,7 @@ public class Build3 extends BuildScreen{
 	 */
 	public void draw() {
 		
-		
+	
 		surface.background(255);
 		
 		PImage image1 = surface.loadImage("img/steel plating.jpg");

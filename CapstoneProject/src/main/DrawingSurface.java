@@ -43,11 +43,20 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		LevelSelect levels = new LevelSelect(800, 600, this);
 		screens.add(levels);
 		
+		Instructions instructions = new Instructions(800, 600, this);
+		screens.add(instructions);
+		
 		buildScreen1 = new Build1(this);
 		screens.add(buildScreen1);
 		
 		Build2 buildScreen2 = new Build2(this);
 		screens.add(buildScreen2);
+		
+		Build3 buildScreen3 = new Build3(this);
+		screens.add(buildScreen3);
+		
+		Build4 buildScreen4 = new Build4(this);
+		screens.add(buildScreen4);
 		
 		Launch1 launchScreen1 = new Launch1(this);
 		screens.add(launchScreen1);
@@ -55,22 +64,15 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		Launch2 launchScreen2 = new Launch2(this);
 		screens.add(launchScreen2);
 		
-		Instructions instructions = new Instructions(800, 600, this);
-		screens.add(instructions);
-		
 		Launch3 launchScreen3 = new Launch3(this);
 		screens.add(launchScreen3);
 		
 		Launch4 launchScreen4 = new Launch4(this);
 		screens.add(launchScreen4);
 		
-		Build3 buildScreen3 = new Build3(this);
-		screens.add(buildScreen2);
-		
-		Build4 buildScreen4 = new Build4(this);
-		screens.add(buildScreen2);
-		
 		activeScreen = screens.get(0);
+		
+		
 	}
 	
 	/**
@@ -78,8 +80,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 */
 	public void setup() {
 		
-		for (Screen s : screens)
+		for (Screen s : screens) {
+			System.out.println(s);
 			s.setup();
+		}
+			
 	}
 	
 	/**
@@ -88,6 +93,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * @post DrawingSurface will be changed and will have things drawn on it
 	 */
 	public void draw() {
+		
 		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
 		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
 
