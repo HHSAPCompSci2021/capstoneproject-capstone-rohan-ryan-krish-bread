@@ -250,6 +250,10 @@ public class Rocket extends Rectangle2D.Double {
 	public void tilt(double vel) {
 		this.vel += vel;
 	}
+	
+	/**
+	 * resets rocket's tilt velocity; stops rocket from tilting
+	 */
 	public void stopTilt() {
 		this.vel = 0;
 	}
@@ -288,11 +292,20 @@ public class Rocket extends Rectangle2D.Double {
 		this.moving = moving;
 	}
 	
+	/**
+	 * gets the move state of the rocket; whether or not rocket is moving
+	 * @return true if rocket moving, false if rocket is not moving
+	 */
 	public boolean getMoving() {
 		return moving;
 	}
 	
 	
+	/**
+	 * moves this rocket by specified amount in the x and y direction
+	 * @param x x amount to move by
+	 * @param y y amount to move by
+	 */
 	public void moveByAmount(double x, double y) { 
 		
 		System.out.println(super.x + "," + super.y);
@@ -300,6 +313,11 @@ public class Rocket extends Rectangle2D.Double {
 		super.y -= y;
 	}
 
+	/**
+	 * applies the limits of the window to the x and y of the rocket
+	 * @param windowWidth width of window
+	 * @param windowHeight  height of window
+	 */
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		x = Math.min(x,windowWidth-width);
 		y = Math.min(y,windowHeight-height);
@@ -307,11 +325,18 @@ public class Rocket extends Rectangle2D.Double {
 		y = Math.max(0,y);
 	}
 	
-	
+	/**
+	 * gets the blown up state of the rocket; Whether or not rocket has blown up
+	 * @return true if rocket has blown up, false if rocket has not 
+	 */
 	public boolean getState() {
 		return blownUp;
 	}
 	
+	/**
+	 * draws this rocket
+	 * @param drawer PApplet on which to draw rocket
+	 */
 	public void draw(PApplet drawer) { // change
 		
 		//if (img != null) {

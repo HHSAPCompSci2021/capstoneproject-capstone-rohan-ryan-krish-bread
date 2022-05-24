@@ -147,6 +147,10 @@ public class Engine extends Rectangle2D.Double {
 		return reliability;
 	}
 	
+	/**
+	 * Sets the reliabilty of the engine. Reliabbilty to be used in the calculation of probabilty of success
+	 * @param rel reliabity to set to
+	 */
 	public void setReliability(double rel) {
 		reliability = rel;
 	}
@@ -160,6 +164,11 @@ public class Engine extends Rectangle2D.Double {
 		return thurst;
 	}
 	
+	/**
+	 * applies the limits of the window to the x and y of the rocket
+	 * @param windowWidth width of window
+	 * @param windowHeight  height of window
+	 */
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		x = Math.min(x,windowWidth-width);
 		y = Math.min(y,windowHeight-height);
@@ -167,6 +176,10 @@ public class Engine extends Rectangle2D.Double {
 		y = Math.max(0,y);
 	}
 	
+	/**
+	 * sets the angle at which rocket rotates
+	 * @param dir angle at which rocket rotates
+	 */
 	public void setDir(double dir) {
 		this.dir = dir;
 	}
