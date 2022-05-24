@@ -86,6 +86,7 @@ public class Build2 extends BuildScreen {
 		rocket.draw(surface);
 		sideBar.draw(surface);
 		data.draw(surface);
+		data.setHide(false);
 		
 		super.draw();
 		if (hide == false) {
@@ -112,9 +113,7 @@ public class Build2 extends BuildScreen {
 			sideBar.setVisible();
 		}
 		
-		if(rocket.getEngine() != null) {
-			
-		}
+		
 		
 //		materials.get(0).draw(surface);
 		
