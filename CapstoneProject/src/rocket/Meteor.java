@@ -23,6 +23,9 @@ public class Meteor {
 	public void setMeteorY(double yVal) {
 		this.y = yVal;
 	}
+	public void change() {
+		this.y++;
+	}
 	public void draw(PApplet drawer) {
 		
 		if (img != null)

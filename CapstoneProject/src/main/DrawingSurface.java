@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import buildClasses.Build1;
 import buildClasses.Build2;
 import buildClasses.Build3;
-import buildClasses.Build4;
 import processing.core.PApplet;
 import screenClasses.Screen;
 import screenClasses.ScreenSwitcher;
@@ -15,7 +14,6 @@ import screenClasses.Instructions;
 import screenClasses.Launch1;
 import screenClasses.Launch2;
 import screenClasses.Launch3;
-import screenClasses.Launch4;
 
 /**
  * This class holds and keeps track of screens that can be changed and drawn on
@@ -31,7 +29,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private Build1 buildScreen1;
 	private Build2 buildScreen2;
 	private Build3 buildScreen3;
-	private Build4 buildScreen4;
 	private ArrayList<Screen> screens;
 	/**
 	 * Gives all of the variable values, and makes screens
@@ -64,19 +61,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		Launch3 launchScreen3 = new Launch3(this);
 		screens.add(launchScreen3);
 		
-<<<<<<< HEAD
+
 		Build3 buildScreen3 = new Build3(this);
 		screens.add(buildScreen3);
-=======
-		Launch4 launchScreen4 = new Launch4(this);
-		screens.add(launchScreen4);
-		
-		buildScreen3 = new Build3(this);
-		screens.add(buildScreen3);
-		
-		buildScreen4 = new Build4(this);
-		screens.add(buildScreen4);
->>>>>>> b6d18ae877d4da19a73cfa63967d6b30e5947599
+
 		
 		activeScreen = screens.get(0);
 	}
@@ -200,9 +188,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		return buildScreen3;
 	}
 	
-	public Build4 getBuild4() {
-		return buildScreen4;
-	}
 	
 	/**
 	 * Gets all of the screen that can be displayed on the DrawingSurface

@@ -115,18 +115,19 @@ public class Launch3 extends LaunchScreen{
 			surface.image(sky1, imgX, this.imgY-(sky1.height*2));
 			surface.image(sky1, imgX, this.imgY-(sky1.height*3));
 			surface.image(img3, (float) this.imgX, (float) this.imgY-(sky1.height*3)-img3.height);
-			surface.image(meteor.img(), (float) meteor.getX()+120, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
-			surface.image(meteor.img(), (float) meteor.getX()+330, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
-			surface.image(meteor.img(), (float) meteor.getX()+470, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
-			surface.image(meteor.img(), (float) meteor.getX()+280, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
-			surface.image(meteor.img(), (float) meteor.getX()+40, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
-			surface.image(meteor.img(), (float) meteor.getX()+520, (float) meteor.getY()+100-(sky1.height*3)+20, 60, 60);
-			surface.image(meteor.img(), (float) meteor.getX()+650, (float) meteor.getY()+40-(sky1.height*3)+20, 60, 60);
+			meteor.draw(surface);
+//			surface.image(meteor.img(), (float) meteor.getX()+120, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+330, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+470, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+280, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+40, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+520, (float) meteor.getY()+100-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+650, (float) meteor.getY()+40-(sky1.height*3)+20, 60, 60);
 //			surface.image(meteor3.img(), (float) meteor3.getX()+330, (float) meteor3.getY()+80-(sky1.height*3)+20, 60, 60);
 //			surface.image(meteor4.img(), (float) meteor4.getX()+520, (float) meteor4.getY()+40-(sky1.height*3)+20, 60, 60);
 //			surface.image(meteor5.img(), (float) meteor5.getX()+650, (float) meteor5.getY()+100-(sky1.height*3)+20, 60, 60);
 //			surface.image(meteor6.img(), (float) meteor6.getX()+770, (float) meteor6.getY()+180-(sky1.height*3)+20, 60, 60);
-			meteor.setMeteorY(meteor.getY()+20);
+//			z
 //			meteor.setMeteorY(meteor2.getY()+20);
 //			meteor.setMeteorY(meteor3.getY()+20);
 //			meteor.setMeteorY(meteor4.getY()+20);
