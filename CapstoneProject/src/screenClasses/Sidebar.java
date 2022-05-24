@@ -21,11 +21,7 @@ import main.DrawingSurface;
 *Class represents the Sidebar for the BuildScreens,that displays the parts menu
 */
 public class Sidebar {
-	
-//	private Engine engines;
-//	private Fuel fuels;
-//	private Material materials;
-	
+		
 	GDropList elist;
 	GDropList flist;
 	GDropList mlist;
@@ -36,7 +32,6 @@ public class Sidebar {
 	private double x,y;
 	private double width, height;
 	
-//	private String fuel;
 	/**
 	* Constructs the sidebar for the buildscreens
 	* @param x x coord for  sidebar
@@ -48,9 +43,6 @@ public class Sidebar {
 	* @param m x coord for  sidebar
 	*/
 	public Sidebar(double x, double y, double width, double height, List<Engine> e, List<Fuel> f, List<Material> m) {
-//		e = Engine.getEngine();
-//		f = Fuel.getFuel();
-//		m = Material.getMaterials(); 
 		
 		engines = e;
 		fuels = f;
@@ -60,7 +52,6 @@ public class Sidebar {
 		this.width = width;
 		this.height = height;
 		
-//		 fuel = "";
 		
 	}
 	
@@ -108,11 +99,7 @@ public class Sidebar {
 		for (int i = 0; i < this.fuels.size(); i++) {
 			fuels.add(this.fuels.get(i).getName());
 		}
-		flist.setItems(fuels, 0);
-		
-		//list.addEventHandler(this, "handleEngineList");
-	//	System.out.println("Item selected:" + list.getSelectedText());
-		
+		flist.setItems(fuels, 0);	
 		
 	}
 	
@@ -120,38 +107,62 @@ public class Sidebar {
 	 * gets the selected engine from the list
 	 * @return the selected engine from the list
 	 */
-	
 	public String getESelected() {
 		return elist.getSelectedText();
 	}
 	
+	/**
+	 * gets the selected material from the list
+	 * @return the selected material from the list
+	 */
 	public String getMSelected() {
 		return mlist.getSelectedText();
 	}
 	
+	/**
+	 * gets the selected fuel from the list
+	 * @return the selected fuel from the list
+	 */
 	public String getFSelected() {
 		return flist.getSelectedText();
 	}
 	
-	
+	/**
+	 * gets the visibility of the engine
+	 * @return The visibility of the engine
+	 */
 	public boolean getEngineVis() {
 		return elist.isVisible();
 	}
 	
+	/**
+	 * gets the visibility of the material
+	 * @return The visibility of the material
+	 */
 	public boolean getMaterialVis() {
 		return mlist.isVisible();
 	}
 	
+	/**
+	 * gets the visibility of the fuel
+	 * @return The visibility of the fuel
+	 */
 	public boolean getFuelVis() {
 		return flist.isVisible();
 	}
 	
+	/**
+	 * sets all of the lists to visible
+	 */
 	public void setVisible() {
 		elist.setVisible(true);
 		mlist.setVisible(true);
 		flist.setVisible(true);
 	}
 	
+	/**
+	 * sets all of the lists to not visible
+	 */
 	public void hide() {
 		elist.setVisible(false);
 		mlist.setVisible(false);
@@ -159,22 +170,22 @@ public class Sidebar {
 		
 	}
 	
+	/**
+	 * 
+	 * @param p DrawingSurface used to draw side bar
+	 * @post DraiwngSurface p will have a rectangle drawn to it
+	 */
 	public void draw(PApplet p) {
-		//setVisible();
-		
-	//	p.fill(255);
 		p.noFill();
 		p.stroke(211, 211, 211);
 		p.rect((float)x, (float)y, (float)width,(float)height);
-	//	p.image(image1,(float)x, (float)y, (float)width,(float)height);
-		
-//		fuel = elist.getSelectedText();
-//		p.fill(0);
-//		p.text(fuel, 25, 150);
-//		p.fill(255);
-		//setup(p);
+
 	}
-	
+	/**
+	 * Gets the drop down list that is specified 
+	 * @param list String that represents what list should be returned
+	 * @return The specified list
+	 */
 	public GDropList getList(String list) {
 		if (list.equals("e")) {
 			return elist;
@@ -188,8 +199,4 @@ public class Sidebar {
 		return null;
 	}
 	
-//	public void handleDropListEvents(GDropList list, GEvent event) {
-//		System.out.println("Item selected:" + list.getSelectedText());
-//		
-//	}
 }
