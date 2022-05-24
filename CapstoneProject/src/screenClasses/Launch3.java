@@ -127,7 +127,7 @@ public class Launch3 extends LaunchScreen{
 ////			surface.image(meteor4.img(), (float) meteor4.getX()+520, (float) meteor4.getY()+40-(sky1.height*3)+20, 60, 60);
 ////			surface.image(meteor5.img(), (float) meteor5.getX()+650, (float) meteor5.getY()+100-(sky1.height*3)+20, 60, 60);
 ////			surface.image(meteor6.img(), (float) meteor6.getX()+770, (float) meteor6.getY()+180-(sky1.height*3)+20, 60, 60);
-			meteor.setMeteorY(meteor.getY()+20);
+			meteor.setMeteorY(meteor.getY()+10);
 //			meteor.setMeteorY(meteor2.getY()+20);
 //			meteor.setMeteorY(meteor3.getY()+20);
 //			meteor.setMeteorY(meteor4.getY()+20);
