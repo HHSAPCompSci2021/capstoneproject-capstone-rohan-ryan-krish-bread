@@ -120,8 +120,8 @@ public class Launch3 extends LaunchScreen{
 			surface.image(meteor.img(), (float) meteor.getX()+330, (float) meteor.getY()-150-(sky1.height*3)+20, 60, 60);
 			surface.image(meteor.img(), (float) meteor.getX()+470, (float) meteor.getY()-300+(sky1.height*3)+20, 60, 60);
 			surface.image(meteor.img(), (float) meteor.getX()+280, (float) meteor.getY()-100-(sky1.height*3)+20, 60, 60);
-			surface.image(meteor.img(), (float) meteor.getX()+40, (float) meteor.getY()+200-(sky1.height*3)+20, 60, 60);
-			surface.image(meteor.img(), (float) meteor.getX()+520, (float) meteor.getY()+100-(sky1.height*3)+20, 60, 60);
+			surface.image(meteor.img(), (float) meteor.getX()+375, (float) meteor.getY()+200-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+520, (float) meteor.getY()+100-(sky1.height*3)+20, 60, 60);
 			surface.image(meteor.img(), (float) meteor.getX()+650, (float) meteor.getY()+40-(sky1.height*3)+20, 60, 60);
 ////			surface.image(meteor3.img(), (float) meteor3.getX()+330, (float) meteor3.getY()+80-(sky1.height*3)+20, 60, 60);
 ////			surface.image(meteor4.img(), (float) meteor4.getX()+520, (float) meteor4.getY()+40-(sky1.height*3)+20, 60, 60);
@@ -144,7 +144,7 @@ public class Launch3 extends LaunchScreen{
 			rocket.setHeight(150);
 			rocket.draw(surface);
 			rocket.act();
-			if(isColliding(meteor.getX(), meteor.getY(), rocket.getX(), rocket.getY())) {
+			if(isColliding(meteor.getX(), meteor.getY(), imgX, imgY)) {
 				spawnExplosion();
 				surface.image(explosion, (float) rocket.getX()-100, (float) rocket.getY()-100);
 				surface.text("Level Over: Rocket blew up.", 400, 400);
