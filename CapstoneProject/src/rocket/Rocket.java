@@ -328,11 +328,11 @@ public class Rocket extends Rectangle2D.Double {
 				
 				if (material.getName().equals("Steel")) { // height * sin(dir) = x
 					
-					img = drawer.loadImage("img/image-removebg-preview.png");
+					img = drawer.loadImage("img/image-removebg-preview-steel-removebg-preview.png");
 				}
 				
 				else if (material.getName().equals("Carbon Comp")) {
-					img = drawer.loadImage("img/image-removebg-preview.png");
+					img = drawer.loadImage("img/image-removebg-preview-cc-removebg-preview.png");
 				}
 			}
 			
