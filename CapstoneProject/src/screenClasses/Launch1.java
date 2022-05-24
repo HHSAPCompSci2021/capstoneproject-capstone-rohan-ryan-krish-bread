@@ -110,7 +110,7 @@ public class Launch1 extends LaunchScreen{
 //		System.out.println(imgX); // 403 794
 //		count2++;
 		
-		System.out.println(imgY);
+		
 		if(Math.pow(imgX + 450 - rocket.getX(), 2) + Math.pow(imgY - img3.height -sky1.height - rocket.getY(), 2) > 140000 && !isDone) { 
 			surface.background(0);
 			
@@ -242,7 +242,7 @@ public class Launch1 extends LaunchScreen{
 		
 		if (surface.keyCode ==  KeyEvent.VK_W) {
 			rocket.moveForward(true);
-			rocket.accelerate(0.75, 0.75);
+			rocket.accelerate(0.5, 0.5);
 			if(imgX < -400 || imgX > 400) {
 				rocket.moveForward(false);
 			}
@@ -251,7 +251,7 @@ public class Launch1 extends LaunchScreen{
 		if (surface.keyCode ==  KeyEvent.VK_S) {
 			
 			if (!(rocket.getVX() <= 0) && !(rocket.getVY() <= 0)) {
-				rocket.accelerate(-0.75, -0.75);
+				rocket.accelerate(-0.5, -0.5);
 //				if(imgX < -400 || imgX > 400) {
 //					spawnExplosion();
 //					surface.text("Level Over: Rocket blew up.", 400, 400);

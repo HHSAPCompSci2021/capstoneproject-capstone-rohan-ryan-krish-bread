@@ -91,7 +91,7 @@ public class Launch2 extends LaunchScreen{
 	 * Draws new instances of rocket, backgrounds, and text
 	 */
 	public void draw() { // move the screen according to speed of rocket
-		System.out.println(imgY);
+		
 		if(Math.pow(imgX + 450 - rocket.getX(), 2) + Math.pow(imgY - img3.height -(sky1.height*2) - rocket.getY(), 2) > 140000 && !isDone) { 
 			surface.background(0);
 			
