@@ -57,6 +57,7 @@ public class Build3 extends BuildScreen {
 		
 		engines.add(closedCycle1);
 		engines.add(closedCycle2);
+		engines.add(fullFlow);
 		materials.add(carbonComp);
 		fuels.add(CH4);
 		
