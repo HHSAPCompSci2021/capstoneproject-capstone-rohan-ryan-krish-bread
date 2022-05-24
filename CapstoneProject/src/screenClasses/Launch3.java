@@ -115,7 +115,7 @@ public class Launch3 extends LaunchScreen{
 			surface.image(sky1, imgX, this.imgY-(sky1.height*2));
 			surface.image(sky1, imgX, this.imgY-(sky1.height*3));
 			surface.image(img3, (float) this.imgX, (float) this.imgY-(sky1.height*3)-img3.height);
-			surface.image(blackHole, imgX+200, this.imgY-(sky1.height*3)+700, 500 ,500 );
+		//	surface.image(blackHole, imgX+200, this.imgY-(sky1.height*3)+700, 500 ,500 );
 			
 //			surface.image(meteor.img(), (float) meteor.getX()+120, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
 //			surface.image(meteor.img(), (float) meteor.getX()+330, (float) meteor.getY()-150-(sky1.height*3)+20, 60, 60);
