@@ -16,8 +16,9 @@ public class Material {
 	private String name;
 	private double weight;
 	private boolean hide;
+	private double durability;
 //	public ArrayList<Material> materials = new ArrayList<>();
-	public Material(PImage image, double x, double y, double width, double height, String name, double weight) {
+	public Material(PImage image, double x, double y, double width, double height, String name, double weight, double durabilty) {
 	//	materials = new ArrayList<>();
 		this.image = image;
 		this.x = x;
@@ -49,6 +50,10 @@ public class Material {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public double getDura() {
+		return durability;
 	}
 	
 	public double getWeight() {

@@ -50,6 +50,7 @@ public class Rocket extends Rectangle2D.Double {
 		super(x,y,width,height);
 		dir = 0;
 		this.img = img;
+		System.out.println(img);
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -322,30 +323,21 @@ public class Rocket extends Rectangle2D.Double {
 			drawer.popMatrix();
 		//	drawer.triangle((float)x,(float)y,(float)(x+(width/2)),(float)(y-50),(float)(x+width),(float)y);
 			
-			if (engine != null) { // height * sin(dir) = x
-				
-				img = drawer.loadImage("img/image-removebg-preview.png");
-//				if (dir != 0) {
-//					engine.setX(height * Math.cos(Math.toRadians(dir)));
-//					engine.setY(height * Math.sin(Math.toRadians(dir)));
-//					System.out.println(x + "," + y);
-//				}
-//				
-//				else {
-//					engine.setX(x);
-//					engine.setY(y+height);
-//				}
-//				
-////				engine.setX(x);
-////				engine.setY(y+height);
-//				engine.setWidth(width);
-//				engine.setHeight(50);
-//				
-//				engine.draw(drawer);
-				
 			
+			if (engine != null && material != null) {
 				
+				if (material.getName().equals("Steel")) { // height * sin(dir) = x
 					
+					img = drawer.loadImage("img/image-removebg-preview-steel-removebg-preview.png");
+				}
+				
+				else if (material.getName().equals("Carbon Comp")) {
+					img = drawer.loadImage("img/image-removebg-preview-cc-removebg-preview.png");
+				}
+			}
+			
+			else if (engine != null && material == null) {
+				img = drawer.loadImage("img/image-removebg-preview.png");
 			}
 			
 			else {
@@ -378,7 +370,7 @@ public class Rocket extends Rectangle2D.Double {
 			drawer.image(drawer.loadImage("img/Explosion.png"), (float) x, (float) y);
 		}
 			
-		// if material not null, then draw it
+		
 		
 	}
 	

@@ -91,7 +91,9 @@ public class Sidebar {
 		
 		engines.add("Engines");
 		for (int i = 0; i < this.engines.size(); i++) {
-			engines.add(this.engines.get(i).getName());
+			if (!engines.get(i).equals(this.engines.get(i).getName())) {
+				engines.add(this.engines.get(i).getName());
+			}
 		}
 		elist.setItems(engines, 0);
 		
