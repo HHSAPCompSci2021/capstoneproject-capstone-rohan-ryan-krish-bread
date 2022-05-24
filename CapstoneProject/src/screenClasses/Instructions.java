@@ -41,6 +41,9 @@ public class Instructions extends Screen{
 			+ "\n" + "- When controlling side trajectory don't hold more that one key at a time."
 			+ "\n" + "- Going into the darkness of space, or outside the window boundaries"
 			+ "\n" + "will result in the rocket exploding."
+			+ "\n" + ""
+			+ "\n" + "note: the user is not ment to return to previous levels"
+			+ "\n" + ""
 			+ "\n" + "- Finally, have fun!", 10, 20);
         surface.fill(255);
 		
