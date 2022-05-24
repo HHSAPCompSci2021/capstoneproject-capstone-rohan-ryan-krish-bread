@@ -91,6 +91,7 @@ public class Launch2 extends LaunchScreen{
 	 * Draws new instances of rocket, backgrounds, and text
 	 */
 	public void draw() { // move the screen according to speed of rocket
+		System.out.println(imgY);
 		if(Math.pow(imgX + 450 - rocket.getX(), 2) + Math.pow(imgY - img3.height -(sky1.height*2) - rocket.getY(), 2) > 140000 && !isDone) { 
 			surface.background(0);
 			
@@ -120,11 +121,17 @@ public class Launch2 extends LaunchScreen{
 			}
 			
 			surface.text("Level 2 Launch", 10, 20);
-			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
+			
 			surface.fill(0);
 			rocket.setHeight(150);
+			
 			rocket.draw(surface);
 			rocket.act();
+			
+			if(imgY == 150 || imgY == 806 || imgY == 1512) {
+				checkPoints++;
+			}
+			surface.text("Checkpoints crossed " + checkPoints, 10, 40);
 			String str = "Back To Level Select";
 			float w = surface.textWidth(str);
 			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
@@ -144,20 +151,13 @@ public class Launch2 extends LaunchScreen{
 			 if (surface.keyCode == surface.RIGHT) {
 				 	rocket.setImageX(rocket.getX()+5);
 			   }
-//			 if(surface.key == 'd') {
-//				 rocket.rotate((float) Math.PI/4);
-//			 }
-//			 if(surface.key == 'd') {
-//				 rocket.rotate((float) )
-//			 }
 		}
 	}
 		
 	else {
 		
 		if(!isDone) {
-			surface.text("Congratulations! You have completed the level."
-				+ '\n' + "Click anywhere on the moon for the rocket to land.", 400, 400);
+			surface.text("Congratulations! You have completed the level.", 400, 400);
 			isDone = true;
 		}
 	}
