@@ -30,6 +30,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private Screen activeScreen;
 	private Build1 buildScreen1;
 	private Build2 buildScreen2;
+	private Build3 buildScreen3;
+	private Build4 buildScreen4;
 	private ArrayList<Screen> screens;
 	/**
 	 * Gives all of the variable values, and makes screens
@@ -65,11 +67,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		Launch4 launchScreen4 = new Launch4(this);
 		screens.add(launchScreen4);
 		
-		Build3 buildScreen3 = new Build3(this);
-		screens.add(buildScreen2);
+		buildScreen3 = new Build3(this);
+		screens.add(buildScreen3);
 		
-		Build4 buildScreen4 = new Build4(this);
-		screens.add(buildScreen2);
+		buildScreen4 = new Build4(this);
+		screens.add(buildScreen4);
 		
 		activeScreen = screens.get(0);
 	}
@@ -187,6 +189,14 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
 	public Build2 getBuild2() {
 		return buildScreen2;
+	}
+	
+	public Build3 getBuild3() {
+		return buildScreen3;
+	}
+	
+	public Build4 getBuild4() {
+		return buildScreen4;
 	}
 	
 	/**

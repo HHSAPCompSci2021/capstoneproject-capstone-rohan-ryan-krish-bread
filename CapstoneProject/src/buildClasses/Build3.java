@@ -111,6 +111,7 @@ public class Build3 extends BuildScreen {
 		if (sideBar.getFuelVis() == false) {
 			sideBar.setVisible();
 		}
+		
 		if(rocket.getEngine() != null) {
 			
 		}
