@@ -107,7 +107,7 @@ public class BuildScreen extends Screen{
 	 * Creates the data that will be displayed on the builds
 	 */
 	public void spawnDataDisplay() {
-		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,50,200,600);
+		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,50,200,600, rocket);
 	}
 	
 	/**

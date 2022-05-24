@@ -147,6 +147,10 @@ public class Engine extends Rectangle2D.Double {
 		return reliability;
 	}
 	
+	public void setReliability(double rel) {
+		reliability = rel;
+	}
+	
 	/**
 	 * sets the thrust of the engine 
 	 * @return the thrust of the engine 

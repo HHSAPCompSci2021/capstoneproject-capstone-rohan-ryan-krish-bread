@@ -10,6 +10,7 @@ import java.awt.geom.Ellipse2D.Float;
 import buildClasses.BuildScreen;
 import main.DrawingSurface;
 import processing.core.PImage;
+import rocket.Data;
 import rocket.Engine;
 import rocket.Fuel;
 import rocket.Material;
@@ -21,6 +22,7 @@ public class Launch1 extends LaunchScreen{
 	private DrawingSurface surface;
 	private Rectangle button, win;
 	private Ellipse2D.Float land;
+	private Data data;
 	private Rocket rocket;
 	private Meteor meteor;
 	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
@@ -60,6 +62,10 @@ public class Launch1 extends LaunchScreen{
 	//rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
+	
+	public void spawnData() {
+		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,50,200,600, rocket);
+	}
 	/**
 	 * Loads image of the Earth
 	 */
@@ -83,6 +89,7 @@ public class Launch1 extends LaunchScreen{
 	 */
 	public void setup() {
 		spawnRocket();
+		spawnData();
 		spawnNightSky();
 		spawnSky();
 		spawnNight();
@@ -140,6 +147,8 @@ public class Launch1 extends LaunchScreen{
 			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 			surface.fill(0);
 			rocket.setHeight(150);
+			data.draw(surface);
+			data.setHide(true);
 			rocket.draw(surface);
 			rocket.act();
 			

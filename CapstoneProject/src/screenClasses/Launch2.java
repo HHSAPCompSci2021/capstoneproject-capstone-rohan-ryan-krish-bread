@@ -76,7 +76,7 @@ public class Launch2 extends LaunchScreen{
 		sky1 = surface.loadImage("img/ColdSpace.png");
 	}
 	public void spawnExplosion() {
-		explosion= surface.loadImage("img/Explosion.png");
+		explosion = surface.loadImage("img/Explosion.png");
 	}
 	/**
 	 * Spawns the default images like background and built rocket once program begins
