@@ -1,17 +1,28 @@
 package buildClasses;
-
 import java.awt.Point;
 import java.awt.Rectangle;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 import main.DrawingSurface;
 import processing.core.PImage;
 import rocket.Engine;
+import rocket.Fuel;
+import rocket.Material;
 import rocket.Rocket;
 import screenClasses.ScreenSwitcher;
+import screenClasses.Sidebar;
 
-public class Build3 extends BuildScreen{
+/**
+ * This class represents the level two rocket build screen 
+ * @author Ryan Wagner, Krish Jhurani, Rohan Gupta
+ */
+public class Build3 extends BuildScreen {
+
 	private DrawingSurface surface;
 	private Rectangle button;
+	private boolean hide;
 //	private Sidebar sidebar;
 	
 	/**
@@ -23,6 +34,7 @@ public class Build3 extends BuildScreen{
 		this.surface = surface;
 		
 		button = new Rectangle(425,550,150,30);
+		hide = true;
 	}
 	
 	/**
@@ -32,8 +44,13 @@ public class Build3 extends BuildScreen{
 		super.setup();
 		
 		PImage img = surface.loadImage("img/rocket.png"); // change later; just a temp variable for testing 
-		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle", 1, 1,1); // change wieght and reliabilty params
+		Engine closedCycle = new Engine(img, 20,20,20,20, "Closed Cycle", 1500, 0.9, 200000 ); // change wieght and reliabilty params
+		Material carbonComp = new Material(img, 20,20,20,20, "Carbon Comp", 500 );
+		Fuel CH4 = new Fuel(img, 20,20,20,20, "CH4", 400 );
+		
 		engines.add(closedCycle);
+		materials.add(carbonComp);
+		fuels.add(CH4);
 		
 		sideBar.setup(surface);
 		
@@ -50,27 +67,30 @@ public class Build3 extends BuildScreen{
 		
 		surface.background(255);
 		
-		PImage image1 = surface.loadImage("img/steel plating.jpg");
-		surface.image(image1, 0, 10, 250, 200);
-		surface.image(image1, 250, 10, 250, 200);
-		surface.image(image1, 500, 10, 250, 200);
-		surface.image(image1, 750, 10, 250, 200);
-		
-		surface.image(image1, 0, 210, 250, 200);
-		surface.image(image1, 250, 210, 250, 200);
-		surface.image(image1, 500, 210, 250, 200);
-		surface.image(image1, 750, 210, 250, 200);
-		
-		surface.image(image1, 0, 410, 250, 200);
-		surface.image(image1, 250, 410, 250, 200);
-		surface.image(image1, 500, 410, 250, 200);
-		surface.image(image1, 750, 410, 250, 200);
+		PImage image1 = surface.loadImage("img/BuildBackground.png");
+		surface.image(image1, 0, 0, 800, 600);
+//		surface.image(image1, 250, 10, 250, 200);
+//		surface.image(image1, 500, 10, 250, 200);
+//		surface.image(image1, 750, 10, 250, 200);
+//		
+//		surface.image(image1, 0, 210, 250, 200);
+//		surface.image(image1, 250, 210, 250, 200);
+//		surface.image(image1, 500, 210, 250, 200);
+//		surface.image(image1, 750, 210, 250, 200);
+//		
+//		surface.image(image1, 0, 410, 250, 200);
+//		surface.image(image1, 250, 410, 250, 200);
+//		surface.image(image1, 500, 410, 250, 200);
+//		surface.image(image1, 750, 410, 250, 200);
 		
 		rocket.draw(surface);
 		sideBar.draw(surface);
 		data.draw(surface);
 		
 		super.draw();
+		if (hide == false) {
+			surface.text("Rocket will not launch without an engine." , 200, 300);
+		}
 		
 		surface.fill(0);
 		surface.text("Level 3 Build", 10, 20);
@@ -91,7 +111,9 @@ public class Build3 extends BuildScreen{
 		if (sideBar.getFuelVis() == false) {
 			sideBar.setVisible();
 		}
-		
+		if(rocket.getEngine() != null) {
+			
+		}
 		
 //		materials.get(0).draw(surface);
 		
@@ -121,9 +143,19 @@ public class Build3 extends BuildScreen{
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
-			sideBar.hide();
-			surface.switchScreen(ScreenSwitcher.LAUNCH_3);
+			
+			if (rocket.getEngine() != null) {
+				sideBar.hide();
+				hide = true;
+				surface.switchScreen(ScreenSwitcher.LAUNCH_3);
+			}
+			
+			else {
+				hide = false;
+			}
+			
 		}
+		super.mousePressed();
 			
 	}
 	
@@ -140,4 +172,6 @@ public class Build3 extends BuildScreen{
 	public void mouseDragged() {
 		super.mouseDragged();
 	}
+
+
 }
