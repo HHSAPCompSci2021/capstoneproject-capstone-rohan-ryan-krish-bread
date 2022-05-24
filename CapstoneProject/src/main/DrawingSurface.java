@@ -29,6 +29,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private Sidebar sidebar;
 	private Screen activeScreen;
 	private Build1 buildScreen1;
+	private Build2 buildScreen2;
 	private ArrayList<Screen> screens;
 	/**
 	 * Gives all of the variable values, and makes screens
@@ -49,7 +50,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		buildScreen1 = new Build1(this);
 		screens.add(buildScreen1);
 		
-		Build2 buildScreen2 = new Build2(this);
+		buildScreen2 = new Build2(this);
 		screens.add(buildScreen2);
 		
 		Build3 buildScreen3 = new Build3(this);
@@ -188,6 +189,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 */
 	public Build1 getBuild1() {
 		return buildScreen1;
+	}
+	
+	public Build2 getBuild2() {
+		return buildScreen2;
 	}
 	
 	/**
