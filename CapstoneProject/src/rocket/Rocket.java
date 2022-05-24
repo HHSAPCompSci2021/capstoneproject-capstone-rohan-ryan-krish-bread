@@ -34,6 +34,7 @@ public class Rocket extends Rectangle2D.Double {
 	private double vel; // turning velocity
 	private double vx, vy;
 	private boolean moving;
+	private double reliabilty;
 	
 	//private double x,y,width,height;
 	private PImage img;
@@ -108,6 +109,10 @@ public class Rocket extends Rectangle2D.Double {
 	 */
 	public void setEngine(Engine e) {
 		engine = e;
+	}
+	
+	public void setReliabilty(double rel) {
+		reliabilty = rel;
 	}
 	
 	/**

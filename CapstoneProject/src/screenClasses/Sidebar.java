@@ -95,6 +95,7 @@ public class Sidebar {
 				engines.add(this.engines.get(i).getName());
 			}
 		}
+		
 		elist.setItems(engines, 0);
 		
 		materials.add("Materials");
