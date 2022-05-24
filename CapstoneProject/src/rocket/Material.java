@@ -36,46 +36,88 @@ public class Material {
 //		return materials;
 //	}
 	
+	/**
+	 * gets the image of the material
+	 * @return image of this material
+	 */
 	public PImage getImage() {
 		return image;
 	}
 	
+	/**
+	 * makes the material visible
+	 */
 	public void setVis() {
 		hide = false;
 	}
 	
+	/**
+	 * hides the material
+	 */
 	public void hide() {
 		hide = true;
 	}
 	
+	/**
+	 * gets the name 
+	 * @return get the name of the material
+	 */
 	public String getName() {
 		return name;
 	}
 	
+	/**
+	 * gets the durability of this material
+	 * @return durability of this material
+	 */
 	public double getDura() {
 		return durability;
 	}
 	
+	/**
+	 * gets the weight of the material
+	 * @return weight of the material
+	 */
 	public double getWeight() {
 		return weight;
 	}
 	
+	/**
+	 * sets the x-coordinate of the material 
+	 * @param x x-coordinate of the material 
+	 */
 	public void setX(double x) {
 		this.x = x;
 	}
 	
+	/**
+	 * sets the y-coordinate of the material 
+	 * @param y y-coordiate of the material 
+	 */
 	public void setY(double y) {
 		this.y = y;
 	}
 	
+	/**
+	 * sets the width of the material 
+	 * @param w width of the material 
+	 */
 	public void setWidth(double w) {
 		width = w;
 	}
 	
+	/**
+	 * sets the height of the materials 
+	 * @param h height of the materials 
+	 */
 	public void setHeight(double h) {
 		height = h;
 	}
 	
+	/**
+	 * draws the material 
+	 * @param g PApplet on which to draw
+	 */
 	public void draw(PApplet g) {
 		
 		if (image != null) {
