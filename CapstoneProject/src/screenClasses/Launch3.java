@@ -53,7 +53,7 @@ public class Launch3 extends LaunchScreen{
 	 * Loads the image of the built rocket
 	 */
 	public void spawnRocket() {
-		this.rocket = surface.getBuild1().rocket;
+		this.rocket = surface.getBuild3().rocket;
 		
 	//rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
@@ -138,6 +138,13 @@ public class Launch3 extends LaunchScreen{
 //			surface.image(meteor, (float) this.imgX+340, (float) this.imgY-(sky1.height*3)+10, 60, 60);
 			
 			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
+			if(draws % 60 == 0) {
+				if(Math.random() > rocket.getEngine().getReliability()) {
+						rocket.setState(true);
+						isDone = true;
+						surface.text("Level Over: Rocket blew up.", 200, 400);
+				}
+			}
 			surface.text("Level 3 Launch", 10, 20);
 //			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 			surface.fill(0);
@@ -145,6 +152,7 @@ public class Launch3 extends LaunchScreen{
 			rocket.draw(surface);
 			rocket.act();
 			if(isColliding(meteor.getX(), meteor.getY(), imgX, imgY)) {
+				System.out.println("Rock");
 				spawnExplosion();
 				surface.image(explosion, (float) rocket.getX()-100, (float) rocket.getY()-100);
 				surface.text("Level Over: Rocket blew up.", 400, 400);
