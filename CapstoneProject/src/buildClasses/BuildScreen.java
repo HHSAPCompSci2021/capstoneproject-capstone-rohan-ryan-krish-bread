@@ -126,7 +126,7 @@ public class BuildScreen extends Screen{
 	//	Fuel RP1 = new Fuel(img, 400,20,20,20, "RP-1", 1000);
 
 		Fuel RP1 = new Fuel(img, 400,20,20,20, "RP-1", 1000);
-		Material steel = new Material(surface.loadImage("img/steel plating.jpg"), 300, 170, 20, 20, "Steel", 1000);
+		Material steel = new Material(surface.loadImage("img/steel plating.jpg"), 300, 170, 20, 20, "Steel", 1000, 200);
 
 		
 		engines.add(pressureFed);
