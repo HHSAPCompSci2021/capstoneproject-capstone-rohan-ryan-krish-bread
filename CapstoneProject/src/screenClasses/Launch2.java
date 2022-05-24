@@ -128,10 +128,7 @@ public class Launch2 extends LaunchScreen{
 			rocket.draw(surface);
 			rocket.act();
 			
-			if(imgY == 150 || imgY == 806 || imgY == 1512) {
-				checkPoints++;
-			}
-			surface.text("Checkpoints crossed " + checkPoints, 10, 40);
+			
 			String str = "Back To Level Select";
 			float w = surface.textWidth(str);
 			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);

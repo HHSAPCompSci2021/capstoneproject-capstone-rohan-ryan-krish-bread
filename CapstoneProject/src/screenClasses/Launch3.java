@@ -19,11 +19,12 @@ public class Launch3 extends LaunchScreen{
 	private Rectangle button, win;
 	private Ellipse2D.Float land;
 	private Rocket rocket;
-	private Meteor meteor, meteor2, meteor3, meteor4, meteor5, meteor6;
+	private Meteor meteor;
 	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
 	private boolean start, isDone;
 	private int draws, imgX, imgY, checkPoints, count, count2;
-	private PImage img2, img3, sky1, explosion;
+	private PImage img2, img3, sky1, explosion, blackHole;
+	private final double G = 100;
 	/**
 	 * The launch test for the rocket for level 1
 	 * @param surface the drawing surface on which to draw
@@ -31,7 +32,7 @@ public class Launch3 extends LaunchScreen{
 	public Launch3(DrawingSurface surface) {
 		super(800,600,surface);
 		this.surface = surface;
-		this.rocketX= 300;
+		this.rocketX = 300;
 		this.rocketY = 200;
 		this.meteorX = 300;
 		this.meteorY = 0;
@@ -72,13 +73,8 @@ public class Launch3 extends LaunchScreen{
 	public void spawnSky() {
 		sky1 = surface.loadImage("img/ColdSpace.png");
 	}
-	public void spawnMeteors() {
-		meteor = new Meteor(surface.loadImage("img/Meteorite1.png"), imgX, imgY);
-		meteor2 = new Meteor(surface.loadImage("img/Meteorite1.png"), imgX, imgY);
-		meteor3 = new Meteor(surface.loadImage("img/Meteorite1.png"), imgX, imgY);
-		meteor4 = new Meteor(surface.loadImage("img/Meteorite1.png"), imgX, imgY);
-		meteor5 = new Meteor(surface.loadImage("img/Meteorite1.png"), imgX, imgY);
-		meteor6 = new Meteor(surface.loadImage("img/Meteorite1.png"), imgX, imgY);
+	public void spawnBlackHole() {
+		blackHole = surface.loadImage("img/BlackHole.jpg");
 	}
 	public void spawnExplosion() {
 		explosion = surface.loadImage("img/Explosion.png");
@@ -90,21 +86,25 @@ public class Launch3 extends LaunchScreen{
 		spawnRocket();
 		spawnNightSky();
 		spawnSky();
-		spawnMeteors();
+		spawnBlackHole();
 		spawnNight();
 	}
 	/**
 	 * Draws new instances of rocket, backgrounds, and text
 	 */
 	public void draw() { // move the screen according to speed of rocket
-		System.out.println(meteor.getY());
 		if(Math.pow(imgX + 450 - rocket.getX(), 2) + Math.pow(imgY - img3.height -(sky1.height*3) - rocket.getY(), 2) > 140000 && !isDone) { 
 			surface.background(0);
 			
 			
 			if (rocket.getMoving()) {
-				this.imgX += rocket.getVX() * Math.cos(Math.toRadians(rocket.getDirection() + 90));
-				this.imgY += rocket.getVY() * Math.sin(Math.toRadians(rocket.getDirection() + 90));
+				double g = 1/Math.sqrt(Math.pow(this.imgX + 50, 2) + Math.pow(this.imgY - (sky1.height) + 850 , 2));
+				double gravY = (100 - this.imgY + (sky1.height*3) - 950) * Math.pow(g, 3);
+				double gravX = (400 - this.imgX - 450)* Math.pow(g, 3);
+				System.out.println(gravX + " " + gravY);
+				this.imgX += G* gravX + rocket.getVX() * Math.cos(Math.toRadians(rocket.getDirection() + 90));
+				this.imgY += G*gravY + rocket.getVY() * Math.sin(Math.toRadians(rocket.getDirection() + 90));
+				
 			}
 			
 			draws++;
@@ -115,19 +115,20 @@ public class Launch3 extends LaunchScreen{
 			surface.image(sky1, imgX, this.imgY-(sky1.height*2));
 			surface.image(sky1, imgX, this.imgY-(sky1.height*3));
 			surface.image(img3, (float) this.imgX, (float) this.imgY-(sky1.height*3)-img3.height);
-			meteor.draw(surface);
+			surface.image(blackHole, imgX+200, this.imgY-(sky1.height*3)+700, 500 ,500 );
+			
 //			surface.image(meteor.img(), (float) meteor.getX()+120, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
-//			surface.image(meteor.img(), (float) meteor.getX()+330, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
-//			surface.image(meteor.img(), (float) meteor.getX()+470, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
-//			surface.image(meteor.img(), (float) meteor.getX()+280, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
-//			surface.image(meteor.img(), (float) meteor.getX()+40, (float) meteor.getY()-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+330, (float) meteor.getY()-150-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+470, (float) meteor.getY()-300+(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+280, (float) meteor.getY()-100-(sky1.height*3)+20, 60, 60);
+//			surface.image(meteor.img(), (float) meteor.getX()+40, (float) meteor.getY()+200-(sky1.height*3)+20, 60, 60);
 //			surface.image(meteor.img(), (float) meteor.getX()+520, (float) meteor.getY()+100-(sky1.height*3)+20, 60, 60);
 //			surface.image(meteor.img(), (float) meteor.getX()+650, (float) meteor.getY()+40-(sky1.height*3)+20, 60, 60);
-//			surface.image(meteor3.img(), (float) meteor3.getX()+330, (float) meteor3.getY()+80-(sky1.height*3)+20, 60, 60);
-//			surface.image(meteor4.img(), (float) meteor4.getX()+520, (float) meteor4.getY()+40-(sky1.height*3)+20, 60, 60);
-//			surface.image(meteor5.img(), (float) meteor5.getX()+650, (float) meteor5.getY()+100-(sky1.height*3)+20, 60, 60);
-//			surface.image(meteor6.img(), (float) meteor6.getX()+770, (float) meteor6.getY()+180-(sky1.height*3)+20, 60, 60);
-//			z
+////			surface.image(meteor3.img(), (float) meteor3.getX()+330, (float) meteor3.getY()+80-(sky1.height*3)+20, 60, 60);
+////			surface.image(meteor4.img(), (float) meteor4.getX()+520, (float) meteor4.getY()+40-(sky1.height*3)+20, 60, 60);
+////			surface.image(meteor5.img(), (float) meteor5.getX()+650, (float) meteor5.getY()+100-(sky1.height*3)+20, 60, 60);
+////			surface.image(meteor6.img(), (float) meteor6.getX()+770, (float) meteor6.getY()+180-(sky1.height*3)+20, 60, 60);
+//			meteor.setMeteorY(meteor.getY()+20);
 //			meteor.setMeteorY(meteor2.getY()+20);
 //			meteor.setMeteorY(meteor3.getY()+20);
 //			meteor.setMeteorY(meteor4.getY()+20);
@@ -138,7 +139,7 @@ public class Launch3 extends LaunchScreen{
 			
 			land = new Float((float) this.imgX+450, (float) this.imgY-img3.height-52, 880, 880);
 			surface.text("Level 3 Launch", 10, 20);
-			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
+//			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 			surface.fill(0);
 			rocket.setHeight(150);
 			rocket.draw(surface);
@@ -258,7 +259,7 @@ public class Launch3 extends LaunchScreen{
 	
 	public void keyPressed() {
 		if (surface.keyCode ==  KeyEvent.VK_A) {
-		rocket.tilt(-0.25);
+		rocket.tilt(-0.05);
 		if(imgX < -400 || imgX > 400) {
 			rocket.stopTilt();
 		}
@@ -266,7 +267,7 @@ public class Launch3 extends LaunchScreen{
 	}
 	
 	if (surface.keyCode ==  KeyEvent.VK_D) {
-		rocket.tilt(0.25);
+		rocket.tilt(0.05);
 		if(imgX < -400 || imgX > 400) {
 			rocket.stopTilt();
 		}

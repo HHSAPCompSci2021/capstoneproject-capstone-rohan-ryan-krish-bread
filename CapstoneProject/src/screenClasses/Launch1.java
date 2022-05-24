@@ -137,7 +137,6 @@ public class Launch1 extends LaunchScreen{
 				}
 			}
 			surface.text("Level 1 Launch", 10, 20);
-			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 			surface.fill(0);
 			rocket.setHeight(150);
 			rocket.draw(surface);
