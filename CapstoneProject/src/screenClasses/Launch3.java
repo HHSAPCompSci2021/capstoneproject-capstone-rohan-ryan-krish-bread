@@ -127,13 +127,6 @@ public class Launch3 extends LaunchScreen{
 			float w = surface.textWidth(str);
 			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 			surface.fill(0);
-			
-//			if(rocket.getX() > win.getWidth()-20) {
-//				rocket.setImageX(win.getWidth()-30);
-//			}
-//			else if(rocket.getX() < 0) {
-//				rocket.setImageX(0);
-//			}
 		
 		if (surface.keyPressed) {
 			 if (surface.keyCode == surface.LEFT) {

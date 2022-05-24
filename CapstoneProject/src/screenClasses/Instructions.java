@@ -33,11 +33,15 @@ public class Instructions extends Screen{
 			+ "\n" + "- In each level, the user will be given certain components to build a rocket."
 			+ "\n" + "- Drag and drop different components of the rocket into their location."
 			+ "\n" + "- After the rocket is built, there will be a test to see how efficient it is."
-			+ "\n" + "- The velocity of the rocket will be controlled by the side arrow keys."
-			+ "\n" + "- When controlling side trajectory don't hold more that one key at a time"
-			+ "\n" + ""
-			+ "\n" + ""
-			+ "\n" + "", 10, 20);
+			+ "\n" + "- Each component has different results, so test multiple combinations of the"
+			+ "\n" + "components in order to be successful!"
+			+ "\n" + "- The rocket can be accelerated and decelerated using the keys W, and S."
+			+ "\n" + "- Use keys A and D to change the direction of the rocket."
+			+ "\n" + "- The rocket can move side to side using the left and right arrow keys."
+			+ "\n" + "- When controlling side trajectory don't hold more that one key at a time."
+			+ "\n" + "- Going into the darkness of space, or outside the window boundaries"
+			+ "\n" + "will result in the rocket exploding."
+			+ "\n" + "- Finally, have fun!", 10, 20);
         surface.fill(255);
 		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
