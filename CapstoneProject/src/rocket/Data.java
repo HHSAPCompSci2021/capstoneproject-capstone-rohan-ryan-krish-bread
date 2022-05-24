@@ -11,12 +11,14 @@ public class Data {
 	private double weight;
 	private double thrust;
 	private double probability;
+	private boolean hideData;
 	
-	private double x,y,width,height;
+	private double x,y,width,height,vx,vy,altitude;
 	
 	private Material m;
 	private Engine e;
 	private Fuel f;
+	private Rocket rocket;
 	
 	// fields for each metric (fuel, material, etc.) as well as cost, weight etc.
 	// field for each statistic
@@ -31,7 +33,8 @@ public class Data {
 	 * @param width width of display
 	 * @param height height of display
 	 */
-	public Data(Engine e, Material m, Fuel f, double x, double y, double width, double height) {
+	public Data(Engine e, Material m, Fuel f, double x, double y, double width, double height, Rocket r) {
+		
 		this.e = e;
 		this.m = m;
 		this.f = f;
@@ -40,6 +43,10 @@ public class Data {
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		
+		rocket = r;
+		
+		
 		
 		
 	}
@@ -50,6 +57,10 @@ public class Data {
 	 */
 	public void setWeight(double w) {
 		weight = w;
+	}
+	
+	public void setHide(boolean hide) {
+		hideData = hide;
 	}
 	
 	/**
@@ -105,40 +116,59 @@ public class Data {
 		if (e != null && m != null && f != null) {
 			thrust = e.getThrust();
 			probability = e.getReliability() * 100;
+			
+			if(e.getName().equals("Closed Cycle(FR)") && f.getName().equals("RP-1")) {
+				double prob = e.getReliability() - 0.9;
+				e.setReliability(prob);
+				probability = (prob * 100);
+			}
+			
 			weight = e.getWeight() + m.getWeight() + f.getWeight();
 		}
 		
-		p.push();
-		p.fill(0);
-		p.text("Weight: " + weight + "kg", 610, 70);
-		p.text("Thrust: " + thrust + "N", 610, 90);
-		p.text("Probability of success: " + probability + "%", 610, 110);
-		
-		if (e != null) {
-			p.text("Engine: " + e.getName() , 610, 150);
+		if (hideData) {
+			p.push();
+			p.fill(255);
+			p.text("Velocity: " + rocket.getVX(), 610, 70);
+			
+			p.pop();
 		}
 		
 		else {
-			p.text("Engine: None" , 610, 150);
+			p.push();
+			p.fill(255);
+			p.text("Weight: " + weight + "kg", 610, 70);
+			p.text("Thrust: " + thrust + "N", 610, 90);
+			p.text("Probability of success: " + probability + "%", 610, 110);
+			
+			if (e != null) {
+				p.text("Engine: " + e.getName() , 610, 150);
+			}
+			
+			else {
+				p.text("Engine: None" , 610, 150);
+			}
+			
+			if (m != null) {
+				p.text("Material: " + m.getName() , 610, 170);
+			}
+			
+			else {
+				p.text("Material: None" , 610, 170);
+			}
+			
+			if (f != null) {
+				p.text("Fuel: " + f.getName() , 610, 190);
+			}
+			
+			else {
+				p.text("Fuel: None" , 610, 190);
+			}
+			p.pop();
 		}
 		
-		if (m != null) {
-			p.text("Material: " + m.getName() , 610, 170);
-		}
 		
-		else {
-			p.text("Material: None" , 610, 170);
-		}
 		
-		if (f != null) {
-			p.text("Fuel: " + f.getName() , 610, 190);
-		}
-		
-		else {
-			p.text("Fuel: None" , 610, 190);
-		}
-		
-		p.pop();
 		
 		
 		
