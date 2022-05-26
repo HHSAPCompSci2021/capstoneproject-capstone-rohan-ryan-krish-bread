@@ -19,6 +19,7 @@ import main.DrawingSurface;
 
 /**
 *Class represents the Sidebar for the BuildScreens,that displays the parts menu
+* @author Rohan Gupta
 */
 public class Sidebar {
 		

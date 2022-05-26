@@ -9,7 +9,10 @@ import rocket.Engine;
 import rocket.Fuel;
 import rocket.Material;
 import rocket.Rocket;
-
+/**
+ * This class represents all the launch screens (superclass) 
+ * @author Krish Jhurani
+ */
 public class LaunchScreen extends Screen{
 
 	private DrawingSurface surface;

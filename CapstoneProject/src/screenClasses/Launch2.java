@@ -16,7 +16,10 @@ import rocket.Fuel;
 import rocket.Material;
 import rocket.Meteor;
 import rocket.Rocket;
-
+/**
+ * This class represents the level two rocket launch screen 
+ * @author Krish Jhurani
+ */
 public class Launch2 extends LaunchScreen{
 
 	private DrawingSurface surface;
