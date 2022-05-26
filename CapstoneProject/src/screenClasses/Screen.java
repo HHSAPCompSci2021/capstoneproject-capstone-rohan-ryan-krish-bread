@@ -5,7 +5,7 @@ import rocket.Rocket;
 
 /**
  * This is an abstract class that is used as a template for something all screens have
- * @author Ryan, Rohan, Krish
+ * @author Ryan Wagner, Rohan Gupta, Krish Jhurani
  */
 public abstract class Screen {
 

@@ -10,9 +10,9 @@ import screenClasses.Sidebar;
 
 import java.util.LinkedHashMap;
 
-// Represents the rocket itself. Each build and launch screen will have a rocket object and draw it
 /**
-*Class reprenting the rocket that is drawn on both the build and launch screens
+ * Class reprenting the rocket that is drawn on both the build and launch screens
+ * @author Rohan Gupta
  */
 public class Rocket extends Rectangle2D.Double {
 

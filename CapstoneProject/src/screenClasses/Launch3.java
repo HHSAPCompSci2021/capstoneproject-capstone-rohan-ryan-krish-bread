@@ -11,7 +11,10 @@ import main.DrawingSurface;
 import processing.core.PImage;
 import rocket.Meteor;
 import rocket.Rocket;
-
+/**
+ * This class represents the level three rocket launch screen 
+ * @author Krish Jhurani
+ */
 public class Launch3 extends LaunchScreen{
 	
 	
