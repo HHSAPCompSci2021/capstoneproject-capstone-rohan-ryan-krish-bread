@@ -9,6 +9,7 @@ import java.awt.geom.Ellipse2D.Float;
 
 import main.DrawingSurface;
 import processing.core.PImage;
+import rocket.Data;
 import rocket.Meteor;
 import rocket.Rocket;
 /**
@@ -22,6 +23,7 @@ public class Launch3 extends LaunchScreen{
 	private Rectangle button, win;
 	private Ellipse2D.Float land;
 	private Rocket rocket;
+	private Data data;
 	private Meteor meteor, meteor2, meteor3, meteor4, meteor5, meteor6;
 	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
 	private boolean start, isDone;
@@ -61,6 +63,13 @@ public class Launch3 extends LaunchScreen{
 	//rocket = new Rocket(this.rocketX, this.rocketY, 50,250);
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
+	
+	/**
+	 * Spawns the display of data for the launch screen
+	 */
+	public void spawnData() {
+		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,50,200,600, rocket);
+	}
 	/**
 	 * Loads image of the Earth
 	 */
@@ -92,6 +101,7 @@ public class Launch3 extends LaunchScreen{
 	 */
 	public void setup() {
 		spawnRocket();
+		spawnData();
 		spawnNightSky();
 		spawnSky();
 		spawnMeteors();
@@ -156,6 +166,8 @@ public class Launch3 extends LaunchScreen{
 //			surface.text("Checkpoints crossed" + parseString(countCheckPoints()), 10, 40);
 			surface.fill(0);
 			rocket.setHeight(150);
+			data.draw(surface);
+			data.setHide(true);
 			rocket.draw(surface);
 			rocket.act();
 			if(isColliding(meteor.getX(), meteor.getY(), imgX, imgY)) {
@@ -174,6 +186,10 @@ public class Launch3 extends LaunchScreen{
 				surface.text("Level Over: Rocket blew up.", 400, 400);
 				rocket.stopTilt();
 				rocket.moveForward(false);
+				String str = "Back To Level Select";
+				float w = surface.textWidth(str);
+				surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+				surface.fill(0);
 				return;
 			}
 			String str = "Back To Level Select";

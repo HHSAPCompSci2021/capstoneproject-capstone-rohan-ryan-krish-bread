@@ -10,6 +10,7 @@ import java.awt.geom.Ellipse2D.Float;
 import buildClasses.BuildScreen;
 import main.DrawingSurface;
 import processing.core.PImage;
+import rocket.Data;
 import rocket.Engine;
 import rocket.Fuel;
 import rocket.Material;
@@ -26,6 +27,7 @@ public class Launch2 extends LaunchScreen{
 	private Ellipse2D.Float land;
 	private Rocket rocket;
 	private Meteor meteor;
+	private Data data;
 	private double rocketX, rocketY, meteorX, meteorY, actualScaleX, actualScaleY;
 	private boolean start, isDone;
 	private int draws, imgX, imgY, checkPoints, count, count2;
@@ -69,6 +71,13 @@ public class Launch2 extends LaunchScreen{
 	public void spawnNightSky() {
 		img2 = surface.loadImage("img/night.png");
 	}
+	
+	/**
+	 * Spawns the display of data for the launch screen
+	 */
+	public void spawnData() {
+		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,50,200,600, rocket);
+	}
 	/**
 	 * Loads image of space (with stars)
 	 */
@@ -86,6 +95,7 @@ public class Launch2 extends LaunchScreen{
 	 */
 	public void setup() {
 		spawnRocket();
+		spawnData();
 		spawnNightSky();
 		spawnSky();
 		spawnNight();
@@ -120,6 +130,10 @@ public class Launch2 extends LaunchScreen{
 				surface.text("Level Over: Rocket blew up.", 400, 400);
 				rocket.stopTilt();
 				rocket.moveForward(false);
+				String str = "Back To Level Select";
+				float w = surface.textWidth(str);
+				surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+				surface.fill(0);
 				return;
 			}
 			if(draws % 60 == 0) {
@@ -133,7 +147,8 @@ public class Launch2 extends LaunchScreen{
 			
 			surface.fill(0);
 			rocket.setHeight(150);
-			
+			data.draw(surface);
+			data.setHide(true);
 			rocket.draw(surface);
 			rocket.act();
 			
