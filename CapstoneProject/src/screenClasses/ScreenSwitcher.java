@@ -2,7 +2,7 @@ package screenClasses;
 
 /**
  * Represents the screens that can be switched to
- * @author Ryan, Rohan, Krish
+ * @author Ryan Wagner, Rohan Gupta, Krish Jhurani
  */
 public interface ScreenSwitcher {
 	

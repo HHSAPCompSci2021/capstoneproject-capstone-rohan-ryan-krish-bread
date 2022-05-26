@@ -4,7 +4,11 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 import main.DrawingSurface;
-
+/**
+ * Writes and displays the instructions for the program
+ * @author Ryan Wagner
+ *
+ */
 public class Instructions extends Screen{
 
 	private DrawingSurface surface;

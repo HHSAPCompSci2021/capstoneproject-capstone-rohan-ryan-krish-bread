@@ -6,7 +6,11 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import screenClasses.Sidebar;
 
-// represents materials. Rocket class will make material objects 
+/**
+ * Represents materials for rocket
+ * @author Rohan Gupta
+ *
+ */
 
 public class Material {
 	

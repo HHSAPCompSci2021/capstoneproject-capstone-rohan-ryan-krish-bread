@@ -1,5 +1,11 @@
 package rocket;
 // Represents fuels. Rocket class will make fuel objects
+
+/**
+ * Represents fuel for rocket
+ * @author Rohan Gupta
+ *
+ */
 import java.util.ArrayList;
 import java.util.List;
 

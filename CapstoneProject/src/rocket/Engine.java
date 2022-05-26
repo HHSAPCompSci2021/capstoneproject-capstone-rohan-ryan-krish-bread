@@ -8,7 +8,7 @@ import screenClasses.Sidebar;
 
 /**
  * represents engines for rocket
- * @author rgupta770
+ * @author Rohan Gupta
  *
  */
 // Represents engines. Rocket class will make engine objects 

@@ -4,7 +4,9 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 /**
- * This class represents a meteor
+ * Represents meteors for level 3
+ * @author Krish Jhurani
+ *
  */
 public class Meteor {
 	private PImage img;
