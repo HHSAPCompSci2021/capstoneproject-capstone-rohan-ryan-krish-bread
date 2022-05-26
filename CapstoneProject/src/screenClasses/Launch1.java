@@ -63,6 +63,9 @@ public class Launch1 extends LaunchScreen{
 	//	rocket.setEngine(new Engine(surface.loadImage("img/rocket.png"), 20,20,20,20, "pressureFed", 500, 0.95, 100000));
 	}
 	
+	/**
+	 * Spawns the display of data for the launch screen
+	 */
 	public void spawnData() {
 		data = new Data(rocket.getEngine(), rocket.getMaterial(), rocket.getFuel(),600,50,200,600, rocket);
 	}
@@ -159,6 +162,10 @@ public class Launch1 extends LaunchScreen{
 				surface.text("Level Over: Rocket blew up.", 400, 400);
 				rocket.stopTilt();
 				rocket.moveForward(false);
+				String str = "Back To Level Select";
+				float w = surface.textWidth(str);
+				surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+				surface.fill(0);
 				return;
 			}
 			

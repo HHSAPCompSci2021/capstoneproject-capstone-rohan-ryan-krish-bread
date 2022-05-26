@@ -78,7 +78,7 @@ public class Build1 extends BuildScreen {
 		super.draw();
 		
 		if (hide == false) {
-			surface.text("Rocket will not launch without an engine." , 200, 300);
+			surface.text("Rocket will not launch without all parts." , 200, 300);
 		}
 		
 		surface.fill(0);
@@ -126,7 +126,7 @@ public class Build1 extends BuildScreen {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p)) {
 			
-			if (rocket.getEngine() != null) {
+			if (rocket.getEngine() != null && rocket.getMaterial() != null && rocket.getFuel() != null) {
 				sideBar.hide();
 				hide = true;
 				
